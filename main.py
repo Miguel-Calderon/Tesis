@@ -14,31 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import os
-import jinja2
+
 import webapp2
 import json
-from modelos import Acometida, Factura, Fecha, Pliego
+# import numpy
+from manejadores import Fecha
+from modelos import Acometida, Factura,  Pliego
+from utils import renderutils
 
 
-template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), autoescape=True)
 
 
-class MainHandler(webapp2.RequestHandler):
-    def write(self, *a, **kw):
-        self.response.out.write(*a, **kw)
-
-    @staticmethod
-    def render_str(template, **params):
-        t = jinja_env.get_template(template)
-        return t.render(params)
-
-    def render(self, template, **kw):
-        self.write(self.render_str(template, **kw))
-
-
-class FrontHandler(MainHandler):
+class FrontHandler(renderutils.MainHandler):
     def get(self):
         self.render("formulariofecha.html")
 
@@ -48,31 +35,12 @@ class FrontHandler(MainHandler):
         #  self.render("prueba3.html",year=year)
 
 
-class HomeHandler(MainHandler):
+class HomeHandler(renderutils.MainHandler):
     def get(self):
         self.render("web-app.html")
 
 
-class FechaHandler(MainHandler):
-    def post(self):
-        nu_fecha = Fecha(mes=self.request.get("mes"),
-                         year=self.request.get("year"),
-                         date=self.request.get("fecha"),
-                         id=self.request.get("fecha"))
-        # fecha = self.request.get("fecha")
-        # mes = self.request.get("mes")
-        # year = self.request.get("year")
-        # self.response.out.write(fecha)
-        # self.response.out.write(mes)
-        # self.response.out.write(year)
-        # nu_fecha.key = ndb.Key("Fecha", self.request.get("fecha"))
-        # fecha_key =
-        nu_fecha.put()
-        # self.response.out.write()
-        self.redirect(self.request.referer)
-
-
-class PliegoHandler(MainHandler):
+class PliegoHandler(renderutils.MainHandler):
     def get(self):
         self.render("formulariopliego.html")
 
@@ -92,7 +60,7 @@ class PliegoHandler(MainHandler):
         self.redirect(self.request.referer)
 
 
-class FacturaHandler(MainHandler):
+class FacturaHandler(renderutils.MainHandler):
     def get(self):
         self.render("formulariofactura.html")
 
@@ -114,7 +82,7 @@ class FacturaHandler(MainHandler):
         nu_factura.put()
 
 
-class AcometidaHandler(MainHandler):
+class AcometidaHandler(renderutils.MainHandler):
     def get(self):
         self.render("formularioacometida.html")
 
@@ -128,7 +96,7 @@ class AcometidaHandler(MainHandler):
 app = webapp2.WSGIApplication([
     ('/', FrontHandler),
     ('/home', HomeHandler),
-    ('/respuesta', FechaHandler),
+    ('/respuesta', Fecha.FechaHandler),
     ('/pliego', PliegoHandler),
     ('/factura', FacturaHandler),
     ('/acometida', AcometidaHandler)

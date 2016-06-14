@@ -1,6 +1,13 @@
 from google.appengine.ext import ndb
 
 
+class Fecha(ndb.Model):
+    mes = ndb.StringProperty()
+    year = ndb.StringProperty()
+    date = ndb.StringProperty()
+    pliego_A = ndb.StringProperty()
+    
+    
 class Acometida(ndb.Model):
     nombre = ndb.StringProperty()
     localizacion = ndb.StringProperty()
@@ -31,8 +38,4 @@ class Pliego(ndb.Model):
     meses_A = ndb.IntegerProperty(repeated=True)
 
 
-class Fecha(ndb.Model):
-    mes = ndb.StringProperty()
-    year = ndb.StringProperty()
-    date = ndb.StringProperty()
-    pliego_A = ndb.StringProperty()
+
