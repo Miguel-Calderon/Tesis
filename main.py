@@ -23,8 +23,6 @@ from modelos import Acometida, Factura,  Pliego
 from utils import renderutils
 
 
-
-
 class FrontHandler(renderutils.MainHandler):
     def get(self):
         self.render("formulariofecha.html")
@@ -41,8 +39,6 @@ class HomeHandler(renderutils.MainHandler):
 
 
 class PliegoHandler(renderutils.MainHandler):
-    def get(self):
-        self.render("formulariopliego.html")
 
     def post(self):
         cadena = self.request.get("meses_A")
@@ -61,8 +57,6 @@ class PliegoHandler(renderutils.MainHandler):
 
 
 class FacturaHandler(renderutils.MainHandler):
-    def get(self):
-        self.render("formulariofactura.html")
 
     def post(self):
         acometida = self.request.get("Acometida")
@@ -96,7 +90,7 @@ class AcometidaHandler(renderutils.MainHandler):
 app = webapp2.WSGIApplication([
     ('/', FrontHandler),
     ('/home', HomeHandler),
-    ('/respuesta', Fecha.FechaHandler),
+    ('/factura', Fecha.FechaHandler),
     ('/pliego', PliegoHandler),
     ('/factura', FacturaHandler),
     ('/acometida', AcometidaHandler)
