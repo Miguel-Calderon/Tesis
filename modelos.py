@@ -3,8 +3,8 @@ from google.appengine.ext import ndb
 
 class Fecha(ndb.Model):
     mes = ndb.StringProperty()
-    inicio = ndb.StringProperty()
-    fin = ndb.StringProperty()
+    inicio = ndb.DateProperty()
+    fin = ndb.DateProperty()
     
 
 class Acometida(ndb.Model):

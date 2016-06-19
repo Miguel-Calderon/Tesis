@@ -20,12 +20,13 @@ import json
 # import numpy
 from manejadores import Fecha
 from modelos import Acometida, Factura,  Pliego
-from utils import renderutils
+from utils import renderutils, formatutils
 
 
 class FrontHandler(renderutils.MainHandler):
     def get(self):
-        self.render("formulariofecha.html")
+        todas=Acometida.query()
+        self.render("wizardfactura.html",todas=todas)
 
         # def post(self):
         #   facultad = self.request.get("facultad")
@@ -82,15 +83,18 @@ class AcometidaHandler(renderutils.MainHandler):
 
     def post(self):
         nu_acometida = Acometida(nombre=self.request.get("nombre"),
-                                 localizacion=self.request.get("lugar"))
+                                 localizacion=self.request.get("lugar"),
+                                 id=self.request.get("nombre"))
 
         nu_acometida.put()
+
+        self.redirect(self.request.referer)
 
 
 app = webapp2.WSGIApplication([
     ('/', FrontHandler),
     ('/home', HomeHandler),
-    ('/factura', Fecha.FechaHandler),
+    ('/fecha', Fecha.FechaHandler),
     ('/pliego', PliegoHandler),
     ('/factura', FacturaHandler),
     ('/acometida', AcometidaHandler)
