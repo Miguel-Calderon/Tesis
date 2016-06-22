@@ -38,8 +38,9 @@
 
                 <!--      Wizard container        -->
                 <div class="wizard-container">
-                    <div class="card wizard-card ct-wizard-blue" id="wizard">
+                    <div class="card wizard-card ct-wizard-green" id="wizard">
                         <form action="/factura" method="post">
+                            <input name="fecha" type="hidden" value={{temp_fecha}}>
                             <!--        You can switch "ct-wizard-azzure"  with one of the next bright colors: "ct-wizard-blue", "ct-wizard-green", "ct-wizard-orange", "ct-wizard-red"             -->
 
                             <div class="wizard-header">
@@ -55,125 +56,131 @@
                                 {%endfor%}
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane" id="Mes">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <h4 class="info-text"> Inicie ingresando las fechas concernientes al
-                                                mes</h4>
-                                        </div>
-                                        <div class="col-sm-5 col-sm-offset-4">
-                                            <label class="control-label">Mes de Interes</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                                    <i class="material-icons">watch_later</i>
-                                                                </span>
-                                                <input name="fecha" type="month"
-                                                       value="2004-01"
-                                                       class="form-control"><span class="material-input"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-5 col-sm-offset-4">
-                                                <label class="control-label">Desde</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                                    <i class="material-icons">watch_later</i>
-                                                                </span>
-                                                    <input name="inicio" type="date"
-                                                           value="2004-01-01"
-                                                           class="form-control"><span
-                                                        class="material-input"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-5 col-xs-offset-4">
-                                                <label class="control-label">Hasta</label>
-                                                <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="material-icons">watch_later</i>
-                                                                </span>
-                                                    <input name="final" type="date"
-                                                           value="2004-01-31"
-                                                           class="form-control"><span
-                                                        class="material-input"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane" id="type">
-                                    <h4 class="info-text">What type of location do you have? </h4>
-                                    <div class="row">
-                                        <div class="col-sm-10 col-sm-offset-1">
-                                            <div class="col-sm-4 col-sm-offset-2">
-                                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
-                                                     title="Select this option if you have a house.">
-                                                    <input type="radio" name="type" value="House">
-                                                    <div class="icon">
-                                                        <i class="fa fa-home"></i>
-                                                    </div>
-                                                    <h6>House</h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
-                                                     title="Select this option if you have an appartment">
-                                                    <input type="radio" name="type" value="Appartment">
-                                                    <div class="icon">
-                                                        <i class="fa fa-building"></i>
-                                                    </div>
-                                                    <h6>Appartment</h6>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
                                 {% for otra in todas%}
                                 <div class="tab-pane" id={{otra.nombre}}>
-                                    <h4 class="info-text">Tell us more about facilities. </h4>
+                                    <h4 class="info-text">Ingrese valores de Energia en KW</h4>
                                     <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Your place is good for</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- type -</option>
-                                                    <option>Business</option>
-                                                    <option>Vacation</option>
-                                                    <option>Work</option>
-                                                </select>
+                                        <div class="col-sm-5 col-xs-offset-1">
+                                            <label class="control-label">Energia Pico</label>
+                                            <div class="input-group">
+								        <span class="input-group-addon">
+									<i class="material-icons">insert_chart</i>
+								        </span>
+                                                <input name={{otra.nombre+"_pico"}} type="number" step="any" class="form-control">
+                                                <span class="material-input"></span>
+                                                <span class="input-group-addon">KW/h</span>
+
                                             </div>
                                         </div>
                                         <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Is air conditioning included ?</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- response -</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                </select>
+                                            <label class="control-label">Energia Valle</label>
+                                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">insert_chart</i>
+                                        </span>
+                                                <input name={{otra.nombre+"_valle"}} type="number" step="any" class="form-control"><span
+                                                    class="material-input"></span>
+                                                <span class="input-group-addon">KW/h</span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Does your place have wi-fi?</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- response -</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                </select>
+                                        <div class="col-sm-5 col-xs-offset-1">
+                                            <br>
+                                            <label class="control-label">Energia Resto</label>
+                                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">insert_chart</i>
+                                        </span>
+                                                <input name={{otra.nombre+"_resto"}} type="number" step="any" class="form-control"><span
+                                                    class="material-input"></span>
+                                                <span class="input-group-addon">KW/h</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Is breakfast included?</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- response -</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                </select>
+                                            <br>
+                                            <label class="control-label">Demanda Potencia</label>
+                                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">insert_chart</i>
+                                        </span>
+                                                <input name={{otra.nombre+"_potencia"}} type="number" step="any" class="form-control"><span
+                                                    class="material-input"></span>
+                                                <span class="input-group-addon">KW</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 class="info-text">Ingrese costo en Dolares</h4>
+                                    <div class="row">
+                                        <div class="col-sm-5 col-xs-offset-1">
+                                            <label class="control-label">Energia Pico</label>
+                                            <div class="input-group">
+								        <span class="input-group-addon">
+									<i class="material-icons">attach_money</i>
+								        </span>
+                                                <input name={{otra.nombre+"_picod"}} type="number" step="any" class="form-control">
+                                                <span class="material-input"></span>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label class="control-label">Energia Valle</label>
+                                            <div class="input-group">
+                                        <span class="input-group-addon">
+									<i class="material-icons">attach_money</i>
+								        </span>
+                                                <input name={{otra.nombre+"_valled"}} type="number" step="any" class="form-control"><span
+                                                    class="material-input"></span>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 col-xs-offset-1">
+                                            <br>
+                                            <label class="control-label">Energia Resto</label>
+                                            <div class="input-group">
+                                        <span class="input-group-addon">
+									<i class="material-icons">attach_money</i>
+								        </span>
+                                                <input name={{otra.nombre+"_restod"}} type="number" step="any" class="form-control"><span
+                                                    class="material-input"></span>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <br>
+                                            <label class="control-label">Demanda Potencia</label>
+                                            <div class="input-group">
+                                        <span class="input-group-addon">
+									<i class="material-icons">attach_money</i>
+								        </span>
+                                                <input name={{otra.nombre+"_potenciad"}} type="number" step="any" class="form-control"><span
+                                                    class="material-input"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 class="info-text">Ingrese dato de factor de potencia/transformadores</h4>
+                                    <div class="row">
+                                        <div class="col-sm-5 col-xs-offset-1">
+                                            <label class="control-label">factor de potencia</label>
+                                            <div class="input-group">
+								        <span class="input-group-addon">
+									<i class="material-icons">insert_chart</i>
+								        </span>
+                                                <input name={{otra.nombre+"_fp"}} type="number" step="any" class="form-control">
+                                                <span class="material-input"></span>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label class="control-label">costo alquiler de transformadores</label>
+                                            <div class="input-group">
+                                        <span class="input-group-addon">
+									<i class="material-icons">attach_money</i>
+								        </span>
+                                                <input name={{otra.nombre+"_trafo"}} type="number" step="any" class="form-control"><span
+                                                    class="material-input"></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -182,14 +189,17 @@
                             </div>
                             <div class="wizard-footer">
                                 <div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-success  btn-round btn-wd btn-sm'
+                                    <input type='button'
+                                           class='btn btn-next btn-fill btn-success  btn-round btn-wd btn-sm'
                                            name='next' value='Next'/>
-                                    <input type='submit' class='btn btn-finish btn-fill btn-success btn-round btn-wd btn-sm'
+                                    <input type='submit'
+                                           class='btn btn-finish btn-fill btn-success btn-round btn-wd btn-sm'
                                            name='finish' value='Finish'/>
 
                                 </div>
                                 <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-round btn-wd btn-sm'
+                                    <input type='button'
+                                           class='btn btn-previous btn-fill btn-default btn-round btn-wd btn-sm'
                                            name='previous' value='Previous'/>
                                 </div>
                                 <div class="clearfix"></div>

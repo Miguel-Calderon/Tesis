@@ -1,8 +1,11 @@
-from modelos import Fecha
+from modelos import Fecha, Acometida
 from utils import renderutils, formatutils
 
 
 class FechaHandler(renderutils.MainHandler):
+    def get(self):
+        self.render("formulariofecha.html")
+
     def post(self):
         fecha = self.request.get("fecha")
         nu_fecha = Fecha(inicio=formatutils.objeto_fecha(self.request.get("inicio")),
@@ -17,15 +20,13 @@ class FechaHandler(renderutils.MainHandler):
         # self.response.out.write(year)
         # nu_fecha.key = ndb.Key("Fecha", self.request.get("fecha"))
         # fecha_key =
-        nu_fecha.put()
+        # nu_fecha.put()
         # self.response.out.write()
-        comprobacion = int(self.request.get("radiobu"))
-        if comprobacion > 0:
-            # self.response.out.write(inicio)
-            self.render("formulariopliego.html", temp_fecha=fecha)
+        todas = Acometida.query()
+        self.render("wizardfactura.html", todas=todas, temp_fecha=fecha)
+        #self.render("formulariopliego.html", temp_fecha=fecha)
 
-        else:
-            self.render("formulariofactura.html", temp_fecha=fecha)
+
 
 
 #   mes={1:"Enero",

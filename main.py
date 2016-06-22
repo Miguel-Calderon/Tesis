@@ -18,7 +18,7 @@
 import webapp2
 import json
 # import numpy
-from manejadores import Fecha
+from manejadores import Fecha, Factura1
 from modelos import Acometida, Factura,  Pliego
 from utils import renderutils, formatutils
 
@@ -57,24 +57,7 @@ class PliegoHandler(renderutils.MainHandler):
         self.redirect(self.request.referer)
 
 
-class FacturaHandler(renderutils.MainHandler):
 
-    def post(self):
-        acometida = self.request.get("Acometida")
-        nu_factura = Factura(pico_E=float(self.request.get("pico_E")),
-                             valle_E=float(self.request.get("valle_E")),
-                             resto_E=float(self.request.get("resto_E")),
-                             potencia_E=float(self.request.get("potencia_E")),
-                             json_E=list(self.request.get("json_E")),
-                             pico_D=float(self.request.get("pico_D")),
-                             valle_D=float(self.request.get("valle_D")),
-                             resto_D=float(self.request.get("resto_D")),
-                             potencia_D=float(self.request.get("potencia_D")),
-                             json_D=list(self.request.get("json_D")),
-                             ftotal=float(self.request.get("ftotal")),
-                             nombre=acometida)  # incluir tratamiento de acometida
-
-        nu_factura.put()
 
 
 class AcometidaHandler(renderutils.MainHandler):
@@ -96,6 +79,6 @@ app = webapp2.WSGIApplication([
     ('/home', HomeHandler),
     ('/fecha', Fecha.FechaHandler),
     ('/pliego', PliegoHandler),
-    ('/factura', FacturaHandler),
+    ('/factura', Factura1.FacturaHandler),
     ('/acometida', AcometidaHandler)
 ], debug=True)
