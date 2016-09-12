@@ -20,13 +20,11 @@ class FechaHandler(renderutils.MainHandler):
         # self.response.out.write(year)
         # nu_fecha.key = ndb.Key("Fecha", self.request.get("fecha"))
         # fecha_key =
-        # nu_fecha.put()
+        nu_fecha.put()
         # self.response.out.write()
         todas = Acometida.query()
         self.render("wizardfactura.html", todas=todas, temp_fecha=fecha)
-        #self.render("formulariopliego.html", temp_fecha=fecha)
-
-
+        # self.render("formulariopliego.html", temp_fecha=fecha)
 
 
 #   mes={1:"Enero",

@@ -17,7 +17,8 @@
 
 import webapp2
 import json
-# import numpy
+
+
 from manejadores import Fecha, Factura1
 from modelos import Acometida, Factura,  Pliego
 from utils import renderutils, formatutils
@@ -25,8 +26,8 @@ from utils import renderutils, formatutils
 
 class FrontHandler(renderutils.MainHandler):
     def get(self):
-        todas=Acometida.query()
-        self.render("wizardfactura.html",todas=todas)
+        todas = Acometida.query()
+        self.render("wizardfactura.html", todas=todas)
 
         # def post(self):
         #   facultad = self.request.get("facultad")
@@ -40,6 +41,9 @@ class HomeHandler(renderutils.MainHandler):
 
 
 class PliegoHandler(renderutils.MainHandler):
+
+    def get(self):
+        self.render("formulariopliego.html")
 
     def post(self):
         cadena = self.request.get("meses_A")
@@ -55,9 +59,6 @@ class PliegoHandler(renderutils.MainHandler):
 
         nu_pliego.put()
         self.redirect(self.request.referer)
-
-
-
 
 
 class AcometidaHandler(renderutils.MainHandler):

@@ -13,19 +13,28 @@ class Acometida(ndb.Model):
 
 
 class Factura(ndb.Model):
-    nombre = ndb.StringProperty()
-    pico_E = ndb.FloatProperty()
-    valle_E = ndb.FloatProperty()
-    resto_E = ndb.FloatProperty()
-    potencia_E = ndb.FloatProperty()
-    json_E = ndb.JsonProperty()
-    pico_D = ndb.FloatProperty()
-    valle_D = ndb.FloatProperty()
-    resto_D = ndb.FloatProperty()
-    potencia_D = ndb.FloatProperty()
-    json_D = ndb.JsonProperty()
-    ftotal = ndb.FloatProperty()
-    fecha_I = ndb.IntegerProperty()
+    Fecha_Key = ndb.KeyProperty()
+    Pliego_A = ndb.KeyProperty()
+    Aco_Key = ndb.KeyProperty()
+    Pico_Lista = ndb.FloatProperty('P', repeated=True)
+    Valle_Lista = ndb.FloatProperty('V', repeated=True)
+    Resto_Lista = ndb.FloatProperty('R', repeated=True)
+    Potencia_Lista = ndb.FloatProperty('Po',repeated=True)
+    ftotal = ndb.FloatProperty('F',repeated=True)
+    #pico_E = ndb.FloatProperty()
+    #valle_E = ndb.FloatProperty()
+    #resto_E = ndb.FloatProperty()
+    #potencia_E = ndb.FloatProperty()
+    #pico_D = ndb.FloatProperty()
+    #valle_D = ndb.FloatProperty()
+    #resto_D = ndb.FloatProperty()
+    #potencia_D = ndb.FloatProperty()
+    #pico_C = ndb.FloatProperty()
+    #valle_C = ndb.FloatProperty()
+    #resto_C = ndb.FloatProperty()
+    #potencia_C = ndb.FloatProperty()
+
+
 
 
 class Pliego(ndb.Model):
@@ -33,8 +42,8 @@ class Pliego(ndb.Model):
     valle_T = ndb.FloatProperty()
     resto_T = ndb.FloatProperty()
     potencia_T = ndb.FloatProperty()
-    json_T = ndb.FloatProperty(repeated=True)
-    meses_A = ndb.IntegerProperty(repeated=True)
+    inicio_p = ndb.DateProperty()
+    final_p = ndb.DateProperty()
 
 
 
