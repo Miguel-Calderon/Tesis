@@ -19,7 +19,7 @@ import webapp2
 import json
 
 
-from manejadores import Fecha, Factura1
+from manejadores import Fecha, Factura1, Pliego1
 from modelos import Acometida, Factura,  Pliego
 from utils import renderutils, formatutils
 
@@ -40,25 +40,6 @@ class HomeHandler(renderutils.MainHandler):
         self.render("web-app.html")
 
 
-class PliegoHandler(renderutils.MainHandler):
-
-    def get(self):
-        self.render("formulariopliego.html")
-
-    def post(self):
-        cadena = self.request.get("meses_A")
-        lista = json.loads(cadena)
-        cadena2 = self.request.get("json_T")
-        lista2 = json.loads(cadena2)
-        nu_pliego = Pliego(pico_T=float(self.request.get("pico_T")),
-                           valle_T=float(self.request.get("valle_T")),
-                           resto_T=float(self.request.get("resto_T")),
-                           potencia_T=float(self.request.get("potencia_T")),
-                           json_T=lista2,
-                           meses_A=lista)
-
-        nu_pliego.put()
-        self.redirect(self.request.referer)
 
 
 class AcometidaHandler(renderutils.MainHandler):
@@ -79,7 +60,7 @@ app = webapp2.WSGIApplication([
     ('/', FrontHandler),
     ('/home', HomeHandler),
     ('/fecha', Fecha.FechaHandler),
-    ('/pliego', PliegoHandler),
+    ('/pliego', Pliego1.PliegoHandler),
     ('/factura', Factura1.FacturaHandler),
     ('/acometida', AcometidaHandler)
 ], debug=True)
