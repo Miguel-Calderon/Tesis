@@ -18,12 +18,12 @@ class MainHandler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
 
-    def obtener_valores_pico(self, toda):
-        pico_E = float(self.request.get(toda.nombre+"_pico"))
-        pico_D = float(self.request.get(toda.nombre + "_picod"))
+    def obtener_valores_punta(self, toda):
+        punta_E = float(self.request.get(toda.nombre+"_punta"))
+        punta_D = float(self.request.get(toda.nombre + "_puntad"))
         # en la lista se almacena primero la energia, luego el dinero y por ultimo el valor calculado
-        pico_L = [pico_E, pico_D, 0]
-        return pico_L
+        punta_L = [punta_E, punta_D, 0]
+        return punta_L
 
     def obtener_valores_valle(self, toda):
         valle_E = float(self.request.get(toda.nombre+"_valle"))
@@ -45,3 +45,9 @@ class MainHandler(webapp2.RequestHandler):
         # en la lista se almacena primero la energia, luego el dinero y por ultimo el valor calculado
         potencia_L = [potencia, potencia_D, 0]
         return potencia_L
+
+    def obtener_fp_tr(self, toda):
+        factor_potencia = float(self.request.get(toda.nombre+"_fp"))
+        trafo = float(self.request.get(toda.nombre+"trafo"))
+        lista = [factor_potencia, trafo]
+        return lista
