@@ -2,7 +2,7 @@
     /* datos de configuracion para echart*/
           var theme = {
           color: [
-              '#26B99A', '#34495E', '#BDC3C7', '#3498DB',
+              '#32CD32', '#00BFFF', '#008B8B', '#3498DB',
               '#9B59B6', '#8abb6f', '#759c6a', '#bfd3b7'
           ],
 
@@ -96,7 +96,7 @@
                       color: '#68a54a',
                       color0: '#a9cba2',
                       lineStyle: {
-                          width: 1,
+                          width: 5,
                           color: '#408829',
                           color0: '#86b379'
                       }
@@ -224,7 +224,7 @@
         trigger: 'axis'
       },
       legend: {
-        x: 320,
+        x: 600,
         y: 40,
         data: ['Punta', 'Valle', 'Resto']
       },
@@ -234,12 +234,12 @@
           magicType: {
             show: true,
             title: {
+              stack: 'Stack',
               line: 'Line',
               bar: 'Bar',
-              stack: 'Stack',
               tiled: 'Tiled'
             },
-            type: ['line', 'bar', 'stack', 'tiled']
+            type: ['stack','line', 'bar', 'tiled']
           },
           restore: {
             show: true,
@@ -247,7 +247,7 @@
           },
           saveAsImage: {
             show: true,
-            title: "Save Image"
+            title: "Guardar Imagen"
           }
         }
       },

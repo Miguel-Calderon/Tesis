@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--suppress JSUnresolvedVariable -->
+<!--suppress JSUnresolvedVariable, JSUnresolvedFunction -->
 <html lang="en">
 
 <head>
@@ -25,6 +25,111 @@
     <link href="static/home/plugins/Icons/et-line-font/style.css" rel="stylesheet">
     <link href="static/home/plugins/animate.css/animate.css" rel="stylesheet">
     <link href="static/home/css/main.css" rel="stylesheet">
+     <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+   <script src="http://www.amcharts.com/lib/3/serial.js"></script>
+   <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+   <script src="https://www.amcharts.com/lib/3/amstock.js"></script>
+   <script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoqCL_2QDHgXtM4CBvdPkSgjiSDlTXElc&callback=initMap"
+        async defer></script>
+
+    <style type="text/css">
+
+		.amcharts-graph-g1 .amcharts-graph-stroke {
+                stroke-dasharray: 6px 6px;
+                stroke-linejoin: round;
+                stroke-linecap: round;
+                -webkit-animation: am-moving-dashes 0.5s linear infinite;
+                animation: am-moving-dashes 0.25s linear infinite;
+            }
+
+			 @-webkit-keyframes am-moving-dashes {
+                100% {
+                    stroke-dashoffset: -20px;
+                }
+            }
+            @keyframes am-moving-dashes {
+                100% {
+                    stroke-dashoffset: -10px;
+                }
+            }
+
+			.amcharts-value-axis .amcharts-axis-grid {
+				stroke-dasharray: 10px 10px;
+				-webkit-animation: css-effect 1s linear infinite;
+				animation: css-effect 1s linear infinite;
+			}
+
+			@-webkit-keyframes css-effect {
+				100% {
+					stroke-dashoffset: -20px;
+				}
+			}
+			@keyframes css-effect {
+				100% {
+					stroke-dashoffset: -20px;
+				}
+			}
+
+		</style>
+
+    <style>
+
+ .promos {
+  width: 800px;
+  margin: 50px auto 0;
+ }
+.promo {
+  width: 250px;
+  background: #0F1012;
+  color: #f9f9f9;
+  float: left;
+}
+.deal {
+  padding: 10px 0 0 0;
+}
+.deal span {
+  display: block;
+  text-align: center;
+}
+.deal span:first-of-type {
+  font-size: 23px;
+}
+.deal span:last-of-type {
+  font-size: 13px;
+}
+.promo .price {
+  display: block;
+  width: 250px;
+  background: #292b2e;
+  margin: 15px 0 10px 0;
+  text-align: center;
+  font-size: 23px;
+  padding: 17px 0 17px 0;
+}
+.tabla {
+  display: block;
+  margin: 20px 0 10px 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  color: #999999;
+}
+.lista {
+  display: block;
+  margin: 10px 0 0 0;
+}
+.scale {
+  transform: scale(1.2);
+  box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
+}
+.scale button {
+  background: #64AAA4;
+}
+.scale .price {
+  color: #64AAA4;
+}
+    </style>
     <!--<link rel="stylesheet" href="css/style1.css"/>--> 						<!-- Style css -->
 
     <!-- Icons Font -->
@@ -61,7 +166,7 @@
                     <div class="col-md-8 col-xs-12 nav-wrap">
                         <ul class="nav navbar-nav">
                             <li><a href="#owl-hero" class="page-scroll">Inicio</a></li>
-                            <li><a href="#services" class="page-scroll">Services</a></li>
+                            <li><a href="#testimonials" class="page-scroll">Historial</a></li>
                             <li><a href="#portfolio" class="page-scroll">Works</a></li>
                             <li><a href="#team" class="page-scroll">About</a></li>
                             <li><a href="#contact" class="page-scroll">Contact</a></li>
@@ -239,8 +344,210 @@
             </div>
         </div>
     </section>
+    <!-- Testimonials
+	============================================= -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Meses Recientes</h2>
+
+            <div id="owl-testi" class="owl-carousel owl-theme" >
+                <div class="item" style="height: 470px">
+                    <div class="container">
+              <div class="promos">
+                  <div class="promo">
+                  <div class="deal">
+                    <span>Energia</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$79,789</span>
+
+                  <ul class="features tabla">
+                    <li class="lista">punta</li>
+                    <li>78989798798</li>
+                    <li>78989798798</li>
+                    <li class="lista">valle</li>
+                    <li>78989798798</li>
+                    <li>78989798798</li>
+                    <li class="lista">Resto</li>
+                    <li>78989798798</li>
+                    <li>7897945</li>
+                  </ul>
+                </div>
+                <div class="promo scale">
+                  <div class="deal">
+                    <span>Total</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$89</span>
+                  <ul class="features tabla">
+                    <li class="lista">Energia</li>
+                    <li class="lista">78989798798</li>
 
 
+                    <li class="lista">78989798798</li>
+
+                    <li class="lista">demanda de potencia</li>
+
+                    <li class="lista">7897945</li>
+                    <li class="lista">total </li>
+
+                    <li class="lista">7897945</li>
+
+
+                  </ul>
+
+                </div>
+                <div class="promo">
+                  <div class="deal">
+                    <span>Potencia</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$69</span>
+                  <ul class="features tabla">
+                     <br>
+                     <br><li class="lista">demanda de potencia</li>
+                     <br><li class="lista">78989798798</li>
+                     <br><li class="lista">898989</li><br>
+                  </ul>
+
+                </div>
+                </div>
+
+              </div>
+                </div>
+                <div class="item" style="height: 470px">
+                    <div class="container">
+              <div class="promos">
+                  <div class="promo">
+                  <div class="deal">
+                    <span>Energia</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$79,789</span>
+
+                  <ul class="features tabla">
+                    <li class="lista">punta</li>
+                    <li>78989798798</li>
+                    <li>78989798798</li>
+                    <li class="lista">valle</li>
+                    <li>78989798798</li>
+                    <li>78989798798</li>
+                    <li class="lista">Resto</li>
+                    <li>78989798798</li>
+                    <li>7897945</li>
+                  </ul>
+                </div>
+                <div class="promo scale">
+                  <div class="deal">
+                    <span>Total</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$89</span>
+                  <ul class="features tabla">
+                    <li class="lista">Energia</li>
+                    <li class="lista">78989798798</li>
+
+
+                    <li class="lista">78989798798</li>
+
+                    <li class="lista">demanda de potencia</li>
+
+                    <li class="lista">7897945</li>
+                    <li class="lista">total </li>
+
+                    <li class="lista">7897945</li>
+
+
+                  </ul>
+
+                </div>
+                <div class="promo">
+                  <div class="deal">
+                    <span>Potencia</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$69</span>
+                  <ul class="features tabla">
+                     <br>
+                     <br><li class="lista">demanda de potencia</li>
+                     <br><li class="lista">78989798798</li>
+                     <br><li class="lista">898989</li><br>
+                  </ul>
+
+                </div>
+                </div>
+
+              </div>
+                </div>
+                <div class="item" style="height: 470px">
+                    <div class="container">
+              <div class="promos">
+                  <div class="promo">
+                  <div class="deal">
+                    <span>Energia</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$79,789</span>
+
+                  <ul class="features tabla">
+                    <li class="lista">punta</li>
+                    <li>78989798798</li>
+                    <li>78989798798</li>
+                    <li class="lista">valle</li>
+                    <li>78989798798</li>
+                    <li>78989798798</li>
+                    <li class="lista">Resto</li>
+                    <li>78989798798</li>
+                    <li>7897945</li>
+                  </ul>
+                </div>
+                <div class="promo scale">
+                  <div class="deal">
+                    <span>Total</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$89</span>
+                  <ul class="features tabla">
+                    <li class="lista">Energia</li>
+                    <li class="lista">78989798798</li>
+
+
+                    <li class="lista">78989798798</li>
+
+                    <li class="lista">demanda de potencia</li>
+
+                    <li class="lista">7897945</li>
+                    <li class="lista">total </li>
+
+                    <li class="lista">7897945</li>
+
+
+                  </ul>
+
+                </div>
+                <div class="promo">
+                  <div class="deal">
+                    <span>Potencia</span>
+                    <span></span>
+                  </div>
+                  <span class="price">$69</span>
+                  <ul class="features tabla">
+                     <br>
+                     <br><li class="lista">demanda de potencia</li>
+                     <br><li class="lista">78989798798</li>
+                     <br><li class="lista">898989</li><br>
+                  </ul>
+
+                </div>
+                </div>
+
+              </div>
+                </div>
+            </div>
+                <a class="btn btn-transparent" href="#">Historial</a>
+
+        </div>
+    </section>
     <!-- Services
 	============================================= -->
     <section id="services">
@@ -290,301 +597,130 @@
     <!-- Welcome
 	============================================= -->
     <section id="welcome">
+        <div id="particles-js3" style="position:absolute; width:100%;	height:80%;"></div>
 
-        <div class="container">
-            <h2>Welcome To <span>Rise</span></h2>
-            <hr class="sep">
-            <p>Make Yourself At Home Don't Be Shy</p>
-            <img class="img-responsive center-block wow fadeInUp" data-wow-delay=".3s" src="static/home/img/welcome/logo.png" alt="logo">
-        </div>
-    </section>
+        <div class="row">
+            <div class="col-md-12 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="x_title">
+                    <h2>Distribucion Por Acometida</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content2">
+                    <div id="graph_donut" style="width:100%; height:400px;"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-8 col-sm-4 col-xs-12">
 
 
-    <!-- Portfolio
-	============================================= -->
-    <section id="portfolio">
-        <div class="container-fluid">
-            <h2>Our Work</h2>
-            <hr class="sep">
-            <p>Showcase Your Amazing Work With Us</p>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a class="portfolio-box" href="static/home/img/portfolio/1.jpg" data-lightbox="image-1" data-title="Your caption">
-                        <img src="static/home/img/portfolio/1.jpg" class="img-responsive" alt="1">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+
+                  <div class="x_title">
+                    <h2>Cobro por Horario Apilado </h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <div id="graphx" style="width:100%; height:400px;"></div>
+
+
+                  </div>
+
+
+
+
+
                 </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="static/home/img/portfolio/2.jpg" class="portfolio-box" data-lightbox="image-2" data-title="Your caption">
-                        <img src="static/home/img/portfolio/2.jpg" class="img-responsive" alt="2">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="static/home/img/portfolio/3.jpg" class="portfolio-box" data-lightbox="image-3" data-title="Your caption">
-                        <img src="static/home/img/portfolio/3.jpg" class="img-responsive" alt="3">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="static/home/img/portfolio/4.jpg" class="portfolio-box" data-lightbox="image-4" data-title="Your caption">
-                        <img src="static/home/img/portfolio/4.jpg" class="img-responsive" alt="4">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="static/home/img/portfolio/5.jpg" class="portfolio-box" data-lightbox="image-5" data-title="Your caption">
-                        <img src="static/home/img/portfolio/5.jpg" class="img-responsive" alt="5">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="static/home/img/portfolio/6.jpg" class="portfolio-box" data-lightbox="image-6" data-title="Your caption">
-                        <img src="static/home/img/portfolio/6.jpg" class="img-responsive" alt="6">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+
+
+
+
+
+              </div>
             </div>
+
+
+
+
+
         </div>
     </section>
+
     <!-- Work Process
 	============================================= -->
     <section id="work-process">
-      <div id="particles-js3" style="position:absolute; width:100%;	height:100%;"></div>
 
-      <div id="particles-js2" style="position:absolute; width:100%;	height:100%;"></div>
+        <div class="x_panel">
 
-        <div class="container">
-            <h2>Work Process</h2>
-            <hr class="sep">
-            <p>What Happen In The Background</p>
-            <div class="row wow fadeInUp" data-wow-delay=".3s">
-                <div class="col-lg-3">
-                    <span class="icon-chat"></span>
-                    <h4>1.Discuss</h4>
+                <div class="row x_title">
+                  <div class="col-md-12">
+                    <h3>Año mas reciente <small>2015</small></h3>
+                  </div>
+                  <div class="col-md-12">
+
+                  </div>
+                  <div class="clearfix"></div>
                 </div>
-                <div class="col-lg-3">
-                    <span class="icon-circle-compass"></span>
-                    <h4>2.Sketch</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-browser"></span>
-                    <h4>3.Make</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-global"></span>
-                    <h4>4.Publish</h4>
-                </div>
-            </div>
+                  <div id="chartdiv" style="width:100%; height:600px;"></div>
+
+
         </div>
+        <div class="x_panel">
+                <div class="col-md-12 col-sm-4 col-xs-12">
+                  <div class="x_title">
+                    <h2>Costos anuales <br><small>2015</small></h2>
+                    <div class="clearfix">
+
+                    </div>
+                  </div>
+                  <div id="chartdiv2" style="width:100%; height:600px;"></div>
+                </div>  
+        <div id="owl-demo" class="owl-carousel owl-theme">
+
+      <div class="item"></div>
+      <div class="item"><h1>2</h1></div>
+      <div class="item"><h1>3</h1></div>
+      <div class="item"><h1>4</h1></div>
+      <div class="item"><h1>5</h1></div>
+      <div class="item"><h1>6</h1></div>
+      <div class="item"><h1>7</h1></div>
+      <div class="item"><h1>8</h1></div>
+      <div class="item"><h1>9</h1></div>
+      <div class="item"><h1>10</h1></div>
+      <div class="item"><h1>11</h1></div>
+      <div class="item"><h1>12</h1></div>
+
+    </div>
     </section>
     <!-- Some Fune Facts
 	============================================= -->
     <section id="fun-facts">
-        <div class="container">
-            <h2>Some Fun Facts </h2>
-            <hr class="light-sep">
-            <p>Fun Facts</p>
-            <div class="row wow fadeInUp" data-wow-delay=".3s">
-                <div class="col-lg-3">
-                    <span class="icon-happy"></span>
-                    <h2 class="number timer">367</h2>
-                    <h4>Happy Clients</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-trophy"></span>
-                    <h2 class="number timer">150</h2>
-                    <h4>Project Done</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-wine"></span>
-                    <h2 class="number timer">121</h2>
-                    <h4>Glass Of Wine</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-documents"></span>
-                    <h2 class="number timer">10000</h2>
-                    <h4>Lines Of Code</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Some Fune Facts
-	============================================= -->
-    <section id="team">
-        <div class="container">
-            <h2>Our Team</h2>
-            <hr class="sep">
-            <p>Designers Behind This Work</p>
-            <div class="row wow fadeInUp" data-wow-delay=".3s">
-                <div class="col-md-4">
-                    <div class="team">
-                        <img class="img-responsive center-block" src="static/home/img/team/MariaDoe.jpg" alt="1">
-                        <h4>Maria Doe</h4>
-                        <p>Designer</p>
-                        <div class="team-social-icons">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team">
-                        <img class="img-responsive center-block" src="static/home/img/team/JasonDoe.jpg" alt="2">
-                        <h4>Jason Doe</h4>
-                        <p>Developer</p>
-                        <div class="team-social-icons">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team">
-                        <img class="img-responsive center-block" src="static/home/img/team/MikeDoe.jpg" alt="3">
-                        <h4>Mike Doe</h4>
-                        <p>Photographer</p>
-                        <div class="team-social-icons">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Testimonials
-	============================================= -->
-    <section id="testimonials">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <hr class="light-sep">
-            <p>What Clients Say About Us</p>
-            <div id="owl-testi" class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="quote">
-                        <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so
-good and neat, every detail has been taken care these team are realy amazing and talented! I will
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
+        <div id="particles-js2" style="position:absolute; width:100%;	height:100%;"></div>
 
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="quote">
-                        <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so
-good and neat, every detail has been taken care these team are realy amazing and talented! I will
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
 
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="quote">
-                        <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so
-good and neat, every detail has been taken care these team are realy amazing and talented! I will
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
 
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
     </section>
-    <!-- Contact Us
-	============================================= -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <hr class="sep">
-            <p>Get In Touch</p>
-            <div class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="Name" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="Email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Message"></textarea>
-                    </div>
-                    <a href="#" class="btn-block">Send</a>
-                </form>
-            </div>
-        </div>
-    </section>
+
     <!-- Google Map
 	============================================= -->
-    <div id="map"></div>
+    <section id="mapa">
+    <div id="map" style="height: 700px"></div>
+    </section>
     <!-- Footer
 	============================================= -->
     <footer>
         <div class="container">
-            <h1>Rise</h1>
+            <h1>UES</h1>
             <div class="social">
                 <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
                 <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                 <a href="#"><i class="fa fa-dribbble fa-2x"></i></a>
             </div>
-            <h6>&copy; 2015 Rise.Development By BootstrapDev</h6>
+            <h6>UES</h6>
         </div>
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -602,6 +738,663 @@ work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></
     <script src="static/home/js/particles.js"></script>     					<!-- canvas js file -->
     <script src="static/home/js/app.js"></script>     					<!-- canvas js file -->
     <script src="static/home/echarts/dist/echarts.min.js"></script>
+    <script src="static/raphael/raphael.min.js"></script>
+    <script src="static/morris.js/morris.min.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+      $("#owl-demo").owlCarousel({
+        autoPlay : 3000,
+        stopOnHover : true,
+        navigation:true,
+        paginationSpeed : 1000,
+        goToFirstSpeed : 2000,
+        singleItem : true,
+        autoHeight : false,
+        transitionStyle:"goDown"
+      });
+    });
+    </script>
+
+
+
+    <script>
+
+
+          $(document).ready(function() {
+
+
+            Morris.Donut({
+          element: 'graph_donut',
+          data: [
+            {label: 'Agronomia', value: 49.16},
+            {label: 'Complejo Deportivo', value: 20.30},
+            {label: 'Humanidades', value: 23.98},
+            {label: 'Derecho', value: 4.98}
+                ],
+          colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          formatter: function (y) {
+            return y + "%";
+          },
+          resize: true
+        });
+
+         Morris.Bar({
+          element: 'graphx',
+          data: [
+            {x: '2015-01', Resto: 35314.36, Valle: 7344.67, Punta: 8130.67},
+            {x: '2015-02', Resto: 58658.61, Valle: 8109.34, Punta: 9545.92},
+            {x: '2015-03', Resto: 61028.19, Valle: 8089.10, Punta: 10460.01},
+            {x: '2015-04', Resto: 60901.40, Valle: 7581.67, Punta: 9626.27},
+            {x: '2015-05', Resto: 62687.11, Valle: 7531.04, Punta: 9432.21},
+            {x: '2015-06', Resto: 57206.52, Valle: 7249.73, Punta: 8904.62},
+            {x: '2015-07', Resto: 49875.37, Valle: 6737.81, Punta: 7481.04},
+            {x: '2015-08', Resto: 51570.48, Valle: 7689.44, Punta: 8627.78},
+            {x: '2015-09', Resto: 64922.02, Valle: 8104.60, Punta: 10101.35},
+            {x: '2015-10', Resto: 62288.33, Valle: 7393.38, Punta: 9231.07},
+            {x: '2015-11', Resto: 64713.56, Valle: 7231.15, Punta: 9707.94},
+            {x: '2015-12', Resto: 30414.36, Valle: 6842.67, Punta: 8031.67}
+          ],
+
+          xkey: 'x',
+          ykeys: ['Resto', 'Valle', 'Punta'],
+          barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          hideHover: 'auto',
+          labels: ['Resto', 'Valle', 'Punta'],
+          resize: true,
+          stacked:true,
+          xLabelAngle:90,
+          preUnits:"$"
+        });
+        });
+
+    </script>
+
+    <script>
+
+			var chartData1 = [{
+                    "date": "2015-01",
+                    "value": 43023.76,
+					"volume":8130.67
+                }, {
+                    "date": "2015-02",
+                    "value": 52981.68,
+					"volume":9545.92
+                }, {
+                    "date": "2015-03",
+                    "value": 58055.08,
+					"volume":10460.01
+                }, {
+                    "date": "2015-04",
+                    "value": 59915.96,
+					"volume":9626.27
+                }, {
+                    "date": "2015-05",
+                    "value": 65232.07,
+					"volume":9432.21
+                }, {
+                    "date": "2015-06",
+                    "value": 61583.33,
+					"volume":8904.62
+                }, {
+                    "date": "2015-07",
+                    "value": 50136.52,
+					"volume":7481.04
+                }, {
+                    "date": "2015-08",
+                    "value": 56485.08,
+					"volume":8627.78
+                }, {
+                    "date": "2015-09",
+                    "value": 66132.32,
+					"volume":10101.35
+                }, {
+                    "date": "2015-10",
+                    "value": 60461.52,
+					"volume":9231.07
+                }, {
+                    "date": "2015-11",
+                    "value": 63605.11,
+					"volume":9707.94
+                }, {
+                    "date": "2015-12",
+                    "value": 40023.76,
+					"volume":7830.67
+                }];
+			var chartData2 = [{
+                    "date": "2015-01",
+                    "value": 40549.4,
+					"volume":7344.67
+                }, {
+                    "date": "2015-02",
+                    "value": 46804.84,
+					"volume":8109.34
+                }, {
+                    "date": "2015-03",
+                    "value": 46629.52,
+                    "volume":8089.1
+                }, {
+                    "date": "2015-04",
+                    "value": 47980.04,
+					"volume":7581.67
+                }, {
+                    "date": "2015-05",
+                    "value": 51771.87,
+					"volume":7531.04
+                }, {
+                    "date": "2015-06",
+                    "value": 49838.01,
+					"volume":7249.73
+                }, {
+                    "date": "2015-07",
+                    "value": 44844.28,
+					"volume":6737.81
+                }, {
+                    "date": "2015-08",
+                    "value": 49984.04,
+					"volume":7689.44
+                }, {
+                    "date": "2015-09",
+                    "value": 52659.33,
+					"volume":8104.6
+                },{
+                    "date": "2015-10",
+                    "value": 49078.36,
+					"volume":7393.38
+                },{
+                    "date": "2015-11",
+                    "value": 48763.67,
+					"volume":7231.15
+
+                },{
+                    "date": "2015-12",
+                     "value": 38023.76,
+					"volume":7730.67
+                }];
+			var chartData3 = [{
+                    "date": "2015-01",
+                    "value": 184106.64,
+					"volume":35314.36
+                }, {
+                    "date": "2015-02",
+                    "value": 323287.56,
+					"volume":58658.61
+                }, {
+                    "date": "2015-03",
+                    "value": 336347.12,
+					"volume":61028.19
+
+                }, {
+                    "date": "2015-04",
+                    "value": 377411.84,
+					"volume":60901.4
+                }, {
+                    "date": "2015-05",
+                    "value": 432829.5,
+					"volume":62687.11
+                }, {
+                    "date": "2015-06",
+                    "value": 394988.14,
+					"volume":57206.52
+                }, {
+                    "date": "2015-07",
+                    "value": 332747.28,
+					"volume":49875.37
+
+                }, {
+                    "date": "2015-08",
+                    "value": 335400.4,
+					"volume":51570.48
+                }, {
+                    "date": "2015-09",
+                    "value": 422235.19,
+					"volume":64922.02
+                }, {
+                    "date": "2015-10",
+                    "value": 404781.6,
+					"volume":62288.33
+                }, {
+                    "date": "2015-11",
+                    "value": 420298.56,
+					"volume":64713.56
+                }, {
+                    "date": "2015-12",
+                    "value": 154106.64,
+					"volume":30314.36
+                }];
+			var chartData4 = [{
+                    "date": "2015-01",
+                    "value": 267679.8,
+					"volume":50789.7
+                }, {
+                    "date": "2015-02",
+                    "value": 423074.08,
+					"volume":76313.87
+                }, {
+                    "date": "2015-03",
+                    "value": 441031.72,
+					"volume":79577.3
+                }, {
+                    "date": "2015-04",
+                    "value": 485307.84,
+					"volume":78109.34
+                }, {
+                    "date": "2015-05",
+                    "value": 549833.44,
+					"volume":79650.36
+                }, {
+                    "date": "2015-06",
+                    "value": 506409.48,
+					"volume":73360.87
+                }, {
+                    "date": "2015-07",
+                    "value": 427728.08,
+					"volume":64094.22
+                }, {
+                    "date": "2015-08",
+                    "value": 441869.52,
+					"volume":67887.7
+                }, {
+                    "date": "2015-09",
+                    "value": 541026.84,
+					"volume":83127.97
+                }, {
+                    "date": "2015-10",
+                    "value": 514321.48,
+					"volume":78912.78
+                }, {
+                    "date": "2015-11",
+                    "value": 532667.34,
+					"volume":81652.65
+                }, {
+                    "date": "2015-12",
+                    "value": 232154.16,
+					"volume":45875.7
+                }];
+
+
+			//noinspection JSUnresolvedFunction
+            AmCharts.makeChart("chartdiv", {
+
+				type: "stock",
+				addClassNames: true,
+
+                dataDateFormat: "YYYY-MM",
+
+
+
+				categoryAxesSettings: {
+						minPeriod: "MM"
+					},
+
+				dataSets: [{
+					title: "horario punta",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					//dataDateFormat: "YYYY-MM"
+					dataProvider: chartData1,
+					color: "#d9601a",
+
+					categoryField: "date"
+				},
+
+				{
+					title: "horario valle",
+					compared:true,
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider: chartData2,
+					color: "#b03355",
+					categoryField: "date"
+				},
+
+				{
+					title: "horario resto",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider: chartData3,
+                    color:"#2fa246",
+					categoryField: "date"
+				},
+
+				{
+					title: "energia total",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider:chartData4,
+					categoryField: "date"
+				}],
+
+				panels: [{
+					valueAxis: "value",
+					recalculateToPercents: "never",
+					showCategoryAxis: false,
+					title: "energia",
+					percentHeight: 70,
+
+
+					stockGraphs: [{
+						id: "g1",
+						type: "smoothedLine",
+						valueField: "value",
+						lineThickness: 3,
+						comparable: true,
+						compareField: "value",
+						bullet: "round",
+						//bulletBorderColor: "#FFFFFF",
+						bulletColor:"#FFFFFF",
+						bulletBorderAlpha: 0.1,
+						balloonText: "[[title]]:<b>[[value]] KW-h</b>",
+                        compareGraphType:"smoothedLine",
+						compareGraphBalloonText: "[[title]]:<b>[[value]]KW-h</b>",
+						compareGraphBullet: "round",
+						compareGraphBulletBorderColor: "#FFFFFF",
+						compareGraphBulletBorderAlpha: 1,
+                        ValueAxesSettings:{
+                        unit:"KW-h"
+                }
+
+					}],
+
+
+
+					stockLegend: {
+						//periodValueTextComparing: "[[value.close]]%",
+						//periodValueTextRegular: "[[value.close]]"
+					}
+				},
+
+				{
+					title: "Costo",
+					recalculateToPercents: "never",
+					percentHeight: 30,
+					stockGraphs: [{
+
+						valueField: "volume",
+						comparable: true,
+						compareField: "volume",
+						type: "column",
+						compareGraphType:"column",
+						compareGraphFillAlphas:1,
+						showBalloon: false,
+						fillAlphas: 1
+					}],
+
+
+					stockLegend: {
+						periodValueTextRegular: "$[[value]]"
+					}
+				}],
+
+
+
+				chartScrollbarSettings: {
+					graph: "g1",
+					updateOnReleaseOnly:false
+				},
+
+				chartCursorSettings: {
+					valueBalloonsEnabled: true,
+					valueLineEnabled:true,
+					valueLineBalloonEnabled:true
+				},
+
+				//periodSelector: {
+				//	position: "left",
+				//	periods: [{
+
+						//period: "MM",
+						//selected: true,
+						//count: 1,
+						//label: "1 month"
+				//	}, {
+				//		period: "YYYY",
+				//		count: 1,
+				//		label: "1 year"
+				//	}, {
+				//		period: "YTD",
+				//		label: "YTD"
+				//	}, {
+				//		period: "MAX",
+				//		selected: true,
+				//		label: "MAX"
+				//	}]
+				//},
+
+				dataSetSelector: {
+					position: "left"
+				}
+
+
+			});
+		</script>
+
+    <script>
+            //noinspection JSUnresolvedFunction
+            var chart = AmCharts.makeChart("chartdiv2", {
+  "type": "serial",
+  "theme": "light",
+  "dataDateFormat": "YYYY-MM",
+   "addClassNames": true,
+  "precision": 2,
+  "valueAxes": [{
+    "id": "v1",
+    "title": "Costo",
+    "position": "left",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return "$" + Math.round(value) + "K";
+    }
+  }, {
+    "id": "v2",
+    "title": "Energia y demanda",
+    "gridAlpha": 0,
+    "position": "right",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return Math.round(value) + "MW-h";
+  }}],
+  "graphs": [{
+    "id": "g3",
+    "valueAxis": "v1",
+    "lineColor": "#e1ede9",
+    "fillColors": "#e1ede9",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo Final",
+    "valueField": "sales2",
+    "clustered": false,
+    "columnWidth": 0.5,
+    "legendValueText": "$[[value]]K",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]K</b>"
+  }, {
+    "id": "g4",
+    "valueAxis": "v1",
+    "lineColor": "#62cf73",
+    "fillColors": "#62cf73",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo energia",
+    "valueField": "sales1",
+    "clustered": false,
+    "columnWidth": 0.3,
+    "legendValueText": "$[[value]]K",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]K</b>"
+  }, {
+    "id": "g1",
+    "valueAxis": "v1",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#20acd4",
+    "type": "smoothedLine",
+    "title": "Costo de Potencia__",
+    "useLineColorForBulletBorder": true,
+    "valueField": "market1",
+    "clustered": false,
+
+
+    "legendValueText": "$[[value]]K",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]k</b>"
+  }, {
+    "id": "g2",
+    "valueAxis": "v2",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#bed0b8",
+    "type": "smoothedLine",
+    "dashLength": 5,
+    "title": "  Energia total",
+    "useLineColorForBulletBorder": true,
+    "valueField": "market2",
+    "clustered": false,
+    "legendValueText": "[[value]]MW-h",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]MW-h</b>"
+  }],
+  "chartScrollbar": {
+    "graph": "g1",
+    "oppositeAxis": false,
+    "offset": 30,
+    "scrollbarHeight": 50,
+    "backgroundAlpha": 0,
+    "selectedBackgroundAlpha": 0.1,
+    "selectedBackgroundColor": "#888888",
+    "graphFillAlpha": 0,
+    "graphLineAlpha": 0.5,
+    "selectedGraphFillAlpha": 0,
+    "selectedGraphLineAlpha": 1,
+    "autoGridCount": true,
+    "color": "#AAAAAA"
+  },
+  "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 0.2
+  },
+  "categoryField": "date",
+  "categoryAxis": {
+	  "minPeriod": "MM",
+    "parseDates": true,
+    "dashLength": 1,
+    "minorGridEnabled": true
+  },
+  "legend": {
+    "useGraphSettings": true,
+    "position": "top"
+  },
+  "balloon": {
+    "borderThickness": 1,
+    "shadowAlpha": 0
+  },
+  "export": {
+   "enabled": true
+  },
+  "dataProvider": [{
+    "date": "2015-01",
+    "market1": 10.685,
+    "market2": 267.679,
+    "sales1": 50.789,
+    "sales2": 61.474
+  }, {
+    "date": "2015-02",
+    "market1": 14.182,
+    "market2": 423.074,
+    "sales1": 76.313,
+    "sales2": 90.496
+  }, {
+    "date": "2015-03",
+    "market1": 14.667,
+    "market2": 441.031,
+    "sales1": 79.577,
+    "sales2": 94.245
+  }, {
+    "date": "2015-04",
+    "market1": 16.357,
+    "market2": 485.307,
+    "sales1": 78.109,
+    "sales2": 94.467
+  }, {
+    "date": "2015-05",
+    "market1": 15.865,
+    "market2": 549.833,
+    "sales1": 79.650,
+    "sales2": 95.515
+  }, {
+    "date": "2015-06",
+    "market1": 15.689,
+    "market2": 506.409,
+    "sales1": 73.360,
+    "sales2": 89.050
+  }, {
+    "date": "2015-07",
+    "market1": 14.454,
+    "market2": 427.728,
+    "sales1": 64.094,
+    "sales2": 78.549
+  }, {
+    "date": "2015-08",
+    "market1": 15.836,
+    "market2": 441.869,
+    "sales1": 67.887,
+    "sales2": 83.724
+  }, {
+    "date": "2015-09",
+    "market1": 15.648,
+    "market2": 541.026,
+    "sales1": 83.127,
+    "sales2": 98.776
+  }, {
+    "date": "2015-10",
+    "market1": 17.940,
+    "market2": 514.321,
+    "sales1": 78.912,
+    "sales2": 96.853
+  }, {
+    "date": "2015-11",
+    "market1": 15.449,
+    "market2": 532.667,
+    "sales1": 81.652,
+    "sales2": 97.102
+  }, {
+    "date": "2015-12",
+    "market1": 9.854,
+    "market2": 220.964,
+    "sales1": 49.896,
+    "sales2": 59.75
+  }]
+});
+      </script>
+
 
      {% include "config-echart.html"%}
 
@@ -610,7 +1403,62 @@ work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></
 
 
     <!-- GOOGLE MAP -->
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+     <!--  Google Maps Plugin    -->
+   <script>
+     var map;
+       function initMap() {
+     map = new google.maps.Map(document.getElementById('map'), {
+     center: {lat: 13.71937, lng: -89.20254},
+     scrollwheel:false,
+     zoom:17
+
+   });
+
+     var marker = new google.maps.Marker({
+    map: map,
+    label:"A",
+    // Define the place with a location, and a query string.
+    place: {
+      location: {lat: 13.718432, lng: -89.2003291},
+        query: 'Google, San Salvador, El salvador'}
+ })
+
+     var marker2 = new google.maps.Marker({
+    map: map,
+    label:"B",
+    // Define the place with a location, and a query string.
+    place: {
+      location: {lat: 13.7187853, lng: -89.2057902},
+        query: 'Google, San Salvador, El salvador'}
+ })
+
+     var marker3 = new google.maps.Marker({
+    map: map,
+    label:"C",
+    // Define the place with a location, and a query string.
+    place: {
+      location: {lat: 13.7210476, lng: -89.2038859},
+        query: 'Google, San Salvador, El salvador'}
+ })
+
+     var marker4 = new google.maps.Marker({
+    map: map,
+    label:"D",
+    // Define the place with a location, and a query string.
+    place: {
+      location: {lat: 13.7167838, lng: -89.2050717},
+        query: 'Google, San Salvador, El salvador'}
+ })
+
+     }
+
+    </script>
+
+
+
+
+
 </body>
 
 </html>

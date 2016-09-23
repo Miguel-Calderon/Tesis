@@ -16,9 +16,6 @@
 #
 
 import webapp2
-
-
-
 from manejadores import Fecha, Factura1, Pliego1
 from modelos import Acometida, Factura,  Pliego
 from utils import renderutils, formatutils
@@ -28,7 +25,7 @@ class FrontHandler(renderutils.MainHandler):
     def get(self):
         # todas = Acometida.query()
         # self.render("wizardfactura.html", todas=todas)
-        mes="Enero"
+        mes = "Enero"
         self.render("template base.html", mes=mes)
         # def post(self):
         #   facultad = self.request.get("facultad")
@@ -39,8 +36,6 @@ class FrontHandler(renderutils.MainHandler):
 class HomeHandler(renderutils.MainHandler):
     def get(self):
         self.render("web-app.html")
-
-
 
 
 class AcometidaHandler(renderutils.MainHandler):
