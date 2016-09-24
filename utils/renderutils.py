@@ -48,6 +48,6 @@ class MainHandler(webapp2.RequestHandler):
 
     def obtener_fp_tr(self, toda):
         factor_potencia = float(self.request.get(toda.nombre+"_fp"))
-        trafo = float(self.request.get(toda.nombre+"trafo"))
+        trafo = float(self.request.get(toda.nombre+"_trafo"))
         lista = [factor_potencia, trafo]
         return lista
