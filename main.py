@@ -52,11 +52,18 @@ class AcometidaHandler(renderutils.MainHandler):
         self.redirect(self.request.referer)
 
 
+class GraficaHandler(renderutils.MainHandler):
+    def get(self):
+        self.render("graficas.html")
+
+
+
 app = webapp2.WSGIApplication([
     ('/', FrontHandler),
     ('/home', HomeHandler),
     ('/fecha', Fecha.FechaHandler),
     ('/pliego', Pliego1.PliegoHandler),
     ('/factura', Factura1.FacturaHandler),
-    ('/acometida', AcometidaHandler)
+    ('/acometida', AcometidaHandler),
+    ('/graficas', GraficaHandler)
 ], debug=True)

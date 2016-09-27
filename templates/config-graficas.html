@@ -1,0 +1,659 @@
+    	<script>
+
+			var chartData1 = [{
+                    "date": "2015-01",
+                    "value": 43023.76,
+					"volume":8130.67
+                }, {
+                    "date": "2015-02",
+                    "value": 52981.68,
+					"volume":9545.92
+                }, {
+                    "date": "2015-03",
+                    "value": 58055.08,
+					"volume":10460.01
+                }, {
+                    "date": "2015-04",
+                    "value": 59915.96,
+					"volume":9626.27
+                }, {
+                    "date": "2015-05",
+                    "value": 65232.07,
+					"volume":9432.21
+                }, {
+                    "date": "2015-06",
+                    "value": 61583.33,
+					"volume":8904.62
+                }, {
+                    "date": "2015-07",
+                    "value": 50136.52,
+					"volume":7481.04
+                }, {
+                    "date": "2015-08",
+                    "value": 56485.08,
+					"volume":8627.78
+                }, {
+                    "date": "2015-09",
+                    "value": 66132.32,
+					"volume":10101.35
+                }, {
+                    "date": "2015-10",
+                    "value": 60461.52,
+					"volume":9231.07
+                }, {
+                    "date": "2015-11",
+                    "value": 63605.11,
+					"volume":9707.94
+                }, {
+                    "date": "2015-12",
+                    "value": 40023.76,
+					"volume":7830.67
+                }];
+			var chartData2 = [{
+                    "date": "2015-01",
+                    "value": 40549.4,
+					"volume":7344.67
+                }, {
+                    "date": "2015-02",
+                    "value": 46804.84,
+					"volume":8109.34
+                }, {
+                    "date": "2015-03",
+                    "value": 46629.52,
+                    "volume":8089.1
+                }, {
+                    "date": "2015-04",
+                    "value": 47980.04,
+					"volume":7581.67
+                }, {
+                    "date": "2015-05",
+                    "value": 51771.87,
+					"volume":7531.04
+                }, {
+                    "date": "2015-06",
+                    "value": 49838.01,
+					"volume":7249.73
+                }, {
+                    "date": "2015-07",
+                    "value": 44844.28,
+					"volume":6737.81
+                }, {
+                    "date": "2015-08",
+                    "value": 49984.04,
+					"volume":7689.44
+                }, {
+                    "date": "2015-09",
+                    "value": 52659.33,
+					"volume":8104.6
+                },{
+                    "date": "2015-10",
+                    "value": 49078.36,
+					"volume":7393.38
+                },{
+                    "date": "2015-11",
+                    "value": 48763.67,
+					"volume":7231.15
+
+                },{
+                    "date": "2015-12",
+                     "value": 38023.76,
+					"volume":7730.67
+                }];
+			var chartData3 = [{
+                    "date": "2015-01",
+                    "value": 184106.64,
+					"volume":35314.36
+                }, {
+                    "date": "2015-02",
+                    "value": 323287.56,
+					"volume":58658.61
+                }, {
+                    "date": "2015-03",
+                    "value": 336347.12,
+					"volume":61028.19
+
+                }, {
+                    "date": "2015-04",
+                    "value": 377411.84,
+					"volume":60901.4
+                }, {
+                    "date": "2015-05",
+                    "value": 432829.5,
+					"volume":62687.11
+                }, {
+                    "date": "2015-06",
+                    "value": 394988.14,
+					"volume":57206.52
+                }, {
+                    "date": "2015-07",
+                    "value": 332747.28,
+					"volume":49875.37
+
+                }, {
+                    "date": "2015-08",
+                    "value": 335400.4,
+					"volume":51570.48
+                }, {
+                    "date": "2015-09",
+                    "value": 422235.19,
+					"volume":64922.02
+                }, {
+                    "date": "2015-10",
+                    "value": 404781.6,
+					"volume":62288.33
+                }, {
+                    "date": "2015-11",
+                    "value": 420298.56,
+					"volume":64713.56
+                }, {
+                    "date": "2015-12",
+                    "value": 154106.64,
+					"volume":30314.36
+                }];
+			var chartData4 = [{
+                    "date": "2015-01",
+                    "value": 267679.8,
+					"volume":50789.7
+                }, {
+                    "date": "2015-02",
+                    "value": 423074.08,
+					"volume":76313.87
+                }, {
+                    "date": "2015-03",
+                    "value": 441031.72,
+					"volume":79577.3
+                }, {
+                    "date": "2015-04",
+                    "value": 485307.84,
+					"volume":78109.34
+                }, {
+                    "date": "2015-05",
+                    "value": 549833.44,
+					"volume":79650.36
+                }, {
+                    "date": "2015-06",
+                    "value": 506409.48,
+					"volume":73360.87
+                }, {
+                    "date": "2015-07",
+                    "value": 427728.08,
+					"volume":64094.22
+                }, {
+                    "date": "2015-08",
+                    "value": 441869.52,
+					"volume":67887.7
+                }, {
+                    "date": "2015-09",
+                    "value": 541026.84,
+					"volume":83127.97
+                }, {
+                    "date": "2015-10",
+                    "value": 514321.48,
+					"volume":78912.78
+                }, {
+                    "date": "2015-11",
+                    "value": 532667.34,
+					"volume":81652.65
+                }, {
+                    "date": "2015-12",
+                    "value": 232154.16,
+					"volume":45875.7
+                }];
+
+
+			//noinspection JSUnresolvedFunction
+            AmCharts.makeChart("chartdiv", {
+
+				type: "stock",
+				addClassNames: true,
+
+                dataDateFormat: "YYYY-MM",
+
+
+
+				categoryAxesSettings: {
+						minPeriod: "MM"
+					},
+
+				dataSets: [{
+					title: "horario punta",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					//dataDateFormat: "YYYY-MM"
+					dataProvider: chartData1,
+					color: "#d9601a",
+
+					categoryField: "date"
+				},
+
+				{
+					title: "horario valle",
+					compared:true,
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider: chartData2,
+					color: "#b03355",
+					categoryField: "date"
+				},
+
+				{
+					title: "horario resto",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider: chartData3,
+                    color:"#2fa246",
+					categoryField: "date"
+				},
+
+				{
+					title: "energia total",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider:chartData4,
+					categoryField: "date"
+				}],
+
+				panels: [{
+					valueAxis: "value",
+					recalculateToPercents: "never",
+					showCategoryAxis: false,
+					title: "energia",
+					percentHeight: 70,
+
+
+					stockGraphs: [{
+						id: "g1",
+						type: "smoothedLine",
+						valueField: "value",
+						lineThickness: 3,
+						comparable: true,
+						compareField: "value",
+						bullet: "round",
+						//bulletBorderColor: "#FFFFFF",
+						bulletColor:"#FFFFFF",
+						bulletBorderAlpha: 0.1,
+						balloonText: "[[title]]:<b>[[value]] KW-h</b>",
+                        compareGraphType:"smoothedLine",
+						compareGraphBalloonText: "[[title]]:<b>[[value]]KW-h</b>",
+						compareGraphBullet: "round",
+						compareGraphBulletBorderColor: "#FFFFFF",
+						compareGraphBulletBorderAlpha: 1,
+                        ValueAxesSettings:{
+                        unit:"KW-h"
+                }
+
+					}],
+
+
+
+					stockLegend: {
+						//periodValueTextComparing: "[[value.close]]%",
+						//periodValueTextRegular: "[[value.close]]"
+					}
+				},
+
+				{
+					title: "Costo",
+					recalculateToPercents: "never",
+					percentHeight: 30,
+					stockGraphs: [{
+
+						valueField: "volume",
+						comparable: true,
+						compareField: "volume",
+						type: "column",
+						compareGraphType:"column",
+						compareGraphFillAlphas:1,
+						showBalloon: false,
+						fillAlphas: 1
+					}],
+
+
+					stockLegend: {
+						periodValueTextRegular: "$[[value]]"
+					}
+				}],
+
+
+
+				chartScrollbarSettings: {
+					graph: "g1",
+					updateOnReleaseOnly:false
+				},
+
+				chartCursorSettings: {
+					valueBalloonsEnabled: true,
+					valueLineEnabled:true,
+					valueLineBalloonEnabled:true
+				},
+
+				//periodSelector: {
+				//	position: "left",
+				//	periods: [{
+
+						//period: "MM",
+						//selected: true,
+						//count: 1,
+						//label: "1 month"
+				//	}, {
+				//		period: "YYYY",
+				//		count: 1,
+				//		label: "1 year"
+				//	}, {
+				//		period: "YTD",
+				//		label: "YTD"
+				//	}, {
+				//		period: "MAX",
+				//		selected: true,
+				//		label: "MAX"
+				//	}]
+				//},
+
+				dataSetSelector: {
+					position: "left"
+				},
+
+                export: {
+                    "enabled": true
+                },
+			});
+		</script>
+
+    <script>
+            //noinspection JSUnresolvedFunction
+            var chart = AmCharts.makeChart("chartdiv2", {
+  "type": "serial",
+  "theme": "light",
+  "dataDateFormat": "YYYY-MM",
+   "addClassNames": true,
+  "precision": 2,
+  "valueAxes": [{
+    "id": "v1",
+    "title": "Costo",
+    "position": "left",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return "$" + Math.round(value) + "K";
+    }
+  }, {
+    "id": "v2",
+    "title": "Energia y demanda",
+    "gridAlpha": 0,
+    "position": "right",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return Math.round(value) + "MW-h";
+  }}],
+  "graphs": [{
+    "id": "g3",
+    "valueAxis": "v1",
+    "lineColor": "#e1ede9",
+    "fillColors": "#e1ede9",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo Final",
+    "valueField": "sales2",
+    "clustered": false,
+    "columnWidth": 0.5,
+    "legendValueText": "$[[value]]K",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]K</b>"
+  }, {
+    "id": "g4",
+    "valueAxis": "v1",
+    "lineColor": "#62cf73",
+    "fillColors": "#62cf73",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo energia",
+    "valueField": "sales1",
+    "clustered": false,
+    "columnWidth": 0.3,
+    "legendValueText": "$[[value]]K",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]K</b>"
+  }, {
+    "id": "g1",
+    "valueAxis": "v1",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#20acd4",
+    "type": "smoothedLine",
+    "title": "Costo de Potencia__",
+    "useLineColorForBulletBorder": true,
+    "valueField": "market1",
+    "clustered": false,
+
+
+    "legendValueText": "$[[value]]K",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]k</b>"
+  }, {
+    "id": "g2",
+    "valueAxis": "v2",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#bed0b8",
+    "type": "smoothedLine",
+    "dashLength": 5,
+    "title": "  Energia total",
+    "useLineColorForBulletBorder": true,
+    "valueField": "market2",
+    "clustered": false,
+    "legendValueText": "[[value]]MW-h",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]MW-h</b>"
+  }],
+  "chartScrollbar": {
+    "graph": "g1",
+    "oppositeAxis": false,
+    "offset": 30,
+    "scrollbarHeight": 50,
+    "backgroundAlpha": 0,
+    "selectedBackgroundAlpha": 0.1,
+    "selectedBackgroundColor": "#888888",
+    "graphFillAlpha": 0,
+    "graphLineAlpha": 0.5,
+    "selectedGraphFillAlpha": 0,
+    "selectedGraphLineAlpha": 1,
+    "autoGridCount": true,
+    "color": "#AAAAAA"
+  },
+  "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 0.2
+  },
+  "categoryField": "date",
+  "categoryAxis": {
+	  "minPeriod": "MM",
+    "parseDates": true,
+    "dashLength": 1,
+    "minorGridEnabled": true
+  },
+  "legend": {
+    "useGraphSettings": true,
+    "position": "top"
+  },
+  "balloon": {
+    "borderThickness": 1,
+    "shadowAlpha": 0
+  },
+  "export": {
+   "enabled": true
+  },
+  "dataProvider": [{
+    "date": "2015-01",
+    "market1": 10.685,
+    "market2": 267.679,
+    "sales1": 50.789,
+    "sales2": 61.474
+  }, {
+    "date": "2015-02",
+    "market1": 14.182,
+    "market2": 423.074,
+    "sales1": 76.313,
+    "sales2": 90.496
+  }, {
+    "date": "2015-03",
+    "market1": 14.667,
+    "market2": 441.031,
+    "sales1": 79.577,
+    "sales2": 94.245
+  }, {
+    "date": "2015-04",
+    "market1": 16.357,
+    "market2": 485.307,
+    "sales1": 78.109,
+    "sales2": 94.467
+  }, {
+    "date": "2015-05",
+    "market1": 15.865,
+    "market2": 549.833,
+    "sales1": 79.650,
+    "sales2": 95.515
+  }, {
+    "date": "2015-06",
+    "market1": 15.689,
+    "market2": 506.409,
+    "sales1": 73.360,
+    "sales2": 89.050
+  }, {
+    "date": "2015-07",
+    "market1": 14.454,
+    "market2": 427.728,
+    "sales1": 64.094,
+    "sales2": 78.549
+  }, {
+    "date": "2015-08",
+    "market1": 15.836,
+    "market2": 441.869,
+    "sales1": 67.887,
+    "sales2": 83.724
+  }, {
+    "date": "2015-09",
+    "market1": 15.648,
+    "market2": 541.026,
+    "sales1": 83.127,
+    "sales2": 98.776
+  }, {
+    "date": "2015-10",
+    "market1": 17.940,
+    "market2": 514.321,
+    "sales1": 78.912,
+    "sales2": 96.853
+  }, {
+    "date": "2015-11",
+    "market1": 15.449,
+    "market2": 532.667,
+    "sales1": 81.652,
+    "sales2": 97.102
+  }, {
+    "date": "2015-12",
+    "market1": 9.854,
+    "market2": 220.964,
+    "sales1": 49.896,
+    "sales2": 59.75
+  }]
+});
+      </script>
+      <script>
+          var chart = AmCharts.makeChart("chartdiv3", {
+    "theme": "light",
+    "type": "serial",
+    "dataProvider": [{
+        "country": "USA",
+        "year2004": 3.5,
+        "year2005": 4.2
+    }, {
+        "country": "UK",
+        "year2004": 1.7,
+        "year2005": 3.1
+    }, {
+        "country": "Canada",
+        "year2004": 2.8,
+        "year2005": 2.9
+    }, {
+        "country": "Japan",
+        "year2004": 2.6,
+        "year2005": 2.3
+    }, {
+        "country": "France",
+        "year2004": 1.4,
+        "year2005": 2.1
+    }, {
+        "country": "Brazil",
+        "year2004": 2.6,
+        "year2005": 4.9
+    }],
+    "valueAxes": [{
+        "unit": "Kw",
+        "position": "left",
+        "title": "GDP growth rate",
+    }],
+    "startDuration": 1,
+    "graphs": [{
+        "balloonText": "GDP grow in [[category]] (2004): <b>[[value]]</b>",
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.2,
+        "title": "2004",
+        "type": "column",
+        "valueField": "year2004"
+    }, {
+        "balloonText": "GDP grow in [[category]] (2005): <b>[[value]]</b>",
+        "lineColor": "#e1ede9",
+        "fillColors": "#e1ede9",
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.5,
+        "title": "2005",
+        "type": "column",
+        "clustered":true,
+
+        "valueField": "year2005"
+    }],
+    "plotAreaFillAlphas": 0.1,
+    "categoryField": "country",
+    "categoryAxis": {
+        "gridPosition": "start"
+    },
+    "legend": {
+    "useGraphSettings": true,
+    "position": "top"
+  },
+  "balloon": {
+    "borderThickness": 1,
+    "shadowAlpha": 0
+  },
+    "export": {
+    	"enabled": true,
+    }
+
+});
+      </script>
+

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>| Graficas |</title>
+    <link href="static/graficas/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/graficas/css/font-awesome.min.css" rel="stylesheet">
+	<link href="static/graficas/css/main.css" rel="stylesheet">
+	<link href="static/graficas/css/animate.css" rel="stylesheet">
+	<link href="static/graficas/css/responsive.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="static/graficas/ItemTransitions/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="static/graficas/ItemTransitions/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="static/graficas/ItemTransitions/css/component.css" />
+	<link rel="stylesheet" type="text/css" href="static/graficas/ItemTransitions/css/fxfullwidth.css" />
+	<script src="static/graficas/ItemTransitions/js/modernizr.custom.js"></script>
+
+	<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="http://www.amcharts.com/lib/3/serial.js"></script>
+	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amstock.js"></script>
+    <script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
+
+
+	<style type="text/css">
+
+		.amcharts-graph-g1 .amcharts-graph-stroke {
+                stroke-dasharray: 6px 6px;
+                stroke-linejoin: round;
+                stroke-linecap: round;
+                -webkit-animation: am-moving-dashes 0.5s linear infinite;
+                animation: am-moving-dashes 0.25s linear infinite;
+            }
+
+			 @-webkit-keyframes am-moving-dashes {
+                100% {
+                    stroke-dashoffset: -20px;
+                }
+            }
+            @keyframes am-moving-dashes {
+                100% {
+                    stroke-dashoffset: -10px;
+                }
+            }
+
+			.amcharts-value-axis .amcharts-axis-grid {
+				stroke-dasharray: 10px 10px;
+				-webkit-animation: css-effect 1s linear infinite;
+				animation: css-effect 1s linear infinite;
+			}
+
+			@-webkit-keyframes css-effect {
+				100% {
+					stroke-dashoffset: -20px;
+				}
+			}
+			@keyframes css-effect {
+				100% {
+					stroke-dashoffset: -20px;
+				}
+			}
+
+.amChartsDataSetSelector
+{
+    font-size:12px;
+    font-family:verdana,helvetica,arial,sans-serif;
+}
+
+.amChartsPeriodSelector
+{
+    font-size:12px;
+    font-family:verdana,helvetica,arial,sans-serif;
+}
+
+.amChartsButtonSelected
+{
+   background-color:#CC0000;
+   border-style:solid;
+   border-color:#CC0000;
+   border-width:1px;
+   color:#FFFFFF;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   margin: 1px;
+   outline: none;
+   box-sizing: border-box;
+}
+
+.amChartsButton
+{
+    color: #000000;
+    background: transparent;
+    opacity: 0.7;
+    border: 1px solid rgba(0, 0, 0, .3);
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   margin: 1px;
+   outline: none;
+   box-sizing: border-box;
+}
+
+.amChartsCompareList
+{
+   border-style:solid;
+   border-color:#CCCCCC;
+   border-width:1px;
+}
+
+.amChartsCompareList div
+{
+   -webkit-box-sizing: initial;
+   box-sizing: initial;
+}
+
+.amChartsInputField
+{
+
+}
+
+.amChartsLegend
+{
+
+}
+
+.amChartsPanel
+{
+
+}
+		</style>
+
+    <!--[if lt IE 9]>
+	    <script src="static/graficas/js/html5shiv.js"></script>
+	    <script src="static/graficas/js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header" role="banner">		
+		<div class="main-nav">
+			<div class="container">
+				<div class="header-top">
+					<div class="pull-right social-icons">
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-google-plus"></i></a>
+						<a href="#"><i class="fa fa-youtube"></i></a>
+					</div>
+				</div>     
+		        <div class="row">	        		
+		            <div class="navbar-header">
+		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                    <span class="sr-only">Toggle navigation</span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                <a class="navbar-brand" href="index.html">
+		                	<img class="img-responsive" src="static/graficas/images/logo.png" alt="logo">
+		                </a>                    
+		            </div>
+		            <div class="collapse navbar-collapse">
+		                <ul class="nav navbar-nav navbar-right">                 
+		                    <li class="scroll active"><a href="#home">Home</a></li>
+		                    <li class="scroll"><a href="#explore">Explore</a></li>                         
+		                    <li class="scroll"><a href="#event">Event</a></li>
+		                    <li class="scroll"><a href="#about">About</a></li>                     
+		                    <li class="no-scroll"><a href="#twitter">Twitter</a></li>
+		                    <li><a class="no-scroll" href="#" target="_blank">PURCHASE TICKETS</a></li>
+		                    <li class="scroll"><a href="#contact">Contact</a></li>       
+		                </ul>
+		            </div>
+		        </div>
+	        </div>
+        </div>                    
+    </header>
+    <!--/#header--> 
+
+    <section id="home">	
+		<div id="main-slider" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
+				<li data-target="#main-slider" data-slide-to="1"></li>
+				<li data-target="#main-slider" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img class="img-responsive" src="static/graficas/images/slider/bg1.jpg" alt="slider">
+					<div class="carousel-caption">
+						<h2>register for our next event </h2>
+						<h4>full event package only @$199</h4>
+						<a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+				<div class="item">
+					<img class="img-responsive" src="static/graficas/images/slider/bg2.jpg" alt="slider">
+					<div class="carousel-caption">
+						<h2>register for our next event </h2>
+						<h4>full event package only @$199</h4>
+						<a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+				<div class="item">
+					<img class="img-responsive" src="static/graficas/images/slider/bg3.jpg" alt="slider">
+					<div class="carousel-caption">
+						<h2>register for our next event </h2>
+						<h4>full event package only @$199</h4>
+						<a href="#contact" >GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>				
+			</div>
+		</div>    	
+    </section>
+	<!--/#home-->
+
+	<section id="explore">
+		<div class="container">
+			<div class="row">
+				<div class="watch">
+					<img class="img-responsive" src="images/watch.png" alt="">
+				</div>				
+				<div class="col-md-4 col-md-offset-2 col-sm-5">
+					<h2>our next event in</h2>
+				</div>				
+				<div class="col-sm-7 col-md-6">					
+					<ul id="countdown">
+						<li>					
+							<span class="days time-font">00</span>
+							<p>days </p>
+						</li>
+						<li>
+							<span class="hours time-font">00</span>
+							<p class="">hours </p>
+						</li>
+						<li>
+							<span class="minutes time-font">00</span>
+							<p class="">minutes</p>
+						</li>
+						<li>
+							<span class="seconds time-font">00</span>
+							<p class="">seconds</p>
+						</li>				
+					</ul>
+				</div>
+			</div>
+			<div class="cart">
+				<a href="#"><i class="fa fa-shopping-cart"></i> <span>Purchase Tickets</span></a>
+			</div>
+		</div>
+	</section><!--/#explore-->
+
+	<section id="event" >
+
+					<div class="container2 demo-2"style="height: 1000px">
+
+
+				<div id="component" class="component component-fullwidth">
+					<ul class="itemwrap">
+						<li class="current">
+                        <div class="row x_title">
+                          <div class="col-md-12">
+                            <h2>Año mas reciente <br><small>2015</small></h2>
+                          </div>
+                        </div>
+                          <div id="chartdiv" style="width:100%; height:600px;"></div>
+
+						</li>
+						<li>
+                            <div class="col-md-12 col-sm-4 col-xs-12">
+                  <div class="x_title">
+                    <h2>Costos anuales <br><small>2015</small></h2>
+
+                  </div>
+                  <div id="chartdiv2" style="width:100%; height:600px;"></div>
+                </div>
+                        </li>
+						<li>
+							<div class="col-md-12 col-sm-4 col-xs-12">
+                  <div class="x_title">
+                    <h2>Costos anuales comparativa <br><small>2015</small></h2>
+
+                  </div>
+                  <div id="chartdiv3" style="width:100%; height:600px;"></div>
+                </div>
+						</li>
+					</ul>
+					<nav>
+						<a class="prev" href="#">Previous item</a>
+
+						<a class="next" href="#">Next item</a>
+					</nav>
+					<nav>
+						<br><br><br><br><br><br>
+						<div class="custom-select">
+							<select id="fxselect" name="fxselect">
+								<option value="-1" selected>Choose an effect...</option>
+								<option value="fxSoftScale">Soft scale</option>
+								<option value="fxPressAway">Press away</option>
+								<option value="fxSideSwing">Side Swing</option>
+								<option value="fxFortuneWheel">Fortune wheel</option>
+								<option value="fxSwipe">Swipe</option>
+								<option value="fxPushReveal">Push reveal</option>
+								<option value="fxSnapIn">Snap in</option>
+								<option value="fxLetMeIn">Let me in</option>
+								<option value="fxStickIt">Stick it</option>
+								<option value="fxArchiveMe">Archive me</option>
+								<option value="fxVGrowth">Vertical growth</option>
+								<option value="fxSlideBehind">Slide Behind</option>
+								<option value="fxSoftPulse">Soft Pulse</option>
+								<option value="fxEarthquake">Earthquake</option>
+								<option value="fxCliffDiving">Cliff diving</option>
+							</select>
+						</div>
+					</nav>
+				</div>
+
+			<br><br><br><br><br><br><br><br>
+
+		</div><!-- /container -->
+
+
+
+
+	</section><!--/#event-->
+
+	<section id="about">
+		<div class="guitar2">				
+			<img class="img-responsive" src="images/guitar2.jpg" alt="guitar">
+		</div>
+		<div class="about-content">					
+					<h2>About Evento</h2>
+					<p>We have created an extremely positive and relaxed environment all geared towards developing your skills whether you are an absolute beginner trying to get off the ground or an accomplished player looking to move to the next level. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+					<a href="#" class="btn btn-primary">View Date & Place <i class="fa fa-angle-right"></i></a>
+				
+		</div>
+	</section><!--/#about-->
+	
+
+	
+	<section id="sponsor">
+		<div id="sponsor-carousel" class="carousel slide" data-interval="false">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-10">
+						<h2>Sponsors</h2>
+						<a class="sponsor-control-left" href="#sponsor-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+						<a class="sponsor-control-right" href="#sponsor-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+						<div class="carousel-inner">
+							<div class="item active">
+								<ul>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor1.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor2.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor3.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor4.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor5.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor6.png" alt=""></a></li>
+								</ul>
+							</div>
+							<div class="item">
+								<ul>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor6.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor5.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor4.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor3.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor2.png" alt=""></a></li>
+									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor1.png" alt=""></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="light">
+				<img class="img-responsive" src="images/light.png" alt="">
+			</div>
+		</div>
+	</section><!--/#sponsor-->
+
+	<section id="contact">
+		<div id="map">
+			<div id="gmap-wrap">
+	 			<div id="gmap"> 				
+	 			</div>	 			
+	    	</div>
+		</div><!--/#map-->
+		<div class="contact-section">
+			<div class="ear-piece">
+				<img class="img-responsive" src="images/ear-piece.png" alt="">
+			</div>
+
+		</div>		
+	</section>
+    <!--/#contact-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="text-center">
+                <p> Copyright  &copy;2014<a target="_blank" href="http://shapebootstrap.net/"> Evento </a>Theme. All Rights Reserved. <br> Designed by <a target="_blank" href="http://shapebootstrap.net/">ShapeBootstrap</a></p>                
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+  
+    <script type="text/javascript" src="static/graficas/js/jquery.js"></script>
+    <script type="text/javascript" src="static/graficas/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  	<script type="text/javascript" src="static/graficas/js/gmaps.js"></script>
+	<script type="text/javascript" src="static/graficas/js/smoothscroll.js"></script>
+    <script type="text/javascript" src="static/graficas/js/jquery.parallax.js"></script>
+    <script type="text/javascript" src="static/graficas/js/coundown-timer.js"></script>
+    <script type="text/javascript" src="static/graficas/js/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="static/graficas/js/jquery.nav.js"></script>
+    <script type="text/javascript" src="static/graficas/js/main.js"></script>
+	<script src="static/graficas/ItemTransitions/js/classie.js"></script>
+	<script src="static/graficas/ItemTransitions/js/main.js"></script>
+
+
+	{%include "config-graficas.html"%}
+</body>
+</html>
