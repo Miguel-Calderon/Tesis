@@ -1,4 +1,4 @@
-from modelos import Fecha, Acometida, Factura
+from modelos import Fecha, Acometida, Factura, YearT
 from utils import renderutils, formatutils
 from google.appengine.ext import ndb
 
@@ -19,9 +19,10 @@ class FacturaHandler(renderutils.MainHandler):
         fecha_key = ndb.Key(Fecha, self.request.get("fecha"))
         fecha = fecha_key.get()
         todas = Acometida.query()
-        total_mes = [0, 0, 0, 0, 0, 0]
+        total_mes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
         for toda in todas:
+            # en la lista se almacena primero la energia, luego el dinero y por ultimo el valor calculado
             punta_L = self.obtener_valores_punta(toda)
             valle_L = self.obtener_valores_valle(toda)
             resto_L = self.obtener_valores_resto(toda)
@@ -35,6 +36,9 @@ class FacturaHandler(renderutils.MainHandler):
             # pot_L = formatutils.calculo_costo(fecha, potencia, "potencia")
             # **********************************************************************************
             total_aco = formatutils.total_acometida(punta_L, valle_L, resto_L, pot_L)
+            # suma_total= [kw/h total, $ eneria total, punta[Energia,Dinero,Calculo], valle[Energia,Dinero,Calculo],
+            #              resto[Energia,Dinero,calculo], potencia[kw, $pot, #calculado]]
+            total_guardar = [total_aco[0], total_aco[1], pot_L[0], pot_L[1]]
             total_mes = formatutils.total_mes(total_aco, total_mes)
             acometida_key = ndb.Key(Acometida, toda.nombre)
             acometida_id = self.request.get("fecha")+toda.nombre
@@ -45,23 +49,16 @@ class FacturaHandler(renderutils.MainHandler):
                                  Valle_Lista=valle_L,
                                  Resto_Lista=resto_L,
                                  Potencia_Lista=pot_L,
-                                 ftotal=total_aco,
+                                 ftotal=total_guardar,
                                  f_pot_tr=fp_tr)
-            nu_factura.put()
+            # nu_factura.put()
 
-        self.response.out.write(total_mes)
-        # acometida = self.request.get("Acometida")
-        # nu_factura = Factura(pico_E=float(self.request.get("pico_E")),
-                             # valle_E=float(self.request.get("valle_E")),
-                             # resto_E=float(self.request.get("resto_E")),
-                             # potencia_E=float(self.request.get("potencia_E")),
-                             # json_E=list(self.request.get("json_E")),
-                             # pico_D=float(self.request.get("pico_D")),
-                             # valle_D=float(self.request.get("valle_D")),
-                             # resto_D=float(self.request.get("resto_D")),
-                             # potencia_D=float(self.request.get("potencia_D")),
-                             # json_D=list(self.request.get("json_D")),
-                             # ftotal=float(self.request.get("ftotal")),
-                             # nombre=acometida)  # incluir tratamiento de acometida
-
-
+        year_entity = formatutils.obtener_entity(YearT, fecha.inicio.year)
+        if year_entity:
+            new_entity = formatutils.actualizar_year(fecha.inicio, total_mes, year_entity)
+            new_entity.put()
+            self.response.out.write(new_entity)
+        else:
+            year_entity = formatutils.crear_year(fecha.inicio, total_mes)
+            year_entity.put()
+            self.response.out.write(year_entity)

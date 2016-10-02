@@ -16,7 +16,7 @@
 #
 
 import webapp2
-from manejadores import Fecha, Factura1, Pliego1
+from manejadores import Fecha, Factura1, Pliego1, Graficas1, tabla1
 from modelos import Acometida, Factura,  Pliego
 from utils import renderutils, formatutils
 
@@ -52,9 +52,7 @@ class AcometidaHandler(renderutils.MainHandler):
         self.redirect(self.request.referer)
 
 
-class GraficaHandler(renderutils.MainHandler):
-    def get(self):
-        self.render("graficas.html")
+
 
 
 
@@ -65,5 +63,6 @@ app = webapp2.WSGIApplication([
     ('/pliego', Pliego1.PliegoHandler),
     ('/factura', Factura1.FacturaHandler),
     ('/acometida', AcometidaHandler),
-    ('/graficas', GraficaHandler)
+    ('/graficas', Graficas1.GraficaHandler),
+    ('/tabla', tabla1.TablaHandler)
 ], debug=True)

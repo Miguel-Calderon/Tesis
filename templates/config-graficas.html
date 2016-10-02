@@ -373,9 +373,9 @@
 					position: "left"
 				},
 
-                export: {
+                "export": {
                     "enabled": true
-                },
+                }
 			});
 		</script>
 
@@ -386,6 +386,7 @@
   "theme": "light",
   "dataDateFormat": "YYYY-MM",
    "addClassNames": true,
+  "fontSize":16,
   "precision": 2,
   "valueAxes": [{
     "id": "v1",
@@ -397,7 +398,7 @@
     }
   }, {
     "id": "v2",
-    "title": "Energia y demanda",
+    "title": "Energia ",
     "gridAlpha": 0,
     "position": "right",
     "autoGridCount": false,
@@ -412,7 +413,7 @@
     "fillAlphas": 1,
     "type": "column",
     "title": "Costo Final",
-    "valueField": "sales2",
+    "valueField": "DineroTT",
     "clustered": false,
     "columnWidth": 0.5,
     "legendValueText": "$[[value]]K",
@@ -425,7 +426,7 @@
     "fillAlphas": 1,
     "type": "column",
     "title": "Costo energia",
-    "valueField": "sales1",
+    "valueField": "EnergiaD",
     "clustered": false,
     "columnWidth": 0.3,
     "legendValueText": "$[[value]]K",
@@ -443,10 +444,8 @@
     "type": "smoothedLine",
     "title": "Costo de Potencia__",
     "useLineColorForBulletBorder": true,
-    "valueField": "market1",
+    "valueField": "potenciaD",
     "clustered": false,
-
-
     "legendValueText": "$[[value]]K",
     "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]k</b>"
   }, {
@@ -463,7 +462,7 @@
     "dashLength": 5,
     "title": "  Energia total",
     "useLineColorForBulletBorder": true,
-    "valueField": "market2",
+    "valueField": "EnergiaT",
     "clustered": false,
     "legendValueText": "[[value]]MW-h",
     "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]MW-h</b>"
@@ -476,7 +475,7 @@
     "backgroundAlpha": 0,
     "selectedBackgroundAlpha": 0.1,
     "selectedBackgroundColor": "#888888",
-    "graphFillAlpha": 0,
+    "graphFillAlpha": 0.2,
     "graphLineAlpha": 0.5,
     "selectedGraphFillAlpha": 0,
     "selectedGraphLineAlpha": 1,
@@ -488,7 +487,7 @@
     "valueLineEnabled": true,
     "valueLineBalloonEnabled": true,
     "cursorAlpha": 0,
-    "valueLineAlpha": 0.2
+    "valueLineAlpha": 1.5
   },
   "categoryField": "date",
   "categoryAxis": {
@@ -502,158 +501,350 @@
     "position": "top"
   },
   "balloon": {
-    "borderThickness": 1,
+    "borderThickness": 3,
     "shadowAlpha": 0
   },
   "export": {
    "enabled": true
   },
-  "dataProvider": [{
-    "date": "2015-01",
-    "market1": 10.685,
-    "market2": 267.679,
-    "sales1": 50.789,
-    "sales2": 61.474
-  }, {
-    "date": "2015-02",
-    "market1": 14.182,
-    "market2": 423.074,
-    "sales1": 76.313,
-    "sales2": 90.496
-  }, {
-    "date": "2015-03",
-    "market1": 14.667,
-    "market2": 441.031,
-    "sales1": 79.577,
-    "sales2": 94.245
-  }, {
-    "date": "2015-04",
-    "market1": 16.357,
-    "market2": 485.307,
-    "sales1": 78.109,
-    "sales2": 94.467
-  }, {
-    "date": "2015-05",
-    "market1": 15.865,
-    "market2": 549.833,
-    "sales1": 79.650,
-    "sales2": 95.515
-  }, {
-    "date": "2015-06",
-    "market1": 15.689,
-    "market2": 506.409,
-    "sales1": 73.360,
-    "sales2": 89.050
-  }, {
-    "date": "2015-07",
-    "market1": 14.454,
-    "market2": 427.728,
-    "sales1": 64.094,
-    "sales2": 78.549
-  }, {
-    "date": "2015-08",
-    "market1": 15.836,
-    "market2": 441.869,
-    "sales1": 67.887,
-    "sales2": 83.724
-  }, {
-    "date": "2015-09",
-    "market1": 15.648,
-    "market2": 541.026,
-    "sales1": 83.127,
-    "sales2": 98.776
-  }, {
-    "date": "2015-10",
-    "market1": 17.940,
-    "market2": 514.321,
-    "sales1": 78.912,
-    "sales2": 96.853
-  }, {
-    "date": "2015-11",
-    "market1": 15.449,
-    "market2": 532.667,
-    "sales1": 81.652,
-    "sales2": 97.102
-  }, {
-    "date": "2015-12",
-    "market1": 9.854,
-    "market2": 220.964,
-    "sales1": 49.896,
-    "sales2": 59.75
-  }]
+  "dataProvider":{{ datos3 | safe }}
 });
       </script>
       <script>
-          var chart = AmCharts.makeChart("chartdiv3", {
+    var chart2 = AmCharts.makeChart("chartdiv3", {
     "theme": "light",
     "type": "serial",
-    "dataProvider": [{
-        "country": "USA",
-        "year2004": 3.5,
-        "year2005": 4.2
-    }, {
-        "country": "UK",
-        "year2004": 1.7,
-        "year2005": 3.1
-    }, {
-        "country": "Canada",
-        "year2004": 2.8,
-        "year2005": 2.9
-    }, {
-        "country": "Japan",
-        "year2004": 2.6,
-        "year2005": 2.3
-    }, {
-        "country": "France",
-        "year2004": 1.4,
-        "year2005": 2.1
-    }, {
-        "country": "Brazil",
-        "year2004": 2.6,
-        "year2005": 4.9
-    }],
+    "dataProvider":{{ datos | safe }},
     "valueAxes": [{
-        "unit": "Kw",
+        "unit": "Kw/h",
         "position": "left",
-        "title": "GDP growth rate",
+        "title": "ENERGIA DEMANDADA"
     }],
-    "startDuration": 1,
+    "startDuration": 0,
     "graphs": [{
-        "balloonText": "GDP grow in [[category]] (2004): <b>[[value]]</b>",
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
         "fillAlphas": 0.9,
         "lineAlpha": 0.2,
         "title": "2004",
         "type": "column",
         "valueField": "year2004"
     }, {
-        "balloonText": "GDP grow in [[category]] (2005): <b>[[value]]</b>",
-        "lineColor": "#e1ede9",
-        "fillColors": "#e1ede9",
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
+        "lineColor": "#B8860B",
+        "fillColors": "#B8860B",
         "fillAlphas": 0.9,
         "lineAlpha": 0.5,
-        "title": "2005",
+        "title": {{ titulo[0] }},
         "type": "column",
         "clustered":true,
+        "valueField": "year2005"
+    },{
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
 
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.5,
+        "title": {{ titulo[1] }},
+        "type": "column",
+        "clustered":true,
+        "valueField": "year2005"
+    },{
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
+
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.5,
+        "title": {{ titulo[2] }},
+        "type": "column",
+        "clustered":true,
         "valueField": "year2005"
     }],
+    "depth3D": 15,
+	"angle": 35,
+    "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "avoidBalloonOverlapping": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 1.5
+    },
     "plotAreaFillAlphas": 0.1,
-    "categoryField": "country",
+    "categoryField": "mes",
     "categoryAxis": {
         "gridPosition": "start"
     },
     "legend": {
     "useGraphSettings": true,
-    "position": "top"
+    "position": "top",
+    "valueText":"[[value]] Kw/h"
   },
   "balloon": {
-    "borderThickness": 1,
-    "shadowAlpha": 0
+    "borderThickness": 3,
+    "shadowAlpha": 0,
+    "fontSize": 16
   },
     "export": {
-    	"enabled": true,
+    	"enabled": true
     }
 
 });
+function selectDataset(d) {
+    chart2.dataProvider = chartcambio[d];
+    chart2.validateData();
+    chart2.animateAgain();
+}
+
       </script>
 
+<script>
+var chart3 = AmCharts.makeChart("chartdiv4", {
+    "theme": "light",
+    "type": "serial",
+    "dataProvider":{{ datos | safe }},
+    "valueAxes": [{
+        "unit": "$",
+        "unitPosition":"left",
+        "position": "left",
+        "title": "ENERGIA DEMANDADA"
+    }],
+    "startDuration": 0,
+    "graphs": [{
+        "balloonText": "[[category]] [[title]]: <br> <b>$[[value]]</b>",
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.2,
+        "title": "2004",
+        "type": "column",
+        "valueField": "year1"
+    }, {
+        "balloonText": "[[category]] [[title]]: <br> <b>$[[value]]</b>",
+        "lineColor": "#B8860B",
+        "fillColors": "#B8860B",
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.5,
+        "title": {{ titulo[0] }},
+        "type": "column",
+        "clustered":true,
+        "valueField": "year2"
+    },{
+        "balloonText": "[[category]] [[title]]: <br> <b>$[[value]]</b>",
+
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.5,
+        "title": {{ titulo[1] }},
+        "type": "column",
+        "clustered":true,
+        "valueField": "year3"
+    },{
+        "balloonText": "[[category]] [[title]]: <br> <b>$[[value]]</b>",
+
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.5,
+        "title": {{ titulo[2] }},
+        "type": "column",
+        "clustered":true,
+        "valueField": "year4"
+    }],
+    "depth3D": 15,
+	"angle": 35,
+    "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "avoidBalloonOverlapping": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 1.5
+    },
+    "plotAreaFillAlphas": 0.1,
+    "categoryField": "mes",
+    "categoryAxis": {
+        "gridPosition": "start"
+    },
+    "legend": {
+    "useGraphSettings": true,
+    "position": "top",
+    "valueText":"$ [[value]]"
+  },
+  "balloon": {
+    "borderThickness": 3,
+    "shadowAlpha": 0,
+    "fontSize": 16
+  },
+    "export": {
+    	"enabled": true
+    }
+
+});
+
+</script>
+
+<script>
+    var chart = AmCharts.makeChart("chartdiv5", {
+    "theme": "light",
+    "type": "serial",
+    "dataDateFormat": "YYYY-MM",
+    "dataProvider": [{
+        "date": "2004-1",
+        "trucks": 40000,
+        "SUVs": 180000,
+        "cars": 90000,
+        "total": 310000
+    }, {
+        "date": "2004-2",
+        "trucks": 90000,
+        "SUVs": 40000,
+        "cars": 110000,
+        "total": 240000
+    }, {
+        "date": "2004-3",
+        "trucks": 30000,
+        "SUVs": 50000,
+        "cars": 110000,
+        "total": 190000
+    },{
+        "date": "2004-4",
+        "trucks": 40000,
+        "SUVs": 180000,
+        "cars": 90000,
+        "total": 310000
+    }, {
+        "date": "2004-5",
+        "trucks": 90000,
+        "SUVs": 40000,
+        "cars": 110000,
+        "total": 240000
+    }, {
+        "date": "2004-6",
+        "trucks": 30000,
+        "SUVs": 50000,
+        "cars": 110000,
+        "total": 190000
+    },{
+        "date": "2004-7",
+        "trucks": 40000,
+        "SUVs": 180000,
+        "cars": 90000,
+        "total": 310000
+    }, {
+        "date": "2004-8",
+        "trucks": 90000,
+        "SUVs": 40000,
+        "cars": 110000,
+        "total": 240000
+    }, {
+        "date": "2004-9",
+        "trucks": 30000,
+        "SUVs": 50000,
+        "cars": 110000,
+        "total": 190000
+    },{
+        "date": "2004-10",
+        "trucks": 40000,
+        "SUVs": 180000,
+        "cars": 90000,
+        "total": 310000
+    }, {
+        "date": "2004-11",
+        "trucks": 90000,
+        "SUVs": 40000,
+        "cars": 110000,
+        "total": 240000
+    }, {
+        "date": "2004-12",
+        "trucks": 30000,
+        "SUVs": 50000,
+        "cars": 110000,
+        "total": 190000
+    },{
+        "date": "2005-1",
+        "trucks": 40000,
+        "SUVs": 180000,
+        "cars": 90000,
+        "total": 310000
+    }, {
+        "date": "2005-2",
+        "trucks": 90000,
+        "SUVs": 40000,
+        "cars": 110000,
+        "total": 240000
+    }, {
+        "date": "2005-3",
+        "trucks": 30000,
+        "SUVs": 50000,
+        "cars": 110000,
+        "total": 190000
+    }],
+
+
+    "categoryField": "date",
+  "chartScrollbar": {
+
+    "oppositeAxis": false,
+    "offset": 30,
+    "scrollbarHeight": 50,
+    "backgroundAlpha": 0,
+    "selectedBackgroundAlpha": 0.1,
+    "selectedBackgroundColor": "#888888",
+    "graphFillAlpha": 0,
+    "graphLineAlpha": 0.5,
+    "selectedGraphFillAlpha": 0,
+    "selectedGraphLineAlpha": 1,
+    "autoGridCount": true,
+    "color": "#AAAAAA"
+  },
+
+    "categoryAxis": {
+        "parseDates": true,
+        "minPeriod": "MM",
+
+        "gridAlpha": 1,
+        "axisAlpha": 1,
+        "widthField": "total",
+        "gridPosition": "start",
+         "equalSpacing":true
+    },
+     "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 1.5
+  },
+
+    "valueAxes": [{
+        "stackType": "100% stacked",
+        "gridAlpha": 0.1,
+        "unit": "%",
+        "axisAlpha": 0
+    }],
+
+    "graphs": [
+        {
+            "title": "Trucks",
+            "labelText": "$[[value]]",
+            "valueField": "trucks",
+            "type": "column",
+            "fillAlphas": 1
+        }, {
+            "title": "SUVs",
+            "labelText": "$[[value]]",
+            "valueField": "SUVs",
+            "type": "column",
+            "fillAlphas": 1
+
+        },
+
+        {
+            "title": "Cars",
+            "labelText": "$[[value]]",
+            "valueField": "cars",
+            "type": "column",
+            "fillAlphas": 1
+        }
+    ],
+
+    "legend": {},
+    "export":
+     {
+     "enabled":true
+     }
+});
+</script>
