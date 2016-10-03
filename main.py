@@ -16,21 +16,9 @@
 #
 
 import webapp2
-from manejadores import Fecha, Factura1, Pliego1, Graficas1, tabla1
-from modelos import Acometida, Factura,  Pliego
-from utils import renderutils, formatutils
-
-
-class FrontHandler(renderutils.MainHandler):
-    def get(self):
-        # todas = Acometida.query()
-        # self.render("wizardfactura.html", todas=todas)
-        mes = "Enero"
-        self.render("template base.html", mes=mes)
-        # def post(self):
-        #   facultad = self.request.get("facultad")
-        #  year = self.request.get("year")
-        #  self.render("prueba3.html",year=year)
+from manejadores import Fecha, Factura1, Pliego1, Graficas1, tabla1, Front1
+from modelos import Acometida
+from utils import renderutils
 
 
 class HomeHandler(renderutils.MainHandler):
@@ -52,12 +40,8 @@ class AcometidaHandler(renderutils.MainHandler):
         self.redirect(self.request.referer)
 
 
-
-
-
-
 app = webapp2.WSGIApplication([
-    ('/', FrontHandler),
+    ('/', Front1.FrontHandler),
     ('/home', HomeHandler),
     ('/fecha', Fecha.FechaHandler),
     ('/pliego', Pliego1.PliegoHandler),

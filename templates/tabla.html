@@ -3,18 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.ico">
+
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <!--   Style  de tabla  -->
+	<link rel="stylesheet" type="text/css" href="static/tabla/DataTables/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/tabla/DataTables/assets/css/fresh-datatables.css">
+
+	<!--   Fonts   -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+    <!-- elementos de navbar -->
+	<link rel="stylesheet" href="static/tabla/navigation/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="static/tabla/navigation/css/style.css"> <!-- Resource style -->
+	<script src="static/tabla/navigation/js/modernizr.js"></script> <!-- Modernizr -->
   	
-	<title>3D Rotating Navigation | CodyHouse</title>
+	<title>| Tabla |</title>
 </head>
-<body>
+<body class="bootstrap-table">
 	<header class="cd-header">
-		<a href="#0" class="cd-logo"><img src="img/cd-logo.svg" alt="Logo"></a>
+		<a href="#0" class="cd-logo"><img src="static/tabla/navigation/img/cd-logo.svg" alt="Logo"></a>
 		<a href="#0" class="cd-3d-nav-trigger">
 			Menu
 			<span></span>
@@ -22,36 +33,161 @@
 	</header> <!-- .cd-header -->
 	
 	<main>
-		<h1>3D Rotating Navigation</h1>
-		<!-- all your content here -->
-	</main>
+		<div class="row">
+		<div class="fresh-datatables full-color-blue full-screen-table">
+			<!--    Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange, full-color-purple, full-color-gray
+					Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange, toolbar-color-purple, toolbar-color-gray
+			-->
+			<table id="fresh-datatables" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+				<thead>
+                    <tr>
+                    <th colspan="15" style="text-align: center">Acometida</th>
+                    </tr>
+                    <tr>
+                    <th rowspan="2">Fecha</th>
+                    <th colspan="3" style="text-align: center">Punta</th>
+                    <th colspan="3" style="text-align: center">Valle</th>
+                    <th colspan="3" style="text-align: center">Resto</th>
+                    <th colspan="3" style="text-align: center">Potencia</th>
+                    <th rowspan="2">Fp</th>
+                    <th rowspan="2">Transfo</th>
+                    </tr>
+					<tr>
+						<th>Kw/h</th>
+						<th>$</th>
+                        <th>Calculo</th>
+                        <th>Kw/h</th>
+						<th>$</th>
+                        <th>Calculo</th>
+                        <th>Kw/h</th>
+						<th>$</th>
+                        <th>Calculo</th>
+                        <th>Kw</th>
+						<th>$</th>
+                        <th>Calculo</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+                        <th>ID</th>
+						<th>Energia</th>
+						<th>Dinero</th>
+                        <th>Calculo</th>
+                        <th>Energia</th>
+						<th>Dinero</th>
+                        <th>Calculo</th>
+                        <th>Energia</th>
+						<th>Dinero</th>
+                        <th>Calculo</th>
+                        <th>Energia</th>
+						<th>Dinero</th>
+                        <th>Calculo</th>
+                        <th>Fp</th>
+                        <th>Transfo</th>
+					</tr>
+				</tfoot>
+				<tbody>
+                    <tr>
+                    {% for elemento in lista %}
+                        <td>{{ elemento.Fecha_Key }}</td>
+						<td>{{ elemento.Punta_Lista[0] }}</td>
+                        <td>{{ elemento.Punta_Lista[1] }}</td>
+                        <td>{{ elemento.Punta_Lista[2] }}</td>
+                        <td>{{ elemento.Valle_Lista[0] }}</td>
+                        <td>{{ elemento.Valle_Lista[1] }}</td>
+                        <td>{{ elemento.Valle_Lista[2] }}</td>
+                        <td>{{ elemento.Resto_Lista[0] }}</td>
+                        <td>{{ elemento.Resto_Lista[1] }}</td>
+                        <td>{{ elemento.Resto_Lista[2] }}</td>
+                        <td>{{ elemento.Potencia_Lista[0] }}</td>
+                        <td>{{ elemento.Potencia_Lista[1] }}</td>
+                        <td>{{ elemento.Potencia_Lista[2] }}</td>
+                        <td>{{ elemento.f_pot_tr[0] }}</td>
+                        <td>{{ elemento.f_pot_tr[1] }}</td>
+                    {% endfor %}
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
+
+
+
+    </main>
 	
-	<nav class="cd-3d-nav-container">
+
+
+
+    <nav class="cd-3d-nav-container">
 		<ul class="cd-3d-nav">
 			<li class="cd-selected">
-				<a href="#0">Dashboard</a>
+				<a href="/">Home</a>
 			</li>
 
 			<li>
-				<a href="#0">Projects</a>
+				<a href="/graficas">Graficas</a>
 			</li>
 
 			<li>
-				<a href="#0">Images</a>
+				<a href="#0">Ingreso de datos</a>
 			</li>
 
 			<li>
-				<a href="#0">Settings</a>
+				<a href="#0">Git Hub</a>
 			</li>
 
 			<li>
-				<a href="#0">New</a>
+				<a href="#0">Dropbox</a>
 			</li>
 		</ul> <!-- .cd-3d-nav -->
 
 		<span class="cd-marker color-1"></span>	
 	</nav> <!-- .cd-3d-nav-container -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="static/tabla/navigation/js/jquery-2.1.1.js"></script>
+<script src="static/tabla/navigation/js/main.js"></script> <!-- Resource jQuery -->
+
+<script src="static/tabla/DataTables/assets/js/jquery.js"></script>
+<script src="static/tabla/DataTables/assets/js/jquery.datatables.js"></script>
+<script>
+
+$(document).ready(function() {
+	$('#fresh-datatables').DataTable({
+		"pagingType": "full_numbers",
+		"lengthMenu": [[15, 20, 50, -1], [15, 20, 50, "All"]],
+		responsive: true,
+		language: {
+		search: "_INPUT_",
+		searchPlaceholder: "Buscar Elemento"
+		}
+
+	});
+
+
+	var table = $('#fresh-datatables').DataTable();
+    // Edit record
+    table.on( 'click', '.edit', function () {
+		$tr = $(this).closest('tr');
+
+		var data = table.row($tr).data();
+		alert( 'You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.' );
+    } );
+
+    // Delete a record
+    table.on( 'click', '.remove', function (e) {
+		$tr = $(this).closest('tr');
+		table.row($tr).remove().draw();
+		e.preventDefault();
+    } );
+
+	//Like record
+	table.on( 'click', '.like', function () {
+		alert('You clicked on Like button');
+    } );
+});
+
+</script>
 </body>
 </html>

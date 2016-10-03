@@ -13,9 +13,9 @@ class Acometida(ndb.Model):
 
 
 class Factura(ndb.Model):
-    Fecha_Key = ndb.KeyProperty()
+    Fecha_Key = ndb.StringProperty()
     Pliego_A = ndb.KeyProperty()
-    Aco_Key = ndb.KeyProperty()
+    Aco_Key = ndb.StringProperty()
     Punta_Lista = ndb.FloatProperty('P', repeated=True)
     Valle_Lista = ndb.FloatProperty('V', repeated=True)
     Resto_Lista = ndb.FloatProperty('R', repeated=True)

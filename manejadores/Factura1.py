@@ -40,10 +40,10 @@ class FacturaHandler(renderutils.MainHandler):
             #              resto[Energia,Dinero,calculo], potencia[kw, $pot, #calculado]]
             total_guardar = [total_aco[0], total_aco[1], pot_L[0], pot_L[1]]
             total_mes = formatutils.total_mes(total_aco, total_mes)
-            acometida_key = ndb.Key(Acometida, toda.nombre)
+            # acometida_key = ndb.Key(Acometida, toda.nombre)
             acometida_id = self.request.get("fecha")+toda.nombre
-            nu_factura = Factura(Fecha_Key=fecha_key,
-                                 Aco_Key=acometida_key,
+            nu_factura = Factura(Fecha_Key=self.request.get("fecha"),
+                                 Aco_Key=toda.nombre,
                                  id=acometida_id,
                                  Punta_Lista=punta_L,
                                  Valle_Lista=valle_L,
@@ -51,7 +51,7 @@ class FacturaHandler(renderutils.MainHandler):
                                  Potencia_Lista=pot_L,
                                  ftotal=total_guardar,
                                  f_pot_tr=fp_tr)
-            # nu_factura.put()
+            nu_factura.put()
 
         year_entity = formatutils.obtener_entity(YearT, fecha.inicio.year)
         if year_entity:

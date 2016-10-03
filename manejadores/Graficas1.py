@@ -1,20 +1,21 @@
 from utils import renderutils, formatutils
 from modelos import YearT
-import datetime
+# import datetime
 
 
 class GraficaHandler(renderutils.MainHandler):
     def get(self):
         primer_year = formatutils.obtener_entity(YearT, 2004)
+
         # busca en la base de datos  la entity perteneciente al 2004
         resultado = formatutils.obtener_year(primer_year, "EnergiaT")
         resultadoD = formatutils.obtener_year(primer_year, "EnergiaD")
-        date_ahora = datetime.date.today().year
-        segundo_year = formatutils.obtener_entity(YearT, date_ahora)
+        # date_ahora = datetime.date.today().year
+        # segundo_year = formatutils.obtener_entity(YearT, date_ahora)
         # resultado2 = formatutils.obtener_year(segundo_year, "Energia")
 
         orientacion = formatutils.obtener_meses("cadena")
-
+        datos2 = list()
         datos1 = list()
         for elemento in orientacion:
             datos1.append({
@@ -24,9 +25,6 @@ class GraficaHandler(renderutils.MainHandler):
                 "year3": resultado[elemento],
                 "year4": resultado[elemento]
             })
-
-        datos2 = list()
-        for elemento in orientacion:
             datos2.append({
                 "mes": elemento,
                 "year1": resultadoD[elemento],
@@ -34,9 +32,15 @@ class GraficaHandler(renderutils.MainHandler):
                 "year3": resultadoD[elemento],
                 "year4": resultadoD[elemento]
             })
+
         orientacion2 = formatutils.obtener_meses("entero")
         todos_year = YearT.query().order(YearT.nombre)
         datos3 = list()
+        datos4 = list()
+        datos_punta = list()
+        datos_valle = list()
+        datos_resto = list()
+        datos_total = list()
         for year in todos_year:
             for mes in orientacion2:
                 datos3.append({
@@ -46,6 +50,33 @@ class GraficaHandler(renderutils.MainHandler):
                     "EnergiaD": formatutils.obtener_month(year, mes, "EnergiaD"),
                     "DineroTT": formatutils.obtener_month(year, mes, "EnergiaD") + formatutils.obtener_month(year, mes,
                                                                                                              "PotD")
+                })
+                datos4.append({
+                    "date": str(year.nombre) + "-" + mes,
+                    "potenciaD": formatutils.obtener_month(year, mes, "PotD"),
+                    "PuntaD": formatutils.obtener_month(year, mes, "PuntaD"),
+                    "ValleD": formatutils.obtener_month(year, mes, "ValleD"),
+                    "RestoD": formatutils.obtener_month(year, mes, "RestoD")
+                })
+                datos_punta.append({
+                    "date": str(year.nombre) + "-" + mes,
+                    "value": formatutils.obtener_month(year, mes, "PuntaE"),
+                    "volume": formatutils.obtener_month(year, mes, "PuntaD")
+                })
+                datos_valle.append({
+                    "date": str(year.nombre) + "-" + mes,
+                    "value": formatutils.obtener_month(year, mes, "ValleE"),
+                    "volume": formatutils.obtener_month(year, mes, "ValleD")
+                })
+                datos_resto.append({
+                    "date": str(year.nombre) + "-" + mes,
+                    "value": formatutils.obtener_month(year, mes, "RestoE"),
+                    "volume": formatutils.obtener_month(year, mes, "RestoD")
+                })
+                datos_total.append({
+                    "date": str(year.nombre) + "-" + mes,
+                    "value": formatutils.obtener_month(year, mes, "EnergiaT"),
+                    "volume": formatutils.obtener_month(year, mes, "EnergiaD")
                 })
 
         datos = [{
@@ -118,4 +149,4 @@ class GraficaHandler(renderutils.MainHandler):
 
         titulo = ["2005", "2006", "2007"]
         self.render("graficas.html", datos=datos, titulo=titulo, datos3=datos3)
-        # self.response.out.write(datos3)
+        #self.response.out.write(datos_punta)
