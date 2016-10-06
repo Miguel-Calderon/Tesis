@@ -43,6 +43,7 @@ class FacturaHandler(renderutils.MainHandler):
             # acometida_key = ndb.Key(Acometida, toda.nombre)
             acometida_id = self.request.get("fecha")+toda.nombre
             nu_factura = Factura(Fecha_Key=self.request.get("fecha"),
+                                 Fecha_dt=fecha.inicio,
                                  Aco_Key=toda.nombre,
                                  id=acometida_id,
                                  Punta_Lista=punta_L,
@@ -52,6 +53,9 @@ class FacturaHandler(renderutils.MainHandler):
                                  ftotal=total_guardar,
                                  f_pot_tr=fp_tr)
             nu_factura.put()
+
+        recientes = formatutils.meses_recientes(fecha.inicio, total_mes)
+        recientes.put()
 
         year_entity = formatutils.obtener_entity(YearT, fecha.inicio.year)
         if year_entity:

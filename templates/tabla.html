@@ -87,8 +87,9 @@
 					</tr>
 				</tfoot>
 				<tbody>
-                    <tr>
+
                     {% for elemento in lista %}
+                        <tr>
                         <td>{{ elemento.Fecha_Key }}</td>
 						<td>{{ elemento.Punta_Lista[0] }}</td>
                         <td>{{ elemento.Punta_Lista[1] }}</td>
@@ -104,8 +105,9 @@
                         <td>{{ elemento.Potencia_Lista[2] }}</td>
                         <td>{{ elemento.f_pot_tr[0] }}</td>
                         <td>{{ elemento.f_pot_tr[1] }}</td>
+                        </tr>
                     {% endfor %}
-                    </tr>
+
 				</tbody>
 			</table>
 		</div>

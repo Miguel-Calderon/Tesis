@@ -9,11 +9,13 @@ class Fecha(ndb.Model):
 
 class Acometida(ndb.Model):
     nombre = ndb.StringProperty()
+    final = ndb.DateProperty()
     localizacion = ndb.StringProperty()
 
 
 class Factura(ndb.Model):
     Fecha_Key = ndb.StringProperty()
+    Fecha_dt = ndb.DateProperty()
     Pliego_A = ndb.KeyProperty()
     Aco_Key = ndb.StringProperty()
     Punta_Lista = ndb.FloatProperty('P', repeated=True)
@@ -22,18 +24,6 @@ class Factura(ndb.Model):
     Potencia_Lista = ndb.FloatProperty('Po', repeated=True)
     ftotal = ndb.FloatProperty('F', repeated=True)
     f_pot_tr = ndb.FloatProperty('FP', repeated=True)
-    # pico_E = ndb.FloatProperty()
-    # valle_E = ndb.FloatProperty()
-    # resto_E = ndb.FloatProperty()
-    # potencia_E = ndb.FloatProperty()
-    # pico_D = ndb.FloatProperty()
-    # valle_D = ndb.FloatProperty()
-    # resto_D = ndb.FloatProperty()
-    # potencia_D = ndb.FloatProperty()
-    # pico_C = ndb.FloatProperty()
-    # valle_C = ndb.FloatProperty()
-    # resto_C = ndb.FloatProperty()
-    # potencia_C = ndb.FloatProperty()
 
 
 class Pliego(ndb.Model):
@@ -61,3 +51,11 @@ class YearT(ndb.Model):
     Noviembre = ndb.FloatProperty('N', repeated=True)
     Diciembre = ndb.FloatProperty('D', repeated=True)
     Total_anual = ndb.FloatProperty('T', repeated=True)
+
+
+class Recientes(ndb.Model):
+    contador = ndb.IntegerProperty()
+    mes_str = ndb.StringProperty(repeated=True)
+    mes1 = ndb.FloatProperty(repeated=True)
+    mes2 = ndb.FloatProperty(repeated=True)
+    mes3 = ndb.FloatProperty(repeated=True)

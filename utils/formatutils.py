@@ -1,6 +1,6 @@
 import datetime
 from google.appengine.ext import ndb
-from modelos import Pliego, YearT
+from modelos import Pliego, YearT, Recientes
 
 
 def objeto_fecha(arg):
@@ -64,7 +64,7 @@ def total_acometida(lista_punta, lista_valle, lista_resto, lista_pot):
     suma_total = [0, 0]
     for contador in range(2):
         suma_total[contador] = lista_punta[contador] + lista_valle[contador] + lista_resto[contador]
-        suma_total += lista_punta+lista_valle+lista_resto+lista_pot
+        suma_total += lista_punta + lista_valle + lista_resto + lista_pot
     # suma_total= [kw/h total, $ eneria total, punta[Energia,Dinero,Calculo], valle[Energia,Dinero,Calculo],
     #              resto[Energia,Dinero,calculo], potencia[kw, $pot, #calculado]]
     # suma_total.append(lista_pot[0])
@@ -179,7 +179,7 @@ def actualizar_year(date, lista, entity2):
 
 def obtener_meses(seleccion):
     if seleccion == "cadena":
-        lista_meses = ["Enero", "Febrero", "Marzo", "Abril",  "Mayo", "Junio",
+        lista_meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
     elif seleccion == "entero":
@@ -233,14 +233,34 @@ def obtener_month(year_entity, mes, peticion):
                      "05": year_entity.Mayo[valor], "06": year_entity.Junio[valor],
                      "07": year_entity.Julio[valor], "08": year_entity.Agosto[valor],
                      "09": year_entity.Septiembre[valor], "10": year_entity.Octubre[valor],
-                     "11": year_entity.Noviembre[valor], "12": year_entity.Diciembre[valor]}
+                     "11": year_entity.Noviembre[valor], "12": year_entity.Diciembre[valor],
+                     "total": year_entity.Total_anual[valor]}
 
     return dict_peticion[mes]
 
 
+def meses_recientes(inicio, lista_mes):
+    #       [kw / h total, $ eneria total, punta[Energia, Dinero, Calculo], valle[Energia, Dinero, Calculo],
+    #        resto[Energia,Dinero,calculo], potencia[kw, $pot, #calculado]]
+    inicializacion =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    orientacion_meses = {1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio",
+                         7: "Julio", 8: "Agosto", 9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre"}
 
+    mes = orientacion_meses[inicio.month] + " de " + str(inicio.year)
 
+    constructor = obtener_entity(Recientes, "ultimos")
+    if constructor:
+        constructor.mes1 = constructor.mes2
+        constructor.mes2 = constructor.mes3
+        constructor.mes3 = lista_mes
+        constructor.mes_str[0] = constructor.mes_str[1]
+        constructor.mes_str[1] = constructor.mes_str[2]
+        constructor.mes_str[2] = mes
+    else:
+        constructor = Recientes(mes_str=["no info", "no info", mes],
+                                mes1=inicializacion,
+                                mes2=inicializacion,
+                                mes3=lista_mes,
+                                id="ultimos")
 
-
-
-
+    return constructor
