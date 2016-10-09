@@ -1,6 +1,6 @@
 import datetime
 from google.appengine.ext import ndb
-from modelos import Pliego, YearT, Recientes
+from modelos import Pliego, YearT, Recientes, Usuarios
 
 
 def objeto_fecha(arg):
@@ -242,7 +242,7 @@ def obtener_month(year_entity, mes, peticion):
 def meses_recientes(inicio, lista_mes):
     #       [kw / h total, $ eneria total, punta[Energia, Dinero, Calculo], valle[Energia, Dinero, Calculo],
     #        resto[Energia,Dinero,calculo], potencia[kw, $pot, #calculado]]
-    inicializacion =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    inicializacion = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     orientacion_meses = {1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio",
                          7: "Julio", 8: "Agosto", 9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre"}
 
@@ -264,3 +264,22 @@ def meses_recientes(inicio, lista_mes):
                                 id="ultimos")
 
     return constructor
+
+
+def iniciar_usuario():
+    primero = Usuarios(nombre="Teddy",
+                       contra="teddycalderon",
+                       id="Teddy")
+
+    primero.put()
+
+
+def formatCifra(numero):
+    # ""Adicionar comas como separadores de miles a n. n debe ser de tipo string"
+    s = numero
+    i = s.index('.')
+    # Se busca la posicion del punto decimal
+    while i > 3:
+        i = i - 3
+        s = s[:i] + ',' + s[i:]
+    return s

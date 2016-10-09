@@ -1,5 +1,7 @@
 from google.appengine.ext import ndb
 
+# Entidades utilizadas dentro del datastore
+
 
 class Fecha(ndb.Model):
     mes = ndb.StringProperty()
@@ -10,7 +12,6 @@ class Fecha(ndb.Model):
 class Acometida(ndb.Model):
     nombre = ndb.StringProperty()
     final = ndb.DateProperty()
-    localizacion = ndb.StringProperty()
 
 
 class Factura(ndb.Model):
@@ -59,3 +60,8 @@ class Recientes(ndb.Model):
     mes1 = ndb.FloatProperty(repeated=True)
     mes2 = ndb.FloatProperty(repeated=True)
     mes3 = ndb.FloatProperty(repeated=True)
+
+
+class Usuarios(ndb.Model):
+    nombre = ndb.StringProperty()
+    contra = ndb.StringProperty()

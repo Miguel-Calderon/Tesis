@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" href="assets/img/favicon.png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="icon" type="image/png" href="static/img/lights.png">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Formulario-pliego</title>
+	<title>|Formulario Acometida|</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -123,7 +122,7 @@
     		</button>    		
     		<div class="logo-container">
 	                <div class="logo">
-	                    <img src="static/img/logo.png" alt="Creative Tim Logo" rel="tooltip" title="<b>Material Kit</b> was Designed & Coded with care by the staff from <b>Creative Tim</b>" data-placement="bottom" data-html="true">
+	                    <img src="static/img/power.png" alt="Creative Tim Logo" rel="tooltip" title="<b>Material Kit</b> was Designed & Coded with care by the staff from <b>Creative Tim</b>" data-placement="bottom" data-html="true">
 	                </div>
 	                <div class="navbar-brand">
 	                    UES
@@ -135,18 +134,16 @@
     	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     	<!--no cambia el contenido cambiando el id  -->
     		<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="#">Link</a></li>
-        		<li><a href="#">Link</a></li>
-        		<li class="dropdown">
-        			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					<li class="dropdown">
+        			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><h4>LUGARES</h4><b class="caret"></b></a>
         			<ul class="dropdown-menu">
-					  <li><a href="#">Action</a></li>
-					  <li><a href="#">Another action</a></li>
-					  <li><a href="#">Something else here</a></li>
-					  <li class="divider"></li>
-					  <li><a href="#">Separated link</a></li>
-					  <li class="divider"></li>
-				      <li><a href="#">One more separated link</a></li>
+					  <li><a href="/">Home</a></li>
+                        <li><a href="/pliego">Ingresar Pliego</a></li>
+                        <li><a href="/fecha">Ingresar Factura</a></li>
+                        <li class="divider"></li>
+                        <li><a href="https://github.com/Miguel-Calderon/Tesis.git">GitHub</a></li>
+                        <li class="divider"></li>
+                        <li><a href="https://www.dropbox.com/sh/2jplume0ywvlae9/AADC6W3TcXLsFVc55PPmXXsia?dl=0">Dropbox</a></li>
         			</ul>
         		</li>
     		</ul>
@@ -167,8 +164,8 @@
                
                 <div class="section section-tabs">
                             <h3>
-                        	   <b><marquee>Formulario para ingresar datos de pliego tarifario</marquee></b> <br>
-                        	   <small>Asegurese de ingresar los de forma adecuada</small>
+                        	   <b><marquee>Formulario para ingresar datos de Acometida</marquee></b> <br>
+
                         	</h3>
 			<div class="container">
 				<div class="row">
@@ -205,7 +202,7 @@
                                         <div class="col-xs-8 col-xs-offset-2">
                                          <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="material-icons">attach_money</i>
+                                           <i class="material-icons">room</i>
                                         </span>
                                         <div class="form-group label-floating has-info">
                                         <label class="control-label">Nombre de acometida</label>
@@ -217,10 +214,10 @@
                                         <div class="col-xs-8 col-xs-offset-2">
                                          <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="material-icons">attach_money</i>
+                                            <i class="material-icons">room</i>
                                         </span>
                                         <div class="form-group label-floating has-info">
-                                        <label class="control-label">localizacion geografica de acometida</label>
+                                        <label class="control-label">Finalizacion de Labores</label>
                                         <input name="lugar" type="text" step= "any" class="form-control"><span class="material-input"></span></div>
 							            </div>
                                         </div>    
@@ -261,7 +258,13 @@
 							<div class="content">
 								<div class="tab-content text-center">
 									<div class="tab-pane active" id="home">
-										<p>instrucciones como ingresar datos</p>
+										<p>en el campo "Nombre de Acometida" ingrese el nombre que desea
+                                            sea mostrado en graficas y tablas sin caracteres talves como "<,>, %"
+                                            o signos de puntuacion.</p>
+                                        <p>en el campo "Finalizacion de labores" ingresar las fecha aproximada;
+                                            preferiblemente la fecha del final del ultimo mes en que se regristo
+                                            actividad en esta acometida.</p>
+                                        <p> "DD-MM-YYYY"</p>
 									</div>
 									<div class="tab-pane" id="updates">
 										<p> alguna informacion adicional </p>

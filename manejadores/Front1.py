@@ -7,7 +7,7 @@ class FrontHandler(renderutils.MainHandler):
     def get(self):
 
         date_ahora = datetime.date.today().year
-        primer_year = formatutils.obtener_entity(YearT, 2004)
+        primer_year = formatutils.obtener_entity(YearT, date_ahora)
         if primer_year:
             valor1 = formatutils.obtener_month(primer_year, "total", "EnergiaD") + formatutils.obtener_month(
                 primer_year,
@@ -17,18 +17,19 @@ class FrontHandler(renderutils.MainHandler):
         date_comparacion = formatutils.objeto_fecha(str(date_anterior) + "-01-01")
         date_final = formatutils.objeto_fecha(str(date_anterior) + "-12-31")
         anterior_year = formatutils.obtener_entity(YearT, date_anterior)
-        # valor2 = formatutils.obtener_month(anterior_year, "total", "EnergiaD") + formatutils.obtener_month(
-        #                                                                                                anterior_year,
-        #                                                                                               "total",
-        #                                                                                                "PotD")
-        # lista=[formatutils.obtener_month(anterior_year, "total", "PuntaE"),
-        #       formatutils.obtener_month(anterior_year, "total", "PuntaD"),
-        #       formatutils.obtener_month(anterior_year, "total", "ValleE"),
-        #       formatutils.obtener_month(anterior_year, "total", "ValleD"),
-        #       formatutils.obtener_month(anterior_year, "total", "RestoE"),
-        #       formatutils.obtener_month(anterior_year, "total", "RestoD"),
-        #       formatutils.obtener_month(anterior_year, "total", "PotE"),
-        #       formatutils.obtener_month(anterior_year, "total", "PotD")]
+        valor2 = formatutils.obtener_month(anterior_year, "total", "EnergiaD") + formatutils.obtener_month(
+                                                                                                        anterior_year,
+                                                                                                        "total",
+                                                                                                        "PotD")
+
+        lista = [formatutils.obtener_month(anterior_year, "total", "PuntaE"),
+                 formatutils.obtener_month(anterior_year, "total", "PuntaD"),
+                 formatutils.obtener_month(anterior_year, "total", "ValleE"),
+                 formatutils.obtener_month(anterior_year, "total", "ValleD"),
+                 formatutils.obtener_month(anterior_year, "total", "RestoE"),
+                 formatutils.obtener_month(anterior_year, "total", "RestoD"),
+                 formatutils.obtener_month(anterior_year, "total", "PotE"),
+                 formatutils.obtener_month(anterior_year, "total", "PotD")]
 
         Qry_factura_agro = Factura.query(Factura.Aco_Key == "Agronomia", Factura.Fecha_dt >= date_comparacion,
                                          Factura.Fecha_dt <= date_final)
@@ -70,11 +71,10 @@ class FrontHandler(renderutils.MainHandler):
             lista_echarts_resto.append(formatutils.obtener_month(anterior_year, elemento, "RestoE"))
 
             barras_morris.append(
-                                {"x": str(anterior_year.nombre)+"-"+elemento,
-                                 "Resto": formatutils.obtener_month(anterior_year, elemento, "RestoD"),
-                                 "Valle": formatutils.obtener_month(anterior_year, elemento, "ValleD"),
-                                 "Punta": formatutils.obtener_month(anterior_year, elemento, "PuntaD")})
-
+                {"x": str(anterior_year.nombre) + "-" + elemento,
+                 "Resto": formatutils.obtener_month(anterior_year, elemento, "RestoD"),
+                 "Valle": formatutils.obtener_month(anterior_year, elemento, "ValleD"),
+                 "Punta": formatutils.obtener_month(anterior_year, elemento, "PuntaD")})
 
         mayor = [max(lista_echarts_punta), max(lista_echarts_valle), max(lista_echarts_resto)]
         orientacion_meses = {1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio",
@@ -83,6 +83,8 @@ class FrontHandler(renderutils.MainHandler):
                       orientacion_meses[lista_echarts_valle.index(mayor[1]) + 1],
                       orientacion_meses[lista_echarts_resto.index(mayor[2]) + 1]]
 
-        self.response.out.write(barras_morris)
-        #mes = "Enero"
-        #self.render("template base.html", mes=mes)
+        # self.response.out.write(barras_morris)
+        mes = "Enero"
+
+        datos = [date_ahora, date_anterior, formatutils.formatCifra(str(valor1)), valor2]
+        self.render("template base.html", mes=mes, datos=datos)

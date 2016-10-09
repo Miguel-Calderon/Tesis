@@ -298,6 +298,7 @@
 						compareGraphBullet: "round",
 						compareGraphBulletBorderColor: "#FFFFFF",
 						compareGraphBulletBorderAlpha: 1,
+                        compareGraphLineThickness:3,
                         ValueAxesSettings:{
                         unit:"KW-h"
                 }
@@ -848,3 +849,450 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
      }
 });
 </script>
+
+<script>
+
+			var chartData1 = [{
+                    "date": "2015-01",
+                    "value": 43023.76,
+					"volume":8130.67
+                }, {
+                    "date": "2015-02",
+                    "value": 52981.68,
+					"volume":9545.92
+                }, {
+                    "date": "2015-03",
+                    "value": 58055.08,
+					"volume":10460.01
+                }, {
+                    "date": "2015-04",
+                    "value": 59915.96,
+					"volume":9626.27
+                }, {
+                    "date": "2015-05",
+                    "value": 65232.07,
+					"volume":9432.21
+                }, {
+                    "date": "2015-06",
+                    "value": 61583.33,
+					"volume":8904.62
+                }, {
+                    "date": "2015-07",
+                    "value": 50136.52,
+					"volume":7481.04
+                }, {
+                    "date": "2015-08",
+                    "value": 56485.08,
+					"volume":8627.78
+                }, {
+                    "date": "2015-09",
+                    "value": 66132.32,
+					"volume":10101.35
+                }, {
+                    "date": "2015-10",
+                    "value": 60461.52,
+					"volume":9231.07
+                }, {
+                    "date": "2015-11",
+                    "value": 63605.11,
+					"volume":9707.94
+                }, {
+                    "date": "2015-12",
+                    "value": 40023.76,
+					"volume":7830.67
+                }];
+			var chartData2 = [{
+                    "date": "2015-01",
+                    "value": 40549.4,
+					"volume":7344.67
+                }, {
+                    "date": "2015-02",
+                    "value": 46804.84,
+					"volume":8109.34
+                }, {
+                    "date": "2015-03",
+                    "value": 46629.52,
+                    "volume":8089.1
+                }, {
+                    "date": "2015-04",
+                    "value": 47980.04,
+					"volume":7581.67
+                }, {
+                    "date": "2015-05",
+                    "value": 51771.87,
+					"volume":7531.04
+                }, {
+                    "date": "2015-06",
+                    "value": 49838.01,
+					"volume":7249.73
+                }, {
+                    "date": "2015-07",
+                    "value": 44844.28,
+					"volume":6737.81
+                }, {
+                    "date": "2015-08",
+                    "value": 49984.04,
+					"volume":7689.44
+                }, {
+                    "date": "2015-09",
+                    "value": 52659.33,
+					"volume":8104.6
+                },{
+                    "date": "2015-10",
+                    "value": 49078.36,
+					"volume":7393.38
+                },{
+                    "date": "2015-11",
+                    "value": 48763.67,
+					"volume":7231.15
+
+                },{
+                    "date": "2015-12",
+                     "value": 38023.76,
+					"volume":7730.67
+                }];
+			var chartData3 = [{
+                    "date": "2015-01",
+                    "value": 184106.64,
+					"volume":35314.36
+                }, {
+                    "date": "2015-02",
+                    "value": 323287.56,
+					"volume":58658.61
+                }, {
+                    "date": "2015-03",
+                    "value": 336347.12,
+					"volume":61028.19
+
+                }, {
+                    "date": "2015-04",
+                    "value": 377411.84,
+					"volume":60901.4
+                }, {
+                    "date": "2015-05",
+                    "value": 432829.5,
+					"volume":62687.11
+                }, {
+                    "date": "2015-06",
+                    "value": 394988.14,
+					"volume":57206.52
+                }, {
+                    "date": "2015-07",
+                    "value": 332747.28,
+					"volume":49875.37
+
+                }, {
+                    "date": "2015-08",
+                    "value": 335400.4,
+					"volume":51570.48
+                }, {
+                    "date": "2015-09",
+                    "value": 422235.19,
+					"volume":64922.02
+                }, {
+                    "date": "2015-10",
+                    "value": 404781.6,
+					"volume":62288.33
+                }, {
+                    "date": "2015-11",
+                    "value": 420298.56,
+					"volume":64713.56
+                }, {
+                    "date": "2015-12",
+                    "value": 154106.64,
+					"volume":30314.36
+                }];
+			var chartData4 = [{
+                    "date": "2015-01",
+                    "fp": 0.84,
+                }, {
+                    "date": "2015-02",
+                    "fp": 0.85,
+                }, {
+                    "date": "2015-03",
+                    "fp": 0.88,
+                }, {
+                    "date": "2015-04",
+                    "fp": 0.95,
+                }, {
+                    "date": "2015-05",
+                    "fp": 0.95,
+                }, {
+                    "date": "2015-06",
+                    "fp": 0.95,
+                }, {
+                    "date": "2015-07",
+                    "fp": 0.95,
+                }, {
+                    "date": "2015-08",
+                    "fp": 0.95,
+                }, {
+                    "date": "2015-09",
+                    "fp": 0.95,
+                }, {
+                    "date": "2015-10",
+                    "fp": 0.95,
+                }, {
+                    "date": "2015-11",
+                    "fp": 0.90,
+                }, {
+                    "date": "2015-12",
+                    "fp": 0.87,
+                }];
+
+
+			//noinspection JSUnresolvedFunction
+            AmCharts.makeChart("chartdiv6", {
+
+				type: "stock",
+				addClassNames: true,
+
+                dataDateFormat: "YYYY-MM",
+
+
+
+				categoryAxesSettings: {
+						minPeriod: "MM"
+					},
+
+				dataSets: [{
+					title: "Agronomia",
+					fieldMappings: [{
+						fromField: "fp",
+						toField: "fp"
+					}],
+					//dataDateFormat: "YYYY-MM"
+					dataProvider: chartData1,
+					color: "#d9601a",
+
+					categoryField: "date"
+				},
+
+				{
+					title: "Comp_Deportivo",
+					compared:true,
+					fieldMappings: [{
+						fromField: "fp",
+						toField: "fp"
+					}],
+					dataProvider: chartData2,
+					color: "#b03355",
+					categoryField: "date"
+				},
+
+				{
+					title: "Humanidades",
+					fieldMappings: [{
+						fromField: "fp",
+						toField: "fp"
+					}],
+					dataProvider: chartData3,
+                    color:"#2fa246",
+					categoryField: "date"
+				},
+
+				{
+					title: "Derecho",
+					fieldMappings: [{
+						fromField: "fp",
+						toField: "fp"
+					}],
+					dataProvider:chartData4,
+					categoryField: "date"
+				}],
+
+				panels: [{
+					valueAxis: "fp",
+					recalculateToPercents: "never",
+					showCategoryAxis: true,
+					title: "Factor de Potencia",
+					percentHeight: 100,
+
+
+					stockGraphs: [{
+						id: "g1",
+						type: "smoothedLine",
+                        negativeBase: 0.90,
+                        negativeLineColor: "#FF4500",
+						valueField: "fp",
+						lineThickness: 3,
+						comparable: true,
+						compareField: "fp",
+						bullet: "round",
+						//bulletBorderColor: "#FFFFFF",
+						bulletColor:"#FFFFFF",
+						bulletBorderAlpha: 0.1,
+						balloonText: "[[title]]:<b>[[value]] KW-h</b>",
+                        compareGraphType:"smoothedLine",
+						compareGraphBalloonText: "[[title]]:<b>[[value]]KW-h</b>",
+						compareGraphBullet: "round",
+						compareGraphBulletBorderColor: "#FFFFFF",
+						compareGraphBulletBorderAlpha: 1,
+                        compareGraphLineThickness:3,
+
+                        ValueAxesSettings:{
+                        unit:"KW-h"
+                }
+
+					}],
+
+
+
+					stockLegend: {
+						//periodValueTextComparing: "[[value.close]]%",
+						//periodValueTextRegular: "[[value.close]]"
+					}
+				},
+
+				],
+
+
+
+				chartScrollbarSettings: {
+					graph: "g1",
+					updateOnReleaseOnly:false
+				},
+
+				chartCursorSettings: {
+					valueBalloonsEnabled: true,
+					valueLineEnabled:true,
+					valueLineBalloonEnabled:true
+				},
+
+				//periodSelector: {
+				//	position: "left",
+				//	periods: [{
+
+						//period: "MM",
+						//selected: true,
+						//count: 1,
+						//label: "1 month"
+				//	}, {
+				//		period: "YYYY",
+				//		count: 1,
+				//		label: "1 year"
+				//	}, {
+				//		period: "YTD",
+				//		label: "YTD"
+				//	}, {
+				//		period: "MAX",
+				//		selected: true,
+				//		label: "MAX"
+				//	}]
+				//},
+
+				dataSetSelector: {
+					position: "left"
+				},
+
+                "export": {
+                    "enabled": true
+                }
+			});
+		</script>
+
+            <script>
+            //noinspection JSUnresolvedFunction
+            var chart = AmCharts.makeChart("chartdiv7", {
+  "type": "serial",
+  "theme": "light",
+  "dataDateFormat": "YYYY-MM",
+   "addClassNames": true,
+  "fontSize":16,
+  "precision": 2,
+  "valueAxes": [{
+    "id": "v1",
+    "title": "Costo",
+    "position": "left",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return "$" + Math.round(value) + "K";
+    }
+  }, {
+    "id": "v2",
+    "title": "Demanda de Potencia",
+    "gridAlpha": 0,
+    "position": "right",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return Math.round(value) + "MW";
+  }}],
+  "graphs": [{
+    "id": "g2",
+    "valueAxis": "v2",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 3,
+    "lineColor": "#228B22",
+    "type": "smoothedLine",
+    "dashLength": 5,
+    "title": "Demanda Pot.",
+    "useLineColorForBulletBorder": true,
+    "valueField": "EnergiaT",
+    "clustered": false,
+    "legendValueText": "[[value]]MW",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]MW-h</b>"
+  },{
+    "id": "g1",
+    "valueAxis": "v1",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 3,
+    "lineColor": "#4169E1",
+    "type": "smoothedLine",
+    "title": "Costo de Potencia__",
+    "useLineColorForBulletBorder": true,
+    "valueField": "potenciaD",
+    "clustered": false,
+    "legendValueText": "$[[value]]K",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]k</b>"
+  }],
+  "chartScrollbar": {
+    "graph": "g1",
+    "oppositeAxis": false,
+    "offset": 30,
+    "scrollbarHeight": 50,
+    "backgroundAlpha": 0,
+    "selectedBackgroundAlpha": 0.1,
+    "selectedBackgroundColor": "#888888",
+    "graphFillAlpha": 0.2,
+    "graphLineAlpha": 0.5,
+    "selectedGraphFillAlpha": 0,
+    "selectedGraphLineAlpha": 1,
+    "autoGridCount": true,
+    "color": "#AAAAAA"
+  },
+  "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 1.5
+  },
+  "categoryField": "date",
+  "categoryAxis": {
+	  "minPeriod": "MM",
+    "parseDates": true,
+    "dashLength": 1,
+    "minorGridEnabled": true
+  },
+  "legend": {
+    "useGraphSettings": true,
+    "position": "top"
+  },
+  "balloon": {
+    "borderThickness": 3,
+    "shadowAlpha": 0
+  },
+  "export": {
+   "enabled": true
+  },
+  "dataProvider":{{ datos3 | safe }}
+});
+      </script>

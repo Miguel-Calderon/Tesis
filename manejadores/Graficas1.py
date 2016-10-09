@@ -1,5 +1,5 @@
 from utils import renderutils, formatutils
-from modelos import YearT
+from modelos import YearT, Acometida, Factura
 # import datetime
 
 
@@ -41,6 +41,7 @@ class GraficaHandler(renderutils.MainHandler):
         datos_valle = list()
         datos_resto = list()
         datos_total = list()
+        datos_pot = list()
         for year in todos_year:
             for mes in orientacion2:
                 datos3.append({
@@ -78,6 +79,29 @@ class GraficaHandler(renderutils.MainHandler):
                     "value": formatutils.obtener_month(year, mes, "EnergiaT"),
                     "volume": formatutils.obtener_month(year, mes, "EnergiaD")
                 })
+                datos_pot.append({
+                    "date": str(year.nombre) + "-" + mes,
+                    "potenciaD": formatutils.obtener_month(year, mes, "PotD"),
+                    "potenciaE": formatutils.obtener_month(year, mes, "PotE")
+                })
+
+
+        datos_fp = list()
+        datos_fp2 = list()
+        nombres_fp = list()
+        qry_Acometida = Acometida.query().order(Acometida.nombre)
+        for entidad in qry_Acometida:
+            qry_Factura = Factura.query(Factura.Aco_Key == entidad.nombre).order(Factura.Fecha_Key)
+            for elemento in qry_Factura:
+                datos_fp2.append({
+                    "date": str(elemento.Fecha_Key),
+                    "fp": elemento.f_pot_tr[0],
+                })
+            datos_fp.append(datos_fp2)
+            datos_fp2 = list()
+            nombres_fp.append(str(entidad.nombre))
+
+
 
         datos = [{
             "mes": "Enero",
@@ -149,4 +173,4 @@ class GraficaHandler(renderutils.MainHandler):
 
         titulo = ["2005", "2006", "2007"]
         self.render("graficas.html", datos=datos, titulo=titulo, datos3=datos3)
-        #self.response.out.write(datos_punta)
+        #self.response.out.write(nombres_fp)

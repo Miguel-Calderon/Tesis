@@ -3,6 +3,7 @@
 <html lang="es">
 
 <head>
+    <link rel="icon" type="image/png" href="static/img/lights.png">
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
@@ -25,6 +26,7 @@
     <link href="static/home/plugins/Icons/et-line-font/style.css" rel="stylesheet">
     <link href="static/home/plugins/animate.css/animate.css" rel="stylesheet">
     <link href="static/home/css/main.css" rel="stylesheet">
+    <link href="static/home/css/preloder.css" rel="stylesheet">
 
     <!--<link rel="stylesheet" href="css/style1.css"/>--> 						<!-- Style css -->
 
@@ -42,7 +44,11 @@
 <body>
     <!-- Preloader
 	============================================= -->
-    <div class="preloader"><i class="fa fa-circle-o-notch fa-spin fa-2x"></i></div>
+    <div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+		</div>
     <!-- Header
 	============================================= -->
 
@@ -57,24 +63,37 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#"><img src="static/home/img/logo/logo.png" class="img-responsive" alt="logo"></a>
+                    <a class="navbar-brand"> <img src="static/img/power3.png" class="img-responsive" alt="logo"></a>
                 </div>
                 <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                     <div class="col-md-8 col-xs-12 nav-wrap">
                         <ul class="nav navbar-nav">
                             <li><a href="#owl-hero" class="page-scroll">Inicio</a></li>
                             <li><a href="#testimonials" class="page-scroll">Historial</a></li>
-                            <li><a href="#portfolio" class="page-scroll">Works</a></li>
-                            <li><a href="#team" class="page-scroll">About</a></li>
-                            <li><a href="#contact" class="page-scroll">Contact</a></li>
+                            <li><a href="#services" class="page-scroll">Horarios</a></li>
+                            <li><a href="#welcome" class="page-scroll">Acometidas</a></li>
+                            <li><a href="#mapa" class="page-scroll">Mapa</a></li>
                         </ul>
                     </div>
-                    <div class="social-media hidden-sm hidden-xs">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        </ul>
-                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LUGARES <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/graficas">Graficas</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/tabla">Tablas</a></li>
+                        <li class="divider"></li>
+                        <li><a href="https://github.com/Miguel-Calderon/Tesis.git"><i class="fa fa-github" aria-hidden="true"></i>  GitHub</a></li>
+                        <li class="divider"></li>
+                        <li><a href="https://www.dropbox.com/sh/2jplume0ywvlae9/AADC6W3TcXLsFVc55PPmXXsia?dl=0"><i class="fa fa-dropbox" aria-hidden="true"></i>
+  Dropbox</a></li><li class="divider"></li>
+                        <li><a href="/fecha">Ingresar Factura</a></li>
+                        <li><a href="/pliego">Ingresar Pliego</a></li>
+                        <li><a href="/acometida">Ingresar Acometidas</a></li>
+
+                    </ul>
+                </li>
+            </ul>
                 </div>
             </div>
         </nav>
@@ -94,8 +113,8 @@
                 <div class="caption">
 
 
-                      <h2>Durante el año 20015 </h2><h2>la UES cancelo un  monto que asciende a:</h2>
-                      <h1><span>$1,041,730.21</span></h1>
+                      <h2>Durante el año {{ datos[1] }} </h2><h2>la UES cancelo un  monto que asciende a:</h2>
+                      <h1><span> ${{ datos[2] }}</span></h1>
                       <h2>en cambio en el presente 2016 </h2><h2>este monto es de :</h2>
                       <h1><span>$1,041,730.21</span></h1>
 
@@ -237,7 +256,7 @@
                         </div>
                       </div>
                     </section><!--/#service-->
-              <div class="mouse-icon"><div class="wheel"></div></div>
+
             </div>
         </div>
     </section>
@@ -561,29 +580,12 @@
 	============================================= -->
     <section id="work-process">
 
-
-
-        <div id="owl-demo" class="owl-carousel owl-theme">
-
-      <div class="item"></div>
-      <div class="item"><h1>2</h1></div>
-      <div class="item"><h1>3</h1></div>
-      <div class="item"><h1>4</h1></div>
-      <div class="item"><h1>5</h1></div>
-      <div class="item"><h1>6</h1></div>
-      <div class="item"><h1>7</h1></div>
-      <div class="item"><h1>8</h1></div>
-      <div class="item"><h1>9</h1></div>
-      <div class="item"><h1>10</h1></div>
-      <div class="item"><h1>11</h1></div>
-      <div class="item"><h1>12</h1></div>
-
-    </div>
     </section>
     <!-- Some Fune Facts
 	============================================= -->
     <section id="fun-facts">
         <div id="particles-js2" style="position:absolute; width:100%;	height:100%;"></div>
+        <h2>Acometidas Actuales</h2>
 
 
 
@@ -760,10 +762,22 @@
 
     </script>
 
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoqCL_2QDHgXtM4CBvdPkSgjiSDlTXElc&callback=initMap"
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxTfRNI8V-OkOU2ScCpIU18whFMlFC4dc&callback=initMap"
         async defer></script>
 
+<script>
+    jQuery('document').ready(function($) {
+	/*=========================================*/
+	/*         preloder                       */
+	/*=========================================*/
 
+	//preloder ready function code
+		setTimeout(function(){
+			$('body').addClass('loaded');
+
+		}, 6000);});
+
+</script>
 
 
 

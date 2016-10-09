@@ -16,8 +16,7 @@
 #
 
 import webapp2
-from manejadores import Fecha, Factura1, Pliego1, Graficas1, tabla1, Front1
-from modelos import Acometida
+from manejadores import Fecha, Factura1, Pliego1, Graficas1, tabla1, Front1, Login, Acometida1
 from utils import renderutils
 
 
@@ -26,27 +25,15 @@ class HomeHandler(renderutils.MainHandler):
         self.render("web-app.html")
 
 
-class AcometidaHandler(renderutils.MainHandler):
-    def get(self):
-        self.render("formularioacometida.html")
-
-    def post(self):
-        nu_acometida = Acometida(nombre=self.request.get("nombre"),
-                                 localizacion=self.request.get("lugar"),
-                                 id=self.request.get("nombre"))
-
-        nu_acometida.put()
-
-        self.redirect(self.request.referer)
-
-
 app = webapp2.WSGIApplication([
     ('/', Front1.FrontHandler),
     ('/home', HomeHandler),
     ('/fecha', Fecha.FechaHandler),
     ('/pliego', Pliego1.PliegoHandler),
     ('/factura', Factura1.FacturaHandler),
-    ('/acometida', AcometidaHandler),
+    ('/acometida', Acometida1.AcometidaHandler),
     ('/graficas', Graficas1.GraficaHandler),
-    ('/tabla', tabla1.TablaHandler)
+    ('/tabla', tabla1.TablaHandler),
+    ('/login', Login.LogInHandler),
+    ('/logout', Login.LogOutHandler)
 ], debug=True)

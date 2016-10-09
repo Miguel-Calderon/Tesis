@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="static/login/assets/img/lights.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Sign Up Page - Material Kit by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="static/login/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/login/assets/css/material-kit.css" rel="stylesheet"/>
+
+</head>
+
+<body class="signup-page">
+	<nav class="navbar navbar-transparent navbar-absolute">
+    	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            		<span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+        		</button>
+        		<a class="navbar-brand" href="/">INICIO</a>
+                <a class="navbar-brand" href="/logout">{{ usuario }}  <i class="material-icons">person</i>  </a>
+
+        	</div>
+
+        	<div class="collapse navbar-collapse" id="navigation-example">
+        		<ul class="nav navbar-nav navbar-right">
+                    <li>
+						<a href="/tabla" target="_blank">
+							<i class="material-icons">assignment</i> Tablas
+						</a>
+    				</li>
+    				<li>
+						<a href="/graficas" target="_blank">
+							<i class="material-icons">assessment</i> Graficas
+						</a>
+    				</li>
+                    <li>
+						<a href="/fecha" target="_blank">
+							<i class="material-icons">file_upload</i>Ingresar Datos
+						</a>
+    				</li>
+        		</ul>
+        	</div>
+    	</div>
+    </nav>
+
+    <div class="wrapper">
+		<div class="header header-filter" style="background-image: url('static/login/assets/img/slide2.jpg'); background-size: cover; background-position: top center;">
+			<div class="container" style="padding-top: 170px">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+						<div class="card card-signup">
+							<form class="form" method="post" action="/login">
+								<div class="header header-success text-center">
+									<h4>LogIn</h4>
+									<div class="social-line">
+                                        <i class="material-icons">person</i>
+
+									</div>
+								</div>
+
+								<div class="content">
+
+									<div class="input-group  " >
+										<span class="input-group-addon">
+											<i class="material-icons">face</i>
+										</span>
+										<input name="nombre" type="text" class="form-control " placeholder="Usuario">
+									</div>
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">lock_outline</i>
+										</span>
+										<input name="contra" type="password" placeholder="Password..." class="form-control" />
+									</div>
+
+									<!-- If you want to add a checkbox to this form, uncomment this code
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="optionsCheckboxes" checked>
+											Subscribe to newsletter
+										</label>
+									</div> -->
+								</div>
+								<div class="footer text-center">
+									<input type="submit" class="btn btn-success  btn-round btn-primary btn-lg">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</body>
+	<!--   Core JS Files   -->
+	<script src="static/login/assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="static/login/assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="static/login/assets/js/material.min.js"></script>
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="static/login/assets/js/material-kit.js" type="text/javascript"></script>
+
+</html>

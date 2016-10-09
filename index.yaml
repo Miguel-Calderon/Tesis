@@ -13,4 +13,9 @@ indexes:
 - kind: Factura
   properties:
   - name: Aco_Key
+  - name: Fecha_Key
+
+- kind: Factura
+  properties:
+  - name: Aco_Key
   - name: Fecha_dt
