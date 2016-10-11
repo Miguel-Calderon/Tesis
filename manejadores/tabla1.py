@@ -2,7 +2,16 @@ from utils import renderutils
 from modelos import Factura
 
 
-class TablaHandler(renderutils.MainHandler):
+class TablaMenuHandler(renderutils.MainHandler):
     def get(self):
-        lista = Factura.query(Factura.Aco_Key == "Agronomia")
-        self.render("tabla.html", lista=lista)
+        self.render("menutabla.html")
+
+    def post(self):
+        acometida = str(self.request.get("seleccion"))
+        orientacion = {"Agronomia": Factura.query(Factura.Aco_Key == "Agronomia"),
+                       "Complejo_Deportivo": Factura.query(Factura.Aco_Key == "Complejo_Deportivo"),
+                       "Humanidades": Factura.query(Factura.Aco_Key == "Humanidades"),
+                       "Derecho": Factura.query(Factura.Aco_Key == "Derecho"),
+                       "Fosa": Factura.query(Factura.Aco_Key == "Fosa"),
+                       "Medicina": Factura.query(Factura.Aco_Key == "Medicina")}
+        self.render("tabla.html", lista=orientacion[acometida], acometida=acometida)

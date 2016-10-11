@@ -257,7 +257,7 @@
           axisLabel:{interval:0},
         boundaryGap: false,
 
-        data: ['{{mes}}', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+        data: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
       }],
       yAxis: [{
         type: 'value',
@@ -277,7 +277,7 @@
           }
         },
 
-        data: [43023.76,52981.68,58055.08,59915.96,65232.07,61583.33,50136.52,56485.08,66132.32,60461.52,63605.11,38584.68]
+        data: {{ echart[0] }}
       }, {
         name: 'Valle',
         type: 'line',
@@ -289,7 +289,7 @@
             }
           }
         },
-        data: [40549.40,46804.84,46629.52,47980.04,51771.87,49838.01,44844.28,49984.04,52659.33,49078.36,48763.67,25450.00]
+        data: {{ echart[1] }}
       }, {
         name: 'Resto',
         type: 'line',
@@ -301,7 +301,7 @@
             }
           }
         },
-        data: [184106.64,323287.56,336347.12,377411.84,432829.50,394988.14,332747.28,335400.40,422235.19,404781.60,420298.56,89930.00]
+        data: {{ echart[2] }}
       }]
     });
 

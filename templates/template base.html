@@ -114,9 +114,9 @@
 
 
                       <h2>Durante el año {{ datos[1] }} </h2><h2>la UES cancelo un  monto que asciende a:</h2>
-                      <h1><span> ${{ datos[2] }}</span></h1>
-                      <h2>en cambio en el presente 2016 </h2><h2>este monto es de :</h2>
-                      <h1><span>$1,041,730.21</span></h1>
+                      <h1><span> ${{ datos[3] }}</span></h1>
+                      <h2>en cambio en el presente {{ datos[0] }}</h2><h2>este monto es de :</h2>
+                      <h1><span>${{ datos[2] }}</span></h1>
 
                 </div>
                 <div class="mouse-icon"><div class="wheel"></div></div>
@@ -139,9 +139,9 @@
                               <i class="fa fa-line-chart"></i>
                               <h2>Horario Punta</h2>
                                 <ul class="plan-features list-unstyled">
-                  							<li> En 2015</li>
-                  							<li> $109,379.55
-                  							     000000 Kw/h
+                  							<li> En {{ datos[1] }}</li>
+                  							<li> ${{ lista[1] }}<br>
+                  							      {{ lista[0] }} Kw/h<br>
                   							     ------------</li>
                   						</ul>
                             </div>
@@ -151,9 +151,9 @@
                               <i class="fa fa-line-chart"></i>
                               <h2>Horario Valle</h2>
                               <ul class="plan-features list-unstyled">
-                              <li> En 2015</li>
-                              <li> $109,379.55
-                                   000000 Kw/h
+                              <li> En {{ datos[1] }}</li>
+                              <li> ${{ lista[3] }}<br>
+                                   {{ lista[2] }} Kw/h<br>
                                    ------------</li>
                             </ul>
                             </div>
@@ -163,9 +163,9 @@
                               <i class="fa fa-line-chart"></i>
                               <h2>Horario Resto</h2>
                               <ul class="plan-features list-unstyled">
-                              <li> En 2015</li>
-                              <li> $109,379.55
-                                   000000 Kw/h
+                              <li> En {{ datos[1] }}</li>
+                              <li> ${{ lista[5] }}<br>
+                                   {{ lista[4] }} Kw/h<br>
                                    ------------</li>
                             </ul>
                             </div>
@@ -175,9 +175,9 @@
                               <i class="fa fa-bolt"></i>
                               <h2>Demanda de Potencia</h2>
                               <ul class="plan-features list-unstyled">
-                              <li> EN 2015</li>
-                              <li> $109,379.55
-                                   000000 Kw/h
+                              <li> EN {{ datos[1] }}</li>
+                              <li> ${{ lista[7] }}<br>
+                                   {{ lista[6] }} Kw/h<br>
                                    ------------</li>
                             </ul>
                             </div>
@@ -208,14 +208,14 @@
                                   <i class="fa fa-university"></i>
                                   <h2>Agronomia</h2>
                                   <ul class="plan-features list-unstyled">
-                                  <li> EN 2015</li>
+                                  <li> EN {{ datos[1] }}</li>
                                   <li> Energia<br>
-                                       $109,379.55 <br>
-                                       000000 Kw/h
+                                       ${{ aco[1] }} <br>
+                                        {{ aco[0] }} Kw/h
                                   </li>
                                   <li> Demanda de potencia<br>
-                                       $109,379.55 <br>
-                                        000000 Kw
+                                       ${{ aco[3] }} <br>
+                                        {{ aco[2] }}Kw
                                   </li></ul>
                                 </div>
                               </div>
@@ -224,14 +224,14 @@
                                   <i class="fa fa-university"></i>
                                   <h2>Humanidades</h2>
                                   <ul class="plan-features list-unstyled">
-                                  <li> EN 2015</li>
+                                  <li> EN {{ datos[1] }}</li>
                                   <li> Energia<br>
-                                       $109,379.55 <br>
-                                       000000 Kw/h
+                                       ${{ aco[5] }} <br>
+                                        {{ aco[4] }} Kw/h
                                   </li>
                                   <li> Demanda de potencia<br>
-                                       $109,379.55 <br>
-                                        000000 Kw
+                                       ${{ aco[7] }} <br>
+                                        {{ aco[6] }}Kw
                                   </li></ul>
                                 </div>
                               </div>
@@ -240,14 +240,14 @@
                                   <i class="fa fa-university"></i>
                                   <h2>Comp. Dep.</h2>
                                   <ul class="plan-features list-unstyled">
-                                  <li> EN 2015</li>
+                                  <li> EN {{ datos[1] }}</li>
                                   <li> Energia<br>
-                                       $109,379.55 <br>
-                                       000000 Kw/h
+                                       ${{ aco[9] }} <br>
+                                        {{ aco[8] }} Kw/h
                                   </li>
                                   <li> Demanda de potencia<br>
-                                       $109,379.55 <br>
-                                        000000 Kw
+                                       ${{ aco[11] }} <br>
+                                        {{ aco[10] }}Kw
                                   </li></ul>
                                 </div>
                               </div></div>
@@ -275,39 +275,40 @@
                     <span>Energia</span>
                     <span></span>
                   </div>
-                  <span class="price">$79,789</span>
+                  <span class="price">${{ meses.mes3[1] }}</span>
 
                   <ul class="features tabla">
                     <li class="lista">punta</li>
-                    <li>78989798798</li>
-                    <li>78989798798</li>
+                    <li>{{ meses.mes3[2] }}Kw</li>
+                    <li>${{ meses.mes3[3] }}</li>
                     <li class="lista">valle</li>
-                    <li>78989798798</li>
-                    <li>78989798798</li>
+                    <li>{{ meses.mes3[5] }}Kw</li>
+                    <li>${{ meses.mes3[6] }}</li>
                     <li class="lista">Resto</li>
-                    <li>78989798798</li>
-                    <li>7897945</li>
+                    <li>{{ meses.mes3[8] }}Kw</li>
+                    <li>${{ meses.mes3[9] }}</li>
+
                   </ul>
                 </div>
                 <div class="promo scale">
                   <div class="deal">
-                    <span>Total</span>
+                    <span>{{ meses.mes_str[2] }}</span>
                     <span></span>
                   </div>
-                  <span class="price">$89</span>
+                  <span class="price">${{ meses.mes3[1]+ meses.mes3[12] }}</span>
                   <ul class="features tabla">
                     <li class="lista">Energia</li>
-                    <li class="lista">78989798798</li>
+                    <li class="lista">{{ meses.mes3[0] }}Kw/h</li>
 
 
-                    <li class="lista">78989798798</li>
+                    <li class="lista">${{ meses.mes3[1] }}</li>
 
                     <li class="lista">demanda de potencia</li>
 
-                    <li class="lista">7897945</li>
+                    <li class="lista">${{ meses.mes3[12] }}</li>
                     <li class="lista">total </li>
 
-                    <li class="lista">7897945</li>
+                    <li class="lista">${{ meses.mes3[1]+ meses.mes3[12] }}</li>
 
 
                   </ul>
@@ -318,12 +319,12 @@
                     <span>Potencia</span>
                     <span></span>
                   </div>
-                  <span class="price">$69</span>
+                  <span class="price">${{ meses.mes3[12] }}</span>
                   <ul class="features tabla">
                      <br>
                      <br><li class="lista">demanda de potencia</li>
-                     <br><li class="lista">78989798798</li>
-                     <br><li class="lista">898989</li><br>
+                     <br><li class="lista">{{ meses.mes3[11] }}Kw</li>
+                     <br><li class="lista">${{ meses.mes3[12] }}</li><br>
                   </ul>
 
                 </div>
@@ -339,39 +340,40 @@
                     <span>Energia</span>
                     <span></span>
                   </div>
-                  <span class="price">$79,789</span>
+                  <span class="price">${{ meses.mes2[1] }}</span>
 
                   <ul class="features tabla">
                     <li class="lista">punta</li>
-                    <li>78989798798</li>
-                    <li>78989798798</li>
+                    <li>{{ meses.mes2[2] }}Kw</li>
+                    <li>${{ meses.mes2[3] }}</li>
                     <li class="lista">valle</li>
-                    <li>78989798798</li>
-                    <li>78989798798</li>
+                    <li>{{ meses.mes2[5] }}Kw</li>
+                    <li>${{ meses.mes2[6] }}</li>
                     <li class="lista">Resto</li>
-                    <li>78989798798</li>
-                    <li>7897945</li>
+                    <li>{{ meses.mes2[8] }}Kw</li>
+                    <li>${{ meses.mes2[9] }}</li>
+
                   </ul>
                 </div>
                 <div class="promo scale">
                   <div class="deal">
-                    <span>Total</span>
+                    <span>{{ meses.mes_str[1] }}</span>
                     <span></span>
                   </div>
-                  <span class="price">$89</span>
+                  <span class="price">${{ meses.mes2[1]+ meses.mes2[12] }}</span>
                   <ul class="features tabla">
                     <li class="lista">Energia</li>
-                    <li class="lista">78989798798</li>
+                    <li class="lista">{{ meses.mes2[0] }}Kw/h</li>
 
 
-                    <li class="lista">78989798798</li>
+                    <li class="lista">${{ meses.mes2[1] }}</li>
 
                     <li class="lista">demanda de potencia</li>
 
-                    <li class="lista">7897945</li>
+                    <li class="lista">${{ meses.mes2[12] }}</li>
                     <li class="lista">total </li>
 
-                    <li class="lista">7897945</li>
+                    <li class="lista">${{ meses.mes2[1]+ meses.mes2[12] }}</li>
 
 
                   </ul>
@@ -382,12 +384,12 @@
                     <span>Potencia</span>
                     <span></span>
                   </div>
-                  <span class="price">$69</span>
+                  <span class="price">${{ meses.mes2[12] }}</span>
                   <ul class="features tabla">
                      <br>
                      <br><li class="lista">demanda de potencia</li>
-                     <br><li class="lista">78989798798</li>
-                     <br><li class="lista">898989</li><br>
+                     <br><li class="lista">{{ meses.mes2[11] }}Kw</li>
+                     <br><li class="lista">${{ meses.mes2[12] }}</li><br>
                   </ul>
 
                 </div>
@@ -403,39 +405,40 @@
                     <span>Energia</span>
                     <span></span>
                   </div>
-                  <span class="price">$79,789</span>
+                  <span class="price">${{ meses.mes1[1] }}</span>
 
                   <ul class="features tabla">
                     <li class="lista">punta</li>
-                    <li>78989798798</li>
-                    <li>78989798798</li>
+                    <li>{{ meses.mes1[2] }}Kw</li>
+                    <li>${{ meses.mes1[3] }}</li>
                     <li class="lista">valle</li>
-                    <li>78989798798</li>
-                    <li>78989798798</li>
+                    <li>{{ meses.mes1[5] }}Kw</li>
+                    <li>${{ meses.mes1[6] }}</li>
                     <li class="lista">Resto</li>
-                    <li>78989798798</li>
-                    <li>7897945</li>
+                    <li>{{ meses.mes1[8] }}Kw</li>
+                    <li>${{ meses.mes1[9] }}</li>
+
                   </ul>
                 </div>
                 <div class="promo scale">
                   <div class="deal">
-                    <span>Total</span>
+                    <span>{{ meses.mes_str[0] }}</span>
                     <span></span>
                   </div>
-                  <span class="price">$89</span>
+                  <span class="price">${{ meses.mes1[1]+ meses.mes1[12] }}</span>
                   <ul class="features tabla">
                     <li class="lista">Energia</li>
-                    <li class="lista">78989798798</li>
+                    <li class="lista">{{ meses.mes1[0] }}Kw/h</li>
 
 
-                    <li class="lista">78989798798</li>
+                    <li class="lista">${{ meses.mes1[1] }}</li>
 
                     <li class="lista">demanda de potencia</li>
 
-                    <li class="lista">7897945</li>
+                    <li class="lista">${{ meses.mes1[12] }}</li>
                     <li class="lista">total </li>
 
-                    <li class="lista">7897945</li>
+                    <li class="lista">${{ meses.mes1[1]+ meses.mes1[12] }}</li>
 
 
                   </ul>
@@ -446,12 +449,12 @@
                     <span>Potencia</span>
                     <span></span>
                   </div>
-                  <span class="price">$69</span>
+                  <span class="price">${{ meses.mes1[12] }}</span>
                   <ul class="features tabla">
                      <br>
                      <br><li class="lista">demanda de potencia</li>
-                     <br><li class="lista">78989798798</li>
-                     <br><li class="lista">898989</li><br>
+                     <br><li class="lista">{{ meses.mes1[11] }}Kw</li>
+                     <br><li class="lista">${{ meses.mes1[12] }}</li><br>
                   </ul>
 
                 </div>
@@ -460,7 +463,7 @@
               </div>
                 </div>
             </div>
-                <a class="btn btn-transparent" href="#">Historial</a>
+                <a class="btn btn-transparent" href="/tabla">Historial</a>
 
 
 
@@ -484,23 +487,26 @@
                     <div class="col-md-4">
                         <div class="media-left"><span class="icon-lightbulb"></span></div>
                         <div class="media-body">
-                            <h3>Creative Design</h3>
-                            <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
+                            <h3>Punta</h3>
+                            <p>De las 18:00 a 22:59 horas<br>
+                               EL mayor valor se encuentra en:<br><b>{{ posi[0] }}<br>con {{ mayor[0] }}KW/h </b> </p>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="media-left"><span class="icon-mobile"></span></div>
+                        <div class="media-left"><span class="icon-lightbulb"></span></div>
                         <div class="media-body">
-                            <h3>Bootstrap</h3>
-                            <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
+                            <h3>Valle</h3>
+                            <p>de las 23:00 a 04:59 horas<br>
+                                EL mayor valor se encuentra en:<br><b>{{ posi[1] }}<br>con {{ mayor[1] }}KW/h </b> </p>
                         </div>
 
                     </div>
                     <div class="col-md-4">
-                        <div class="media-left"><span class="icon-compass"></span></div>
+                        <div class="media-left"><span class="icon-lightbulb"></span></div>
                         <div class="media-body">
-                            <h3>Sass &amp; Compass</h3>
-                            <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
+                            <h3>Resto</h3>
+                            <p><p>De las 05:00 a 17:59 horas<br>
+                            EL mayor valor se encuentra en:<br><b>{{ posi[2] }}<br>con {{ mayor[2] }}KW/h </b> </p></p>
                         </div>
 
                     </div>
@@ -568,7 +574,7 @@
                     <div class="col-md-2 col-lg-offset-5" style="padding-top: 40px">
 
 
-                           <a href="#" class="btn-block" style="position: absolute">Ver Mas</a>
+                           <a href="/graficas" class="btn-block" style="position: absolute">Ver Mas</a>
 
 
                     </div>
@@ -604,9 +610,10 @@
         <div class="container">
             <h1>UES</h1>
             <div class="social">
-                <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
-                <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                <a href="#"><i class="fa fa-dribbble fa-2x"></i></a>
+                <a href="https://github.com/Miguel-Calderon/Tesis.git"><i class="fa fa-github fa-4x" aria-hidden="true"></i></a>
+
+                <a href="https://www.dropbox.com/sh/2jplume0ywvlae9/AADC6W3TcXLsFVc55PPmXXsia?dl=0">
+                    <i class="fa fa-dropbox fa-4x" aria-hidden="true"></i></a>
             </div>
             <h6>UES</h6>
         </div>
@@ -656,9 +663,9 @@
             Morris.Donut({
           element: 'graph_donut',
           data: [
-            {label: 'Agronomia', value: 49.16},
-            {label: 'Complejo Deportivo', value: 20.30},
-            {label: 'Humanidades', value: 23.98},
+            {label: 'Agronomia', value: {{pie[0]}}},
+            {label: 'Complejo Deportivo', value: {{pie[1]}}},
+            {label: 'Humanidades', value: {{pie[2]}}}
                 ],
           colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
           formatter: function (y) {
@@ -669,20 +676,7 @@
 
          Morris.Bar({
           element: 'graphx',
-          data: [
-            {"x": '2015-01', "Resto": 35314.36, "Valle": 7344.67, "Punta": 8130.67},
-            {"x": '2015-02', "Resto": 58658.61, "Valle": 8109.34, "Punta": 9545.92},
-            {x: '2015-03', Resto: 61028.19, Valle: 8089.10, Punta: 10460.01},
-            {x: '2015-04', Resto: 60901.40, Valle: 7581.67, Punta: 9626.27},
-            {x: '2015-05', Resto: 62687.11, Valle: 7531.04, Punta: 9432.21},
-            {x: '2015-06', Resto: 57206.52, Valle: 7249.73, Punta: 8904.62},
-            {x: '2015-07', Resto: 49875.37, Valle: 6737.81, Punta: 7481.04},
-            {x: '2015-08', Resto: 51570.48, Valle: 7689.44, Punta: 8627.78},
-            {x: '2015-09', Resto: 64922.02, Valle: 8104.60, Punta: 10101.35},
-            {x: '2015-10', Resto: 62288.33, Valle: 7393.38, Punta: 9231.07},
-            {x: '2015-11', Resto: 64713.56, Valle: 7231.15, Punta: 9707.94},
-            {x: '2015-12', Resto: 30414.36, Valle: 6842.67, Punta: 8031.67}
-          ],
+          data: {{ barras | safe }},
 
           xkey: 'x',
           ykeys: ['Resto', 'Valle', 'Punta'],
@@ -724,7 +718,7 @@
 
      var marker = new google.maps.Marker({
     map: map,
-    label:"A",
+    label:"Agronomia",
     // Define the place with a location, and a query string.
     place: {
       location: {lat: 13.718432, lng: -89.2003291},
@@ -733,7 +727,7 @@
 
      var marker2 = new google.maps.Marker({
     map: map,
-    label:"B",
+    label:"Humanidades",
     // Define the place with a location, and a query string.
     place: {
       location: {lat: 13.7187853, lng: -89.2057902},
@@ -742,21 +736,14 @@
 
      var marker3 = new google.maps.Marker({
     map: map,
-    label:"C",
+    label:"Cmp_Deportivo",
     // Define the place with a location, and a query string.
     place: {
       location: {lat: 13.7210476, lng: -89.2038859},
         query: 'Google, San Salvador, El salvador'}
  });
 
-     var marker4 = new google.maps.Marker({
-    map: map,
-    label:"D",
-    // Define the place with a location, and a query string.
-    place: {
-      location: {lat: 13.7167838, lng: -89.2050717},
-        query: 'Google, San Salvador, El salvador'}
- });
+
 
      }
 

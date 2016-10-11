@@ -1,6 +1,5 @@
-from modelos import Fecha, Acometida, Factura, Pliego
+from modelos import Pliego
 from utils import renderutils, formatutils
-# from google.appengine.ext import ndb
 
 
 class PliegoHandler(renderutils.MainHandler):

@@ -12,6 +12,8 @@ def objeto_fecha(arg):
 def calculo_costo(fecha, lista, horario):
     inicio = fecha.inicio
     final = fecha.fin
+    parte1 = 0.0
+    parte2 = 0.0
     # primer prueba para obtener pliego si el mes esta dentro
     resultados = Pliego.query(Pliego.inicio_p < inicio)
     # encontrado = None
@@ -21,27 +23,27 @@ def calculo_costo(fecha, lista, horario):
                 # ---------------agregar un solo return--------------------
                 # si entra aca tenemos el caso que el mes esta dentro de un pliego
                 if horario == "punta":
-                    lista[2] = lista[0] * resultado.punta_T
+                    lista[2] = lista[0] * resultado.punta_T * 1.13
                     return lista
                 elif horario == "valle":
-                    lista[2] = lista[0] * resultado.valle_T
+                    lista[2] = lista[0] * resultado.valle_T * 1.13
                     return lista
                 elif horario == "resto":
-                    lista[2] = lista[0] * resultado.resto_T
+                    lista[2] = lista[0] * resultado.resto_T * 1.13
                     return lista
                 elif horario == "potencia":
-                    lista[2] = lista[0] * resultado.potencia_T
+                    lista[2] = lista[0] * resultado.potencia_T * 1.13
                     return lista
             elif (resultado.final_p < final) & (resultado.final_p > inicio):
                 delta1 = (float((resultado.final_p - inicio).days)) / (float((final - inicio).days))
                 if horario == "punta":
-                    parte1 = lista[0] * resultado.punta_T * delta1
+                    parte1 = lista[0] * resultado.punta_T * delta1 * 1.13
                 elif horario == "valle":
-                    parte1 = lista[0] * resultado.valle_T * delta1
+                    parte1 = lista[0] * resultado.valle_T * delta1 * 1.13
                 elif horario == "resto":
-                    parte1 = lista[0] * resultado.resto_T * delta1
+                    parte1 = lista[0] * resultado.resto_T * delta1 * 1.13
                 elif horario == "potencia":
-                    parte1 = lista[0] * resultado.potencia_T * delta1
+                    parte1 = lista[0] * resultado.potencia_T * delta1 * 1.13
                     # ---------en parte 1 se almacena el calculo con respecto al primer pliego--------------
     resultado2 = Pliego.query(Pliego.inicio_p > inicio)
     if resultado2:
@@ -49,14 +51,16 @@ def calculo_costo(fecha, lista, horario):
             if (resul.final_p > final) & (resul.inicio_p < final):
                 delta2 = (float((final - resul.inicio_p).days)) / (float((final - inicio).days))
                 if horario == "punta":
-                    parte2 = lista[0] * resul.punta_T * delta2
+                    parte2 = lista[0] * resul.punta_T * delta2 * 1.13
                 elif horario == "valle":
-                    parte2 = lista[0] * resul.valle_T * delta2
+                    parte2 = lista[0] * resul.valle_T * delta2 * 1.13
                 elif horario == "resto":
-                    parte2 = lista[0] * resul.resto_T * delta2
+                    parte2 = lista[0] * resul.resto_T * delta2 * 1.13
                 elif horario == "potencia":
-                    parte2 = lista[0] * resul.potencia_T * delta2
-    lista[2] = parte1 + parte2
+                    parte2 = lista[0] * resul.potencia_T * delta2 * 1.13
+        lista[2] = parte1 + parte2
+    # else:
+        # lista[2] = 0.0
     return lista
 
 
@@ -166,10 +170,10 @@ def actualizar_year(date, lista, entity2):
         entity2.Diciembre = lista
 
     for contador in range(14):
-        total[contador] = entity2.Enero[contador] + entity2.Febrero[contador] + entity2.Marzo[contador] + \
-                          entity2.Abril[contador] + entity2.Mayo[contador] + entity2.Junio[contador] + \
-                          entity2.Julio[contador] + entity2.Agosto[contador] + entity2.Septiembre[contador] + \
-                          entity2.Octubre[contador] + entity2.Noviembre[contador] + entity2.Diciembre[contador]
+        total[contador] = (entity2.Enero[contador] + entity2.Febrero[contador] + entity2.Marzo[contador] +
+                           entity2.Abril[contador] + entity2.Mayo[contador] + entity2.Junio[contador] +
+                           entity2.Julio[contador] + entity2.Agosto[contador] + entity2.Septiembre[contador] +
+                           entity2.Octubre[contador] + entity2.Noviembre[contador] + entity2.Diciembre[contador])
 
     entity2.Total_anual = total
 
@@ -205,11 +209,11 @@ def obtener_year(year_entity, peticion):
     valor = lista_peticion[peticion]
 
     lista_year = {"Enero": year_entity.Enero[valor], "Febrero": year_entity.Febrero[valor],
-                  "Marzo": year_entity.Febrero[valor], "Abril": year_entity.Febrero[valor],
-                  "Mayo": year_entity.Febrero[valor], "Junio": year_entity.Febrero[valor],
-                  "Julio": year_entity.Febrero[valor], "Agosto": year_entity.Febrero[valor],
-                  "Septiembre": year_entity.Febrero[valor], "Octubre": year_entity.Febrero[valor],
-                  "Noviembre": year_entity.Febrero[valor], "Diciembre": year_entity.Febrero[valor]}
+                  "Marzo": year_entity.Marzo[valor], "Abril": year_entity.Abril[valor],
+                  "Mayo": year_entity.Mayo[valor], "Junio": year_entity.Junio[valor],
+                  "Julio": year_entity.Julio[valor], "Agosto": year_entity.Agosto[valor],
+                  "Septiembre": year_entity.Septiembre[valor], "Octubre": year_entity.Octubre[valor],
+                  "Noviembre": year_entity.Noviembre[valor], "Diciembre": year_entity.Diciembre[valor]}
 
     return lista_year
 
@@ -242,7 +246,7 @@ def obtener_month(year_entity, mes, peticion):
 def meses_recientes(inicio, lista_mes):
     #       [kw / h total, $ eneria total, punta[Energia, Dinero, Calculo], valle[Energia, Dinero, Calculo],
     #        resto[Energia,Dinero,calculo], potencia[kw, $pot, #calculado]]
-    inicializacion = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    inicializacion = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     orientacion_meses = {1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio",
                          7: "Julio", 8: "Agosto", 9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre"}
 
@@ -274,12 +278,12 @@ def iniciar_usuario():
     primero.put()
 
 
-def formatCifra(numero):
+def formatcifra(numero):
     # ""Adicionar comas como separadores de miles a n. n debe ser de tipo string"
-    s = numero
+    s = str(numero)
     i = s.index('.')
     # Se busca la posicion del punto decimal
     while i > 3:
-        i = i - 3
+        i -= 3
         s = s[:i] + ',' + s[i:]
     return s

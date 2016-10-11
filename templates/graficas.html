@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="static/img/lights.png">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -138,11 +140,7 @@
 	    <script src="static/graficas/js/html5shiv.js"></script>
 	    <script src="static/graficas/js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
 </head><!--/head-->
 
 <body>
@@ -151,10 +149,14 @@
 			<div class="container">
 				<div class="header-top">
 					<div class="pull-right social-icons">
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-google-plus"></i></a>
-						<a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="/"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
+                        <a href="/tabla"><i class="fa fa-table" aria-hidden="true"></i>Tablas</a>
+                        <a href="/fecha"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Ingreso de Factura</a>
+                        <a href="/pliego"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Ingreso de Pliego</a>
+                        <a href="/acometida"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Ingreso de Acometida</a>
+						<a href="https://github.com/Miguel-Calderon/Tesis.git"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
+						<a href="https://www.dropbox.com/sh/2jplume0ywvlae9/AADC6W3TcXLsFVc55PPmXXsia?dl=0"><i class="fa fa-dropbox" aria-hidden="true"></i>Dropbox</a>
+
 					</div>
 				</div>     
 		        <div class="row">	        		
@@ -165,19 +167,16 @@
 		                    <span class="icon-bar"></span>
 		                    <span class="icon-bar"></span>
 		                </button>
-		                <a class="navbar-brand" href="index.html">
-		                	<img class="img-responsive" src="static/graficas/images/logo.png" alt="logo">
+		                <a class="navbar-brand" href="/">
+		                	<img class="img-responsive" src="static/img/power4.png" alt="logo" style="padding-left: 70px"><h1>UES</h1>
 		                </a>                    
 		            </div>
 		            <div class="collapse navbar-collapse">
 		                <ul class="nav navbar-nav navbar-right">                 
-		                    <li class="scroll active"><a href="#home">Home</a></li>
-		                    <li class="scroll"><a href="#explore">Explore</a></li>                         
-		                    <li class="scroll"><a href="#event">Event</a></li>
-		                    <li class="scroll"><a href="#about">About</a></li>                     
-		                    <li class="no-scroll"><a href="#twitter">Twitter</a></li>
-		                    <li><a class="no-scroll" href="#" target="_blank">PURCHASE TICKETS</a></li>
-		                    <li class="scroll"><a href="#contact">Contact</a></li>       
+
+		                    <li class="scroll"><a href="#event">Graficas</a></li>
+
+
 		                </ul>
 		            </div>
 		        </div>
@@ -197,25 +196,25 @@
 				<div class="item active">
 					<img class="img-responsive" src="static/graficas/images/slider/bg1.jpg" alt="slider">
 					<div class="carousel-caption">
-						<h2>register for our next event </h2>
-						<h4>full event package only @$199</h4>
-						<a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+						<h2>Amcharts </h2>
+						<h4>potente javascript para generacion de graficas</h4>
+						<a href="https://www.amcharts.com/">Pagina oficial <i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>
 				<div class="item">
 					<img class="img-responsive" src="static/graficas/images/slider/bg2.jpg" alt="slider">
 					<div class="carousel-caption">
-						<h2>register for our next event </h2>
-						<h4>full event package only @$199</h4>
-						<a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+						<h2>App Engine</h2>
+						<h4>---------------</h4>
+						<a href="#contact">------------<i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>
 				<div class="item">
 					<img class="img-responsive" src="static/graficas/images/slider/bg3.jpg" alt="slider">
 					<div class="carousel-caption">
-						<h2>register for our next event </h2>
-						<h4>full event package only @$199</h4>
-						<a href="#contact" >GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+						<h2>------------</h2>
+						<h4>------------</h4>
+						<a href="#contact" >----------- <i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>				
 			</div>
@@ -223,41 +222,7 @@
     </section>
 	<!--/#home-->
 
-	<section id="explore">
-		<div class="container">
-			<div class="row">
-				<div class="watch">
-					<img class="img-responsive" src="images/watch.png" alt="">
-				</div>				
-				<div class="col-md-4 col-md-offset-2 col-sm-5">
-					<h2>our next event in</h2>
-				</div>				
-				<div class="col-sm-7 col-md-6">					
-					<ul id="countdown">
-						<li>					
-							<span class="days time-font">00</span>
-							<p>days </p>
-						</li>
-						<li>
-							<span class="hours time-font">00</span>
-							<p class="">hours </p>
-						</li>
-						<li>
-							<span class="minutes time-font">00</span>
-							<p class="">minutes</p>
-						</li>
-						<li>
-							<span class="seconds time-font">00</span>
-							<p class="">seconds</p>
-						</li>				
-					</ul>
-				</div>
-			</div>
-			<div class="cart">
-				<a href="#"><i class="fa fa-shopping-cart"></i> <span>Purchase Tickets</span></a>
-			</div>
-		</div>
-	</section><!--/#explore-->
+
 
 	<section id="event" >
 
@@ -269,7 +234,7 @@
 						<li class="current">
                         <div class="row x_title">
                           <div class="col-md-12">
-                            <h2>Año mas reciente <br><small>2015</small></h2>
+                            <h2>Comparativa por horarios tarifarios <br><br><small>Historial Completo</small></h2>
                           </div>
                         </div>
                           <div id="chartdiv" style="width:100%; height:600px;"></div>
@@ -278,7 +243,7 @@
 						<li>
                             <div class="col-md-12 col-sm-4 col-xs-12">
                   <div class="x_title">
-                    <h2>Costos anuales <br><small>2015</small></h2>
+                    <h2>Costos anuales totales <br><br><small>HIstorial completo</small></h2>
 
                   </div>
                   <div id="chartdiv2" style="width:100%; height:600px;"></div>
@@ -287,7 +252,7 @@
 						<li>
 							<div class="col-md-12 col-sm-4 col-xs-12">
                   <div class="x_title">
-                    <h2>Energia anual comparativa</h2>
+                    <h2>Comparativa Energia total 2004 vs ultimos 3 años</h2>
 
                   </div>
 
@@ -297,7 +262,7 @@
                         <li>
 							<div class="col-md-12 col-sm-4 col-xs-12">
                   <div class="x_title">
-                    <h2>Costo anual comparativa</h2>
+                    <h2>Comparativa Costo  total 2004 vs ultimos 3 años</h2>
 
                   </div>
 
@@ -307,7 +272,7 @@
                         <li>
 							<div class="col-md-12 col-sm-4 col-xs-12">
                   <div class="x_title">
-                    <h2>Costo anual comparativa</h2>
+                    <h2>Mekko Chart: porcentaje costo final</h2>
 
                   </div>
 
@@ -317,7 +282,7 @@
                         <li>
 							<div class="col-md-12 col-sm-4 col-xs-12">
                   <div class="x_title">
-                    <h2>Costo anual comparativa</h2>
+                    <h2>Factor de Potencia por Acometida</h2>
 
                   </div>
 
@@ -328,7 +293,7 @@
                         <li>
 							<div class="col-md-12 col-sm-4 col-xs-12">
                   <div class="x_title">
-                    <h2>Costo anual comparativa</h2>
+                    <h2>Comparativa historica Demanda de Potencia </h2>
 
                   </div>
 
@@ -384,72 +349,27 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-10">
-						<h2>Sponsors</h2>
-						<a class="sponsor-control-left" href="#sponsor-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-						<a class="sponsor-control-right" href="#sponsor-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
-						<div class="carousel-inner">
-							<div class="item active">
-								<ul>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor1.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor2.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor3.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor4.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor5.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor6.png" alt=""></a></li>
-								</ul>
-							</div>
-							<div class="item">
-								<ul>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor6.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor5.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor4.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor3.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor2.png" alt=""></a></li>
-									<li><a href="#"><img class="img-responsive" src="images/sponsor/sponsor1.png" alt=""></a></li>
-								</ul>
+
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="light">
-				<img class="img-responsive" src="images/light.png" alt="">
-			</div>
-		</div>
+
+
+
 	</section><!--/#sponsor-->
 
-	<section id="contact">
-		<div id="map">
-			<div id="gmap-wrap">
-	 			<div id="gmap"> 				
-	 			</div>	 			
-	    	</div>
-		</div><!--/#map-->
-		<div class="contact-section">
-			<div class="ear-piece">
-				<img class="img-responsive" src="images/ear-piece.png" alt="">
-			</div>
 
-		</div>		
-	</section>
     <!--/#contact-->
 
-    <footer id="footer">
-        <div class="container">
-            <div class="text-center">
-                <p> Copyright  &copy;2014<a target="_blank" href="http://shapebootstrap.net/"> Evento </a>Theme. All Rights Reserved. <br> Designed by <a target="_blank" href="http://shapebootstrap.net/">ShapeBootstrap</a></p>                
-            </div>
-        </div>
-    </footer>
+
     <!--/#footer-->
   
     <script type="text/javascript" src="static/graficas/js/jquery.js"></script>
     <script type="text/javascript" src="static/graficas/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-  	<script type="text/javascript" src="static/graficas/js/gmaps.js"></script>
 	<script type="text/javascript" src="static/graficas/js/smoothscroll.js"></script>
-    <script type="text/javascript" src="static/graficas/js/jquery.parallax.js"></script>
     <script type="text/javascript" src="static/graficas/js/coundown-timer.js"></script>
+    <script type="text/javascript" src="static/graficas/js/jquery.parallax.js"></script>
     <script type="text/javascript" src="static/graficas/js/jquery.scrollTo.js"></script>
     <script type="text/javascript" src="static/graficas/js/jquery.nav.js"></script>
     <script type="text/javascript" src="static/graficas/js/main.js"></script>

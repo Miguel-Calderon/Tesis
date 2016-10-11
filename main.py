@@ -16,6 +16,7 @@
 #
 
 import webapp2
+
 from manejadores import Fecha, Factura1, Pliego1, Graficas1, tabla1, Front1, Login, Acometida1
 from utils import renderutils
 
@@ -33,7 +34,7 @@ app = webapp2.WSGIApplication([
     ('/factura', Factura1.FacturaHandler),
     ('/acometida', Acometida1.AcometidaHandler),
     ('/graficas', Graficas1.GraficaHandler),
-    ('/tabla', tabla1.TablaHandler),
+    ('/tabla', tabla1.TablaMenuHandler),
     ('/login', Login.LogInHandler),
     ('/logout', Login.LogOutHandler)
 ], debug=True)

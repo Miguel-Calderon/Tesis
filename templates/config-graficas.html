@@ -1,204 +1,13 @@
     	<script>
 
-			var chartData1 = [{
-                    "date": "2015-01",
-                    "value": 43023.76,
-					"volume":8130.67
-                }, {
-                    "date": "2015-02",
-                    "value": 52981.68,
-					"volume":9545.92
-                }, {
-                    "date": "2015-03",
-                    "value": 58055.08,
-					"volume":10460.01
-                }, {
-                    "date": "2015-04",
-                    "value": 59915.96,
-					"volume":9626.27
-                }, {
-                    "date": "2015-05",
-                    "value": 65232.07,
-					"volume":9432.21
-                }, {
-                    "date": "2015-06",
-                    "value": 61583.33,
-					"volume":8904.62
-                }, {
-                    "date": "2015-07",
-                    "value": 50136.52,
-					"volume":7481.04
-                }, {
-                    "date": "2015-08",
-                    "value": 56485.08,
-					"volume":8627.78
-                }, {
-                    "date": "2015-09",
-                    "value": 66132.32,
-					"volume":10101.35
-                }, {
-                    "date": "2015-10",
-                    "value": 60461.52,
-					"volume":9231.07
-                }, {
-                    "date": "2015-11",
-                    "value": 63605.11,
-					"volume":9707.94
-                }, {
-                    "date": "2015-12",
-                    "value": 40023.76,
-					"volume":7830.67
-                }];
-			var chartData2 = [{
-                    "date": "2015-01",
-                    "value": 40549.4,
-					"volume":7344.67
-                }, {
-                    "date": "2015-02",
-                    "value": 46804.84,
-					"volume":8109.34
-                }, {
-                    "date": "2015-03",
-                    "value": 46629.52,
-                    "volume":8089.1
-                }, {
-                    "date": "2015-04",
-                    "value": 47980.04,
-					"volume":7581.67
-                }, {
-                    "date": "2015-05",
-                    "value": 51771.87,
-					"volume":7531.04
-                }, {
-                    "date": "2015-06",
-                    "value": 49838.01,
-					"volume":7249.73
-                }, {
-                    "date": "2015-07",
-                    "value": 44844.28,
-					"volume":6737.81
-                }, {
-                    "date": "2015-08",
-                    "value": 49984.04,
-					"volume":7689.44
-                }, {
-                    "date": "2015-09",
-                    "value": 52659.33,
-					"volume":8104.6
-                },{
-                    "date": "2015-10",
-                    "value": 49078.36,
-					"volume":7393.38
-                },{
-                    "date": "2015-11",
-                    "value": 48763.67,
-					"volume":7231.15
+            /*--------------------------------------------------------------------------------------------------*/
+           /*----------------------GRAFICA COMPARATIVA horarios  total  ---------------------------------------*/
+          /*--------------------------------------------------------------------------------------------------*/
 
-                },{
-                    "date": "2015-12",
-                     "value": 38023.76,
-					"volume":7730.67
-                }];
-			var chartData3 = [{
-                    "date": "2015-01",
-                    "value": 184106.64,
-					"volume":35314.36
-                }, {
-                    "date": "2015-02",
-                    "value": 323287.56,
-					"volume":58658.61
-                }, {
-                    "date": "2015-03",
-                    "value": 336347.12,
-					"volume":61028.19
-
-                }, {
-                    "date": "2015-04",
-                    "value": 377411.84,
-					"volume":60901.4
-                }, {
-                    "date": "2015-05",
-                    "value": 432829.5,
-					"volume":62687.11
-                }, {
-                    "date": "2015-06",
-                    "value": 394988.14,
-					"volume":57206.52
-                }, {
-                    "date": "2015-07",
-                    "value": 332747.28,
-					"volume":49875.37
-
-                }, {
-                    "date": "2015-08",
-                    "value": 335400.4,
-					"volume":51570.48
-                }, {
-                    "date": "2015-09",
-                    "value": 422235.19,
-					"volume":64922.02
-                }, {
-                    "date": "2015-10",
-                    "value": 404781.6,
-					"volume":62288.33
-                }, {
-                    "date": "2015-11",
-                    "value": 420298.56,
-					"volume":64713.56
-                }, {
-                    "date": "2015-12",
-                    "value": 154106.64,
-					"volume":30314.36
-                }];
-			var chartData4 = [{
-                    "date": "2015-01",
-                    "value": 267679.8,
-					"volume":50789.7
-                }, {
-                    "date": "2015-02",
-                    "value": 423074.08,
-					"volume":76313.87
-                }, {
-                    "date": "2015-03",
-                    "value": 441031.72,
-					"volume":79577.3
-                }, {
-                    "date": "2015-04",
-                    "value": 485307.84,
-					"volume":78109.34
-                }, {
-                    "date": "2015-05",
-                    "value": 549833.44,
-					"volume":79650.36
-                }, {
-                    "date": "2015-06",
-                    "value": 506409.48,
-					"volume":73360.87
-                }, {
-                    "date": "2015-07",
-                    "value": 427728.08,
-					"volume":64094.22
-                }, {
-                    "date": "2015-08",
-                    "value": 441869.52,
-					"volume":67887.7
-                }, {
-                    "date": "2015-09",
-                    "value": 541026.84,
-					"volume":83127.97
-                }, {
-                    "date": "2015-10",
-                    "value": 514321.48,
-					"volume":78912.78
-                }, {
-                    "date": "2015-11",
-                    "value": 532667.34,
-					"volume":81652.65
-                }, {
-                    "date": "2015-12",
-                    "value": 232154.16,
-					"volume":45875.7
-                }];
+			var chartData1 = {{ total | safe }};
+			var chartData2 = {{ resto | safe }};
+			var chartData3 = {{ valle | safe }};
+			var chartData4 = {{ punta | safe }};
 
 
 			//noinspection JSUnresolvedFunction
@@ -216,7 +25,7 @@
 					},
 
 				dataSets: [{
-					title: "horario punta",
+					title: "Energia Total",
 					fieldMappings: [{
 						fromField: "value",
 						toField: "value"
@@ -232,8 +41,7 @@
 				},
 
 				{
-					title: "horario valle",
-					compared:true,
+					title: "Horario Resto",
 					fieldMappings: [{
 						fromField: "value",
 						toField: "value"
@@ -247,7 +55,7 @@
 				},
 
 				{
-					title: "horario resto",
+					title: "Horario Valle",
 					fieldMappings: [{
 						fromField: "value",
 						toField: "value"
@@ -261,7 +69,7 @@
 				},
 
 				{
-					title: "energia total",
+					title: "Horario Punta",
 					fieldMappings: [{
 						fromField: "value",
 						toField: "value"
@@ -339,7 +147,9 @@
 
 				chartScrollbarSettings: {
 					graph: "g1",
-					updateOnReleaseOnly:false
+					updateOnReleaseOnly:false,
+                    autoGridCount: true,
+
 				},
 
 				chartCursorSettings: {
@@ -380,7 +190,12 @@
 			});
 		</script>
 
+
+
     <script>
+           /*--------------------------------------------------------------------------------------------------*/
+           /*------------------------GRAFICA COMPARATIVA totales  ---------------------------------------------*/
+          /*--------------------------------------------------------------------------------------------------*/
             //noinspection JSUnresolvedFunction
             var chart = AmCharts.makeChart("chartdiv2", {
   "type": "serial",
@@ -511,7 +326,11 @@
   "dataProvider":{{ datos3 | safe }}
 });
       </script>
-      <script>
+<script>
+
+          /*--------------------------------------------------------------------------------------------------*/
+          /*----------------------GRAFICA COMPARATIVA 4 YEAR  ENERGIA ----------------------------------------*/
+          /*--------------------------------------------------------------------------------------------------*/
     var chart2 = AmCharts.makeChart("chartdiv3", {
     "theme": "light",
     "type": "serial",
@@ -528,7 +347,7 @@
         "lineAlpha": 0.2,
         "title": "2004",
         "type": "column",
-        "valueField": "year2004"
+        "valueField": "year1"
     }, {
         "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
         "lineColor": "#B8860B",
@@ -538,7 +357,7 @@
         "title": {{ titulo[0] }},
         "type": "column",
         "clustered":true,
-        "valueField": "year2005"
+        "valueField": "year4"
     },{
         "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
 
@@ -547,7 +366,7 @@
         "title": {{ titulo[1] }},
         "type": "column",
         "clustered":true,
-        "valueField": "year2005"
+        "valueField": "year3"
     },{
         "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
 
@@ -556,7 +375,7 @@
         "title": {{ titulo[2] }},
         "type": "column",
         "clustered":true,
-        "valueField": "year2005"
+        "valueField": "year2"
     }],
     "depth3D": 15,
 	"angle": 35,
@@ -593,14 +412,17 @@ function selectDataset(d) {
     chart2.validateData();
     chart2.animateAgain();
 }
+</script>
 
-      </script>
 
 <script>
+               /*--------------------------------------------------------------------------------------------------*/
+              /*----------------------GRAFICA COMPARATIVA 4 YEAR  Dinero  ----------------------------------------*/
+             /*--------------------------------------------------------------------------------------------------*/
 var chart3 = AmCharts.makeChart("chartdiv4", {
     "theme": "light",
     "type": "serial",
-    "dataProvider":{{ datos | safe }},
+    "dataProvider":{{ datos2 | safe }},
     "valueAxes": [{
         "unit": "$",
         "unitPosition":"left",
@@ -624,7 +446,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
         "title": {{ titulo[0] }},
         "type": "column",
         "clustered":true,
-        "valueField": "year2"
+        "valueField": "year4"
     },{
         "balloonText": "[[category]] [[title]]: <br> <b>$[[value]]</b>",
 
@@ -642,7 +464,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
         "title": {{ titulo[2] }},
         "type": "column",
         "clustered":true,
-        "valueField": "year4"
+        "valueField": "year2"
     }],
     "depth3D": 15,
 	"angle": 35,
@@ -677,102 +499,16 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
 </script>
 
+
 <script>
+           /*--------------------------------------------------------------------------------------------------*/
+          /*----------------------GRAFICA COMPARATIVA total %  -----------------------------------------------*/
+         /*--------------------------------------------------------------------------------------------------*/
     var chart = AmCharts.makeChart("chartdiv5", {
     "theme": "light",
     "type": "serial",
     "dataDateFormat": "YYYY-MM",
-    "dataProvider": [{
-        "date": "2004-1",
-        "trucks": 40000,
-        "SUVs": 180000,
-        "cars": 90000,
-        "total": 310000
-    }, {
-        "date": "2004-2",
-        "trucks": 90000,
-        "SUVs": 40000,
-        "cars": 110000,
-        "total": 240000
-    }, {
-        "date": "2004-3",
-        "trucks": 30000,
-        "SUVs": 50000,
-        "cars": 110000,
-        "total": 190000
-    },{
-        "date": "2004-4",
-        "trucks": 40000,
-        "SUVs": 180000,
-        "cars": 90000,
-        "total": 310000
-    }, {
-        "date": "2004-5",
-        "trucks": 90000,
-        "SUVs": 40000,
-        "cars": 110000,
-        "total": 240000
-    }, {
-        "date": "2004-6",
-        "trucks": 30000,
-        "SUVs": 50000,
-        "cars": 110000,
-        "total": 190000
-    },{
-        "date": "2004-7",
-        "trucks": 40000,
-        "SUVs": 180000,
-        "cars": 90000,
-        "total": 310000
-    }, {
-        "date": "2004-8",
-        "trucks": 90000,
-        "SUVs": 40000,
-        "cars": 110000,
-        "total": 240000
-    }, {
-        "date": "2004-9",
-        "trucks": 30000,
-        "SUVs": 50000,
-        "cars": 110000,
-        "total": 190000
-    },{
-        "date": "2004-10",
-        "trucks": 40000,
-        "SUVs": 180000,
-        "cars": 90000,
-        "total": 310000
-    }, {
-        "date": "2004-11",
-        "trucks": 90000,
-        "SUVs": 40000,
-        "cars": 110000,
-        "total": 240000
-    }, {
-        "date": "2004-12",
-        "trucks": 30000,
-        "SUVs": 50000,
-        "cars": 110000,
-        "total": 190000
-    },{
-        "date": "2005-1",
-        "trucks": 40000,
-        "SUVs": 180000,
-        "cars": 90000,
-        "total": 310000
-    }, {
-        "date": "2005-2",
-        "trucks": 90000,
-        "SUVs": 40000,
-        "cars": 110000,
-        "total": 240000
-    }, {
-        "date": "2005-3",
-        "trucks": 30000,
-        "SUVs": 50000,
-        "cars": 110000,
-        "total": 190000
-    }],
+    "dataProvider": {{ mekko | safe }},
 
 
     "categoryField": "date",
@@ -819,24 +555,31 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
     "graphs": [
         {
-            "title": "Trucks",
+            "title": "Resto",
             "labelText": "$[[value]]",
-            "valueField": "trucks",
+            "valueField": "RestoD",
             "type": "column",
             "fillAlphas": 1
         }, {
-            "title": "SUVs",
+            "title": "Punta",
             "labelText": "$[[value]]",
-            "valueField": "SUVs",
+            "valueField": "PuntaD",
             "type": "column",
             "fillAlphas": 1
 
         },
 
         {
-            "title": "Cars",
+            "title": "Valle",
             "labelText": "$[[value]]",
-            "valueField": "cars",
+            "valueField": "ValleD",
+            "type": "column",
+            "fillAlphas": 1
+        },
+        {
+            "title": "Potencia",
+            "labelText": "$[[value]]",
+            "valueField": "PotenciaD",
             "type": "column",
             "fillAlphas": 1
         }
@@ -850,196 +593,15 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 });
 </script>
 
+
 <script>
+           /*--------------------------------------------------------------------------------------------------*/
+          /*----------------------GRAFICA COMPARATIVA FACTOR DE POTENCIA--------------------------------------*/
+         /*--------------------------------------------------------------------------------------------------*/
+            {%for elemento in range(longitud) %}
+                var chartData{{ nombres_fp[elemento] }} = {{ factor[elemento] | safe }};
 
-			var chartData1 = [{
-                    "date": "2015-01",
-                    "value": 43023.76,
-					"volume":8130.67
-                }, {
-                    "date": "2015-02",
-                    "value": 52981.68,
-					"volume":9545.92
-                }, {
-                    "date": "2015-03",
-                    "value": 58055.08,
-					"volume":10460.01
-                }, {
-                    "date": "2015-04",
-                    "value": 59915.96,
-					"volume":9626.27
-                }, {
-                    "date": "2015-05",
-                    "value": 65232.07,
-					"volume":9432.21
-                }, {
-                    "date": "2015-06",
-                    "value": 61583.33,
-					"volume":8904.62
-                }, {
-                    "date": "2015-07",
-                    "value": 50136.52,
-					"volume":7481.04
-                }, {
-                    "date": "2015-08",
-                    "value": 56485.08,
-					"volume":8627.78
-                }, {
-                    "date": "2015-09",
-                    "value": 66132.32,
-					"volume":10101.35
-                }, {
-                    "date": "2015-10",
-                    "value": 60461.52,
-					"volume":9231.07
-                }, {
-                    "date": "2015-11",
-                    "value": 63605.11,
-					"volume":9707.94
-                }, {
-                    "date": "2015-12",
-                    "value": 40023.76,
-					"volume":7830.67
-                }];
-			var chartData2 = [{
-                    "date": "2015-01",
-                    "value": 40549.4,
-					"volume":7344.67
-                }, {
-                    "date": "2015-02",
-                    "value": 46804.84,
-					"volume":8109.34
-                }, {
-                    "date": "2015-03",
-                    "value": 46629.52,
-                    "volume":8089.1
-                }, {
-                    "date": "2015-04",
-                    "value": 47980.04,
-					"volume":7581.67
-                }, {
-                    "date": "2015-05",
-                    "value": 51771.87,
-					"volume":7531.04
-                }, {
-                    "date": "2015-06",
-                    "value": 49838.01,
-					"volume":7249.73
-                }, {
-                    "date": "2015-07",
-                    "value": 44844.28,
-					"volume":6737.81
-                }, {
-                    "date": "2015-08",
-                    "value": 49984.04,
-					"volume":7689.44
-                }, {
-                    "date": "2015-09",
-                    "value": 52659.33,
-					"volume":8104.6
-                },{
-                    "date": "2015-10",
-                    "value": 49078.36,
-					"volume":7393.38
-                },{
-                    "date": "2015-11",
-                    "value": 48763.67,
-					"volume":7231.15
-
-                },{
-                    "date": "2015-12",
-                     "value": 38023.76,
-					"volume":7730.67
-                }];
-			var chartData3 = [{
-                    "date": "2015-01",
-                    "value": 184106.64,
-					"volume":35314.36
-                }, {
-                    "date": "2015-02",
-                    "value": 323287.56,
-					"volume":58658.61
-                }, {
-                    "date": "2015-03",
-                    "value": 336347.12,
-					"volume":61028.19
-
-                }, {
-                    "date": "2015-04",
-                    "value": 377411.84,
-					"volume":60901.4
-                }, {
-                    "date": "2015-05",
-                    "value": 432829.5,
-					"volume":62687.11
-                }, {
-                    "date": "2015-06",
-                    "value": 394988.14,
-					"volume":57206.52
-                }, {
-                    "date": "2015-07",
-                    "value": 332747.28,
-					"volume":49875.37
-
-                }, {
-                    "date": "2015-08",
-                    "value": 335400.4,
-					"volume":51570.48
-                }, {
-                    "date": "2015-09",
-                    "value": 422235.19,
-					"volume":64922.02
-                }, {
-                    "date": "2015-10",
-                    "value": 404781.6,
-					"volume":62288.33
-                }, {
-                    "date": "2015-11",
-                    "value": 420298.56,
-					"volume":64713.56
-                }, {
-                    "date": "2015-12",
-                    "value": 154106.64,
-					"volume":30314.36
-                }];
-			var chartData4 = [{
-                    "date": "2015-01",
-                    "fp": 0.84,
-                }, {
-                    "date": "2015-02",
-                    "fp": 0.85,
-                }, {
-                    "date": "2015-03",
-                    "fp": 0.88,
-                }, {
-                    "date": "2015-04",
-                    "fp": 0.95,
-                }, {
-                    "date": "2015-05",
-                    "fp": 0.95,
-                }, {
-                    "date": "2015-06",
-                    "fp": 0.95,
-                }, {
-                    "date": "2015-07",
-                    "fp": 0.95,
-                }, {
-                    "date": "2015-08",
-                    "fp": 0.95,
-                }, {
-                    "date": "2015-09",
-                    "fp": 0.95,
-                }, {
-                    "date": "2015-10",
-                    "fp": 0.95,
-                }, {
-                    "date": "2015-11",
-                    "fp": 0.90,
-                }, {
-                    "date": "2015-12",
-                    "fp": 0.87,
-                }];
-
+            {% endfor %}
 
 			//noinspection JSUnresolvedFunction
             AmCharts.makeChart("chartdiv6", {
@@ -1055,51 +617,23 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 						minPeriod: "MM"
 					},
 
-				dataSets: [{
-					title: "Agronomia",
-					fieldMappings: [{
-						fromField: "fp",
-						toField: "fp"
-					}],
-					//dataDateFormat: "YYYY-MM"
-					dataProvider: chartData1,
-					color: "#d9601a",
+				dataSets: [
+                    {% for elemento in range(longitud) %}
+                        {
+                            title: "{{ nombres_fp[elemento] | safe }}",
 
-					categoryField: "date"
-				},
+                            fieldMappings: [{
+                                fromField: "fp",
+                                toField: "fp"
+                            }],
+                            dataProvider: chartData{{ nombres_fp[elemento] }},
 
-				{
-					title: "Comp_Deportivo",
-					compared:true,
-					fieldMappings: [{
-						fromField: "fp",
-						toField: "fp"
-					}],
-					dataProvider: chartData2,
-					color: "#b03355",
-					categoryField: "date"
-				},
+                            categoryField: "date"
+                        },
 
-				{
-					title: "Humanidades",
-					fieldMappings: [{
-						fromField: "fp",
-						toField: "fp"
-					}],
-					dataProvider: chartData3,
-                    color:"#2fa246",
-					categoryField: "date"
-				},
+                    {% endfor %}
 
-				{
-					title: "Derecho",
-					fieldMappings: [{
-						fromField: "fp",
-						toField: "fp"
-					}],
-					dataProvider:chartData4,
-					categoryField: "date"
-				}],
+				],
 
 				panels: [{
 					valueAxis: "fp",
@@ -1112,7 +646,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 					stockGraphs: [{
 						id: "g1",
 						type: "smoothedLine",
-                        negativeBase: 0.90,
+                        negativeBase: 90.0,
                         negativeLineColor: "#FF4500",
 						valueField: "fp",
 						lineThickness: 3,
@@ -1192,6 +726,10 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 		</script>
 
             <script>
+
+           /*--------------------------------------------------------------------------------------------------*/
+          /*---------------------GRAFICA COMPARATIVA DEMANDA DE POTENCIA--------------------------------------*/
+         /*--------------------------------------------------------------------------------------------------*/
             //noinspection JSUnresolvedFunction
             var chart = AmCharts.makeChart("chartdiv7", {
   "type": "serial",
@@ -1231,7 +769,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "dashLength": 5,
     "title": "Demanda Pot.",
     "useLineColorForBulletBorder": true,
-    "valueField": "EnergiaT",
+    "valueField": "PotenciaE",
     "clustered": false,
     "legendValueText": "[[value]]MW",
     "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]MW-h</b>"
@@ -1248,7 +786,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "type": "smoothedLine",
     "title": "Costo de Potencia__",
     "useLineColorForBulletBorder": true,
-    "valueField": "potenciaD",
+    "valueField": "PotenciaD",
     "clustered": false,
     "legendValueText": "$[[value]]K",
     "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]k</b>"
@@ -1293,6 +831,6 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
   "export": {
    "enabled": true
   },
-  "dataProvider":{{ datos3 | safe }}
+  "dataProvider":{{ potencia | safe }}
 });
       </script>

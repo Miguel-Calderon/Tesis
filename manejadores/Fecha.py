@@ -21,5 +21,5 @@ class FechaHandler(renderutils.MainHandler):
 
         nu_fecha.put()
 
-        todas = Acometida.query()
+        todas = Acometida.query(Acometida.final > nu_fecha.fin)
         self.render("wizardfactura.html", todas=todas, temp_fecha=fecha)
