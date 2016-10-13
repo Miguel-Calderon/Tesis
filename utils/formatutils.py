@@ -59,8 +59,8 @@ def calculo_costo(fecha, lista, horario):
                 elif horario == "potencia":
                     parte2 = lista[0] * resul.potencia_T * delta2 * 1.13
         lista[2] = parte1 + parte2
-    # else:
-        # lista[2] = 0.0
+        lista[2] = format_decimal(lista[2])
+
     return lista
 
 
@@ -94,7 +94,7 @@ def obtener_entity(tipo, entity_id):
 def crear_year(date, lista):
     mes = date.month
     nombre = str(date.year)
-    lista2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    lista2 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     year_entity = YearT(id=date.year,
                         nombre=nombre,
@@ -175,6 +175,8 @@ def actualizar_year(date, lista, entity2):
                            entity2.Julio[contador] + entity2.Agosto[contador] + entity2.Septiembre[contador] +
                            entity2.Octubre[contador] + entity2.Noviembre[contador] + entity2.Diciembre[contador])
 
+    for contador in range(14):
+        total[contador] = format_decimal(total[contador])
     entity2.Total_anual = total
 
     # for para iterar sobre los 14 elementos de cada mes y sumarlos
@@ -287,3 +289,11 @@ def formatcifra(numero):
         i -= 3
         s = s[:i] + ',' + s[i:]
     return s
+
+
+def format_decimal(cifra):
+    cambio = str(cifra)
+    intermedio = cambio.split(".")
+    cambio = intermedio[0]+"."+intermedio[1][:2]
+    cambio = float(cambio)
+    return cambio

@@ -1,11 +1,19 @@
-from modelos import Pliego
+from modelos import Pliego, Usuarios
 from utils import renderutils, formatutils
 
 
 class PliegoHandler(renderutils.MainHandler):
 
     def get(self):
-        self.render("formulariopliego.html")
+        nombre = str(self.request.cookies.get('nombre'))
+        if nombre:
+            usuario = formatutils.obtener_entity(Usuarios, nombre)
+            if usuario:
+                self.render("formulariopliego.html")
+            else:
+                self.redirect("/login")
+        else:
+            self.redirect("/login")
 
     def post(self):
 

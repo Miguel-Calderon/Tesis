@@ -9,6 +9,8 @@ class FechaHandler(renderutils.MainHandler):
             usuario = formatutils.obtener_entity(Usuarios, nombre)
             if usuario:
                 self.render("formulariofecha.html")
+            else:
+                self.redirect("/login")
         else:
             self.redirect("/login")
 

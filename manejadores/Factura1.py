@@ -9,7 +9,7 @@ class FacturaHandler(renderutils.MainHandler):
         # fecha = formatutils.obtener_entity(Fecha, "2004-04")
         # truck = formatutils.obtener_entity(YearT, 2015)
         # resultado = formatutils.calculo_costo(fecha, [99, 1.0, 0.0], "punta")
-        #self.response.out.write(truck)
+        # self.response.out.write(truck)
         # self.response.out.write(fecha.mes)
         # for toda in todas:
         #   self.response.out.write(toda.key)
@@ -39,7 +39,10 @@ class FacturaHandler(renderutils.MainHandler):
             total_aco = formatutils.total_acometida(punta_L, valle_L, resto_L, pot_L)
             # suma_total= [kw/h total, $ eneria total, punta[Energia,Dinero,Calculo], valle[Energia,Dinero,Calculo],
             #              resto[Energia,Dinero,calculo], potencia[kw, $pot, #calculado]]
-            total_guardar = [total_aco[0], total_aco[1], pot_L[0], pot_L[1]]
+            total_guardar = [formatutils.format_decimal(total_aco[0]),
+                             formatutils.format_decimal(total_aco[1]),
+                             formatutils.format_decimal(pot_L[0]),
+                             formatutils.format_decimal(pot_L[1])]
             total_mes = formatutils.total_mes(total_aco, total_mes)
             # acometida_key = ndb.Key(Acometida, toda.nombre)
             acometida_id = self.request.get("fecha")+toda.nombre
@@ -54,6 +57,9 @@ class FacturaHandler(renderutils.MainHandler):
                                  ftotal=total_guardar,
                                  f_pot_tr=fp_tr)
             nu_factura.put()
+
+        for contador in range(len(total_mes)):
+            total_mes[contador] = formatutils.format_decimal(total_mes[contador])
 
         recientes = formatutils.meses_recientes(fecha.inicio, total_mes)
         recientes.put()

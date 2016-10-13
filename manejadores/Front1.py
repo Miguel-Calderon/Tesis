@@ -6,6 +6,7 @@ import datetime
 class FrontHandler(renderutils.MainHandler):
     def get(self):
         # -----------------Datos actuales  para slide show ------------------------------------
+        valor1 = 0.0
         date_ahora = datetime.date.today().year
         primer_year = formatutils.obtener_entity(YearT, date_ahora)
         if primer_year:
@@ -67,8 +68,11 @@ class FrontHandler(renderutils.MainHandler):
         # -------------------- variable con datos para grafica de pastel ------------------------------
 
         pie_morris = [suma_agro[1] + suma_agro[3], suma_huma[1] + suma_huma[3], suma_comp[1] + suma_comp[3]]
-        total1=float(sum(pie_morris))
+        total1 = float(sum(pie_morris))
         pie_morris = [(pie_morris[0]/total1)*100, (pie_morris[1]/total1)*100, (pie_morris[2]/total1)*100]
+
+        pie_morris = [formatutils.format_decimal(pie_morris[0]), formatutils.format_decimal(pie_morris[1]),
+                      formatutils.format_decimal(pie_morris[2])]
 
         # ----------------------variable con datos de meses recientes --------------------------------
         meses_recientes = formatutils.obtener_entity(Recientes, "ultimos")
