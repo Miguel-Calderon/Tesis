@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+	    <link rel="icon" type="image/png" href="static/img/lights.png">
+
+
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!--   Style  de tabla  -->
+	<link rel="stylesheet" type="text/css" href="static/tabla/DataTables/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/tabla/DataTables/assets/css/fresh-datatables.css">
+
+	<!--   Fonts   -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+    <!-- elementos de navbar -->
+	<link rel="stylesheet" href="static/tabla/navigation/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="static/tabla/navigation/css/style.css"> <!-- Resource style -->
+	<script src="static/tabla/navigation/js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>| Tabla |</title>
+</head>
+<body class="bootstrap-table">
+	<header class="cd-header">
+		<a href="#0" class="cd-logo"><img src="static/tabla/navigation/img/cd-logo.svg" alt="Logo"></a>
+		<a href="#0" class="cd-3d-nav-trigger">
+			Menu
+			<span></span>
+		</a>
+	</header> <!-- .cd-header -->
+	
+	<main>
+		<div class="row">
+		<div class="fresh-datatables full-color-blue full-screen-table">
+			<!--    Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange, full-color-purple, full-color-gray
+					Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange, toolbar-color-purple, toolbar-color-gray
+			-->
+			<table id="fresh-datatables" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+				<thead>
+                    <tr>
+                    <th colspan="15" style="text-align: center">Pliegos Tarifarios</th>
+                    </tr>
+
+					<tr>
+						<th>Fecha Inicio</th>
+						<th>Punta ($/kWh)</th>
+                        <th>Valle ($/kWh)</th>
+                        <th>Resto ($/kWh)</th>
+						<th>Demanda de Potencia($/kW-mes)</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+                        <th>Fecha Inicio</th>
+                        <th>Punta ($/kWh)</th>
+                        <th>Valle ($/kWh)</th>
+                        <th>Resto ($/kWh)</th>
+						<th>Demanda de Potencia($/kW-mes)</th>
+
+					</tr>
+				</tfoot>
+				<tbody>
+
+                    {% for elemento in lista %}
+                        <tr>
+                        <td>{{ elemento.inicio_p }}</td>
+						<td>{{ elemento.punta_T }}</td>
+                        <td>{{ elemento.valle_T }}</td>
+                        <td>{{ elemento.resto_T}}</td>
+                        <td>{{ elemento.potencia_T }}</td>
+
+                        </tr>
+                    {% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+    </main>
+
+
+
+
+    <nav class="cd-3d-nav-container">
+		<ul class="cd-3d-nav">
+			<li class="cd-selected">
+				<a href="/">Home</a>
+			</li>
+
+			<li>
+				<a href="/graficas">Graficas</a>
+			</li>
+
+			<li>
+				<a href="/fecha">Ingreso de datos</a>
+			</li>
+
+			<li>
+				<a href="https://github.com/Miguel-Calderon/Tesis.git">Git Hub</a>
+			</li>
+
+			<li>
+				<a href="https://www.dropbox.com/sh/2jplume0ywvlae9/AADC6W3TcXLsFVc55PPmXXsia?dl=0">Dropbox</a>
+			</li>
+		</ul> <!-- .cd-3d-nav -->
+
+		<span class="cd-marker color-1"></span>	
+	</nav> <!-- .cd-3d-nav-container -->
+<script src="static/tabla/navigation/js/jquery-2.1.1.js"></script>
+<script src="static/tabla/navigation/js/main.js"></script> <!-- Resource jQuery -->
+
+<script src="static/tabla/DataTables/assets/js/jquery.js"></script>
+<script src="static/tabla/DataTables/assets/js/jquery.datatables.js"></script>
+<script>
+
+$(document).ready(function() {
+	$('#fresh-datatables').DataTable({
+		"pagingType": "full_numbers",
+		"lengthMenu": [[15, 20, 50, -1], [15, 20, 50, "All"]],
+		responsive: true,
+		language: {
+		search: "_INPUT_",
+		searchPlaceholder: "Buscar Elemento"
+		}
+
+	});
+
+
+	var table = $('#fresh-datatables').DataTable();
+    // Edit record
+    table.on( 'click', '.edit', function () {
+		$tr = $(this).closest('tr');
+
+		var data = table.row($tr).data();
+		alert( 'You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.' );
+    } );
+
+    // Delete a record
+    table.on( 'click', '.remove', function (e) {
+		$tr = $(this).closest('tr');
+		table.row($tr).remove().draw();
+		e.preventDefault();
+    } );
+
+	//Like record
+	table.on( 'click', '.like', function () {
+		alert('You clicked on Like button');
+    } );
+});
+
+</script>
+</body>
+</html>

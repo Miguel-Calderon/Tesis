@@ -16,6 +16,7 @@
 				type: "stock",
 				addClassNames: true,
 
+
                 dataDateFormat: "YYYY-MM",
 
 
@@ -82,14 +83,16 @@
 				}],
 
 				panels: [{
-					valueAxis: "value",
+                    valueAxis: "value",
 					recalculateToPercents: "never",
 					showCategoryAxis: false,
-					title: "energia",
+					title: "Energia",
 					percentHeight: 70,
+                    fontSize:17,
 
 
 					stockGraphs: [{
+                        fontSize:17,
 						id: "g1",
 						type: "smoothedLine",
 						valueField: "value",
@@ -116,6 +119,7 @@
 
 
 					stockLegend: {
+                        valueText:"Kw/h",
 						//periodValueTextComparing: "[[value.close]]%",
 						//periodValueTextRegular: "[[value.close]]"
 					}
@@ -125,15 +129,17 @@
 					title: "Costo",
 					recalculateToPercents: "never",
 					percentHeight: 30,
+                    fontSize:17,
 					stockGraphs: [{
-
+                        unit: "Kw/h",
 						valueField: "volume",
 						comparable: true,
 						compareField: "volume",
 						type: "column",
 						compareGraphType:"column",
 						compareGraphFillAlphas:1,
-						showBalloon: false,
+						showBalloon: true,
+                        balloonText: "[[title]]:<b>$[[value]]</b>",
 						fillAlphas: 1
 					}],
 
@@ -181,7 +187,8 @@
 				//},
 
 				dataSetSelector: {
-					position: "left"
+					position: "left",
+                    fontSize:17
 				},
 
                 "export": {
@@ -202,7 +209,7 @@
   "theme": "light",
   "dataDateFormat": "YYYY-MM",
    "addClassNames": true,
-  "fontSize":16,
+  "fontSize":17,
   "precision": 2,
   "valueAxes": [{
     "id": "v1",
@@ -210,7 +217,7 @@
     "position": "left",
     "autoGridCount": false,
     "labelFunction": function(value) {
-      return "$" + Math.round(value) + "K";
+      return "$" + Math.round(value) ;
     }
   }, {
     "id": "v2",
@@ -219,7 +226,7 @@
     "position": "right",
     "autoGridCount": false,
     "labelFunction": function(value) {
-      return Math.round(value) + "MW-h";
+      return Math.round(value) + "KW-h";
   }}],
   "graphs": [{
     "id": "g3",
@@ -232,8 +239,8 @@
     "valueField": "DineroTT",
     "clustered": false,
     "columnWidth": 0.5,
-    "legendValueText": "$[[value]]K",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]K</b>"
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
   }, {
     "id": "g4",
     "valueAxis": "v1",
@@ -245,8 +252,8 @@
     "valueField": "EnergiaD",
     "clustered": false,
     "columnWidth": 0.3,
-    "legendValueText": "$[[value]]K",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]K</b>"
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
   }, {
     "id": "g1",
     "valueAxis": "v1",
@@ -262,8 +269,8 @@
     "useLineColorForBulletBorder": true,
     "valueField": "potenciaD",
     "clustered": false,
-    "legendValueText": "$[[value]]K",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]k</b>"
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
   }, {
     "id": "g2",
     "valueAxis": "v2",
@@ -280,8 +287,8 @@
     "useLineColorForBulletBorder": true,
     "valueField": "EnergiaT",
     "clustered": false,
-    "legendValueText": "[[value]]MW-h",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]MW-h</b>"
+    "legendValueText": "[[value]]KW-h",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]KW-h</b>"
   }],
   "chartScrollbar": {
     "graph": "g1",
@@ -334,6 +341,7 @@
     var chart2 = AmCharts.makeChart("chartdiv3", {
     "theme": "light",
     "type": "serial",
+    "fontSize":17,
     "dataProvider":{{ datos | safe }},
     "valueAxes": [{
         "unit": "Kw/h",
@@ -395,7 +403,7 @@
     "legend": {
     "useGraphSettings": true,
     "position": "top",
-    "valueText":"[[value]] Kw/h"
+    "valueText":""
   },
   "balloon": {
     "borderThickness": 3,
@@ -422,12 +430,13 @@ function selectDataset(d) {
 var chart3 = AmCharts.makeChart("chartdiv4", {
     "theme": "light",
     "type": "serial",
+    "fontSize":17,
     "dataProvider":{{ datos2 | safe }},
     "valueAxes": [{
         "unit": "$",
         "unitPosition":"left",
         "position": "left",
-        "title": "ENERGIA DEMANDADA"
+        "title": "COSTO ENERGIA DEMANDADA"
     }],
     "startDuration": 0,
     "graphs": [{
@@ -506,6 +515,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
          /*--------------------------------------------------------------------------------------------------*/
     var chart = AmCharts.makeChart("chartdiv5", {
     "theme": "light",
+    "fontSize":17,
     "type": "serial",
     "dataDateFormat": "YYYY-MM",
     "dataProvider": {{ mekko | safe }},
@@ -559,13 +569,15 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
             "labelText": "$[[value]]",
             "valueField": "RestoD",
             "type": "column",
-            "fillAlphas": 1
+            "fillAlphas": 1,
+            "balloonText": "[[title]]: <br> <b>$[[value]]</b>"
         }, {
             "title": "Punta",
             "labelText": "$[[value]]",
             "valueField": "PuntaD",
             "type": "column",
-            "fillAlphas": 1
+            "fillAlphas": 1,
+            "balloonText": "[[title]]: <br> <b>$[[value]]</b>"
 
         },
 
@@ -574,18 +586,24 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
             "labelText": "$[[value]]",
             "valueField": "ValleD",
             "type": "column",
-            "fillAlphas": 1
+            "fillAlphas": 1,
+            "balloonText": "[[title]]: <br> <b>$[[value]]</b>"
         },
         {
             "title": "Potencia",
             "labelText": "$[[value]]",
             "valueField": "PotenciaD",
             "type": "column",
-            "fillAlphas": 1
+            "fillAlphas": 1,
+            "balloonText": "[[title]]: <br> <b>$[[value]]</b>"
         }
     ],
 
-    "legend": {},
+    "legend": {
+        "useGraphSettings": true,
+    "position": "top",
+    "valueText":"$ [[value]]"
+    },
     "export":
      {
      "enabled":true
@@ -636,6 +654,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 				],
 
 				panels: [{
+                    fontSize:17,
 					valueAxis: "fp",
 					recalculateToPercents: "never",
 					showCategoryAxis: true,
@@ -644,10 +663,11 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
 
 					stockGraphs: [{
+
 						id: "g1",
 						type: "smoothedLine",
                         negativeBase: 90.0,
-                        negativeLineColor: "#FF4500",
+                        negativeLineColor: "#800080",
 						valueField: "fp",
 						lineThickness: 3,
 						comparable: true,
@@ -656,16 +676,16 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 						//bulletBorderColor: "#FFFFFF",
 						bulletColor:"#FFFFFF",
 						bulletBorderAlpha: 0.1,
-						balloonText: "[[title]]:<b>[[value]] KW-h</b>",
+						balloonText: "[[title]]:<b>[[value]]</b>",
                         compareGraphType:"smoothedLine",
-						compareGraphBalloonText: "[[title]]:<b>[[value]]KW-h</b>",
+						compareGraphBalloonText: "[[title]]:<b>[[value]]</b>",
 						compareGraphBullet: "round",
 						compareGraphBulletBorderColor: "#FFFFFF",
 						compareGraphBulletBorderAlpha: 1,
                         compareGraphLineThickness:3,
 
                         ValueAxesSettings:{
-                        unit:"KW-h"
+
                 }
 
 					}],
@@ -734,9 +754,10 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
             var chart = AmCharts.makeChart("chartdiv7", {
   "type": "serial",
   "theme": "light",
+
   "dataDateFormat": "YYYY-MM",
    "addClassNames": true,
-  "fontSize":16,
+  "fontSize":17,
   "precision": 2,
   "valueAxes": [{
     "id": "v1",
@@ -744,7 +765,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "position": "left",
     "autoGridCount": false,
     "labelFunction": function(value) {
-      return "$" + Math.round(value) + "K";
+      return "$" + Math.round(value);
     }
   }, {
     "id": "v2",
@@ -753,7 +774,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "position": "right",
     "autoGridCount": false,
     "labelFunction": function(value) {
-      return Math.round(value) + "MW";
+      return Math.round(value) + "KW";
   }}],
   "graphs": [{
     "id": "g2",
@@ -771,8 +792,8 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "useLineColorForBulletBorder": true,
     "valueField": "PotenciaE",
     "clustered": false,
-    "legendValueText": "[[value]]MW",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]MW-h</b>"
+    "legendValueText": "[[value]]Kw",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]Kw</b>"
   },{
     "id": "g1",
     "valueAxis": "v1",
@@ -788,8 +809,8 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "useLineColorForBulletBorder": true,
     "valueField": "PotenciaD",
     "clustered": false,
-    "legendValueText": "$[[value]]K",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]k</b>"
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
   }],
   "chartScrollbar": {
     "graph": "g1",

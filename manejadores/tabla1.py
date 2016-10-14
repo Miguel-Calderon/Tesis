@@ -1,5 +1,5 @@
 from utils import renderutils
-from modelos import Factura
+from modelos import Factura, Pliego
 
 
 class TablaMenuHandler(renderutils.MainHandler):
@@ -14,4 +14,9 @@ class TablaMenuHandler(renderutils.MainHandler):
                        "Derecho": Factura.query(Factura.Aco_Key == "Derecho"),
                        "Fosa": Factura.query(Factura.Aco_Key == "Fosa"),
                        "Medicina": Factura.query(Factura.Aco_Key == "Medicina")}
-        self.render("tabla.html", lista=orientacion[acometida], acometida=acometida)
+
+        if acometida =="Pliego_Tarifario":
+            pliegotarifa = Pliego.query().order(Pliego.inicio_p)
+            self.render("tablap.html", lista=pliegotarifa)
+        else:
+            self.render("tabla.html", lista=orientacion[acometida], acometida=acometida)
