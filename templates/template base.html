@@ -77,7 +77,7 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LUGARES <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">SITIOS<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="/graficas">Graficas</a></li>
                         <li class="divider"></li>
@@ -103,7 +103,7 @@
             <div class="item" style="background-image: url(static/home/img/sliders/slide4.jpg)">
                 <div class="caption">
                     <div class="animated bounceInDown">
-                    <h1>Herramienta de analisis del consumo de energia electrica <span>UES</span></h1>
+                    <h1>Herramienta de análisis del consumo de energia eléctrica <span>UES</span></h1>
                     </div>
                 </div>
                 <div class="mouse-icon"><div class="wheel"></div></div>
@@ -112,11 +112,12 @@
             <div class="item" style="background-image: url(static/home/img/sliders/Slide.jpg)">
                 <div class="caption">
 
-
-                      <h2>Durante el año {{ datos[1] }} </h2><h2>la UES cancelo un  monto que asciende a:</h2>
+                        <br>
+                      <h2>Durante el año {{ datos[1] }} </h2>
+                        <br><h2>la UES canceló  por energía y demanda de potencia
+                          un  monto que asciende a:</h2>
                       <h1><span> ${{ datos[3] }}</span></h1>
-                      <h2>En cambio en el presente {{ datos[0] }}</h2><h2>este monto es de :</h2>
-                      <h1><span>${{ datos[2] }}</span></h1>
+
 
                 </div>
                 <div class="mouse-icon"><div class="wheel"></div></div>
@@ -479,7 +480,7 @@
         <div id="particles-js" style="position:absolute; width:100%;	height:100%;"></div>
         <div class="container">
 
-            <h2>comportamiento 2016</h2>
+            <h2>Comportamiento {{ datos[1] }}</h2>
             <hr class="light-sep">
             <h3 style="color:#fff">Por Horarios</h3>
             <hr class="light-sep">
@@ -493,7 +494,7 @@
                         <div class="media-body">
                             <h3>Punta</h3>
                             <p>De las 18:00 a 22:59 horas<br>
-                               EL mayor valor se encuentra en:<br><b>{{ posi[0] }}<br>con {{ mayor[0] }}KW/h </b> </p>
+                               El mayor valor se encuentra en:<br><b>{{ posi[0] }}<br>con {{ mayor[0] }}KW/h </b> </p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -501,7 +502,7 @@
                         <div class="media-body">
                             <h3>Valle</h3>
                             <p>De las 23:00 a 04:59 horas<br>
-                                EL mayor valor se encuentra en:<br><b>{{ posi[1] }}<br>con {{ mayor[1] }}KW/h </b> </p>
+                                El mayor valor se encuentra en:<br><b>{{ posi[1] }}<br>con {{ mayor[1] }}KW/h </b> </p>
                         </div>
 
                     </div>
@@ -510,7 +511,7 @@
                         <div class="media-body">
                             <h3>Resto</h3>
                             <p><p>De las 05:00 a 17:59 horas<br>
-                            EL mayor valor se encuentra en:<br><b>{{ posi[2] }}<br>con {{ mayor[2] }}KW/h </b> </p></p>
+                            El mayor valor se encuentra en:<br><b>{{ posi[2] }}<br>con {{ mayor[2] }}KW/h </b> </p></p>
                         </div>
 
                     </div>

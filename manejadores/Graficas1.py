@@ -50,7 +50,7 @@ class GraficaHandler(renderutils.MainHandler):
         # y en el for mas interno se corre los meses
 
         orientacion2 = formatutils.obtener_meses("entero")
-        todos_year = YearT.query().order(YearT.nombre)
+        todos_year = YearT.query(YearT.nombre != str(date_ahora)).order(YearT.nombre)
         datos3 = list()
         datos4 = list()
         datos_punta = list()

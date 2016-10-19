@@ -164,27 +164,34 @@
 					valueLineBalloonEnabled:true
 				},
 
-				//periodSelector: {
-				//	position: "left",
-				//	periods: [{
+				periodSelector: {
+					position: "left",
+					periods: [{
 
-						//period: "MM",
-						//selected: true,
-						//count: 1,
-						//label: "1 month"
-				//	}, {
-				//		period: "YYYY",
-				//		count: 1,
-				//		label: "1 year"
-				//	}, {
-				//		period: "YTD",
-				//		label: "YTD"
-				//	}, {
-				//		period: "MAX",
-				//		selected: true,
-				//		label: "MAX"
-				//	}]
-				//},
+
+						period: "YYYY",
+						count: 1,
+                        selected: true,
+						label: "1 año"
+					},{
+						period: "YYYY",
+						count: 2,
+                        label: "2 años"
+					},{
+						period: "YYYY",
+						count: 5,
+                        label: "5 años"
+					},  {
+						period: "MAX",
+
+						label: "MAX"
+					}],
+                    inputFieldsEnabled:"true",
+                    periodsText:"Rango",
+                    fromText:"Desde",
+                    dateFormat:"MM-YYYY",
+                    toText:"Hasta"
+				},
 
 				dataSetSelector: {
 					position: "left",
@@ -280,7 +287,7 @@
     "bulletSize": 5,
     "hideBulletsCount": 50,
     "lineThickness": 2,
-    "lineColor": "#bed0b8",
+    "lineColor": "#800080",
     "type": "smoothedLine",
     "dashLength": 5,
     "title": "  Energia total",
@@ -713,27 +720,34 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 					valueLineBalloonEnabled:true
 				},
 
-				//periodSelector: {
-				//	position: "left",
-				//	periods: [{
+				periodSelector: {
+					position: "left",
+					periods: [{
 
-						//period: "MM",
-						//selected: true,
-						//count: 1,
-						//label: "1 month"
-				//	}, {
-				//		period: "YYYY",
-				//		count: 1,
-				//		label: "1 year"
-				//	}, {
-				//		period: "YTD",
-				//		label: "YTD"
-				//	}, {
-				//		period: "MAX",
-				//		selected: true,
-				//		label: "MAX"
-				//	}]
-				//},
+
+						period: "YYYY",
+						count: 1,
+                        selected: true,
+						label: "1 año"
+					},{
+						period: "YYYY",
+						count: 2,
+                        label: "2 años"
+					},{
+						period: "YYYY",
+						count: 5,
+                        label: "5 años"
+					},  {
+						period: "MAX",
+
+						label: "MAX"
+					}],
+                    inputFieldsEnabled:"true",
+                    periodsText:"Rango",
+                    fromText:"Desde",
+                    dateFormat:"MM-YYYY",
+                    toText:"Hasta"
+				},
 
 				dataSetSelector: {
 					position: "left"
