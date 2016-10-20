@@ -199,7 +199,7 @@
 
                             <div class="row" style=" font-size:medium">
 
-              <div class="col-md-4 col-sm-4" style="  padding-left: 80px;">
+              <div class="col-md-4 col-sm-4 col-md-offset-2" style="  padding-left: 80px;">
 
 
 
@@ -219,26 +219,30 @@
                         </tr>
                         <tr class="active">
                           <th scope="row">2</th>
-                          <td>Comparativa franjas horarias</td>
+                          <td>Costos por acometida</td>
                         </tr>
                         <tr class="active">
                           <th scope="row">3</th>
-                          <td>Demanda de potencia mensual</td>
+                          <td>Comparativa franjas horarias</td>
                         </tr>
                         <tr class="active">
                           <th scope="row">4</th>
+                          <td>Demanda de potencia mensual</td>
+                        </tr>
+                        <tr class="active">
+                          <th scope="row">5</th>
                           <td>Año de inicio vs  años recientes(Energia)</td>
                         </tr>
                       <tr class="active">
-                          <th scope="row">5</th>
+                          <th scope="row">6</th>
                           <td>Año de inicio vs  años recientes(Costos)</td>
                       </tr>
                       <tr class="active">
-                          <th scope="row">6</th>
+                          <th scope="row">7</th>
                           <td>Porcentaje costo final </td>
                       </tr>
                       <tr class="active">
-                          <th scope="row">7</th>
+                          <th scope="row">8</th>
                           <td>Factor de potencia</td>
                       </tr>
 
@@ -249,20 +253,53 @@
 
 
               </div>
+              <div class="col-md-4 col-sm-4" style="  padding-left: 80px;">
 
-                        <div class="col-md-4 col-sm-4 col-md-offset-3">
-                            <h4>Instrucciones de uso </h4>
-                            </div>
+
+
+                <table class="table  table-bordered table-hover table-success">
+                      <br>
+                      <br>
+                       <thead>
+                        <tr class="success">
+                          <th style="text-align: center">Franjas <br>Horarias</th>
+                          <th style="text-align: center">Punta</th>
+                            <th style="text-align: center">Valle</th>
+                            <th style="text-align: center">Resto</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="active">
+                          <th scope="row" style="text-align: center">Inicio</th>
+                          <td> 18:00</td>
+                            <td>23:00</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr class="active">
+                          <th scope="row" style="text-align: center">Final</th>
+                          <td>22:59</td>
+                            <td>4:59</td>
+                            <td>17:59</td>
+                        </tr>
+
+
+
+                      </tbody>
+                    </table>
+              </div>
                         </div>
+
+                            <row>
+                                <div class="col-md-4 col-sm-4 col-md-offset-4">
+                                    <br><br>
+                            <h4><b>Instrucciones de uso</b> </h4>
+                                    <h4>Seleccione en la parte de abajo  el tipo de animacion para las transiciones<br>
+                                    luego se mostrará los botones para ir a las graficas siguientes </h4>
+                            </div>
+                            </row>
 
 
                         </li>
-
-
-
-
-
-
 						<li >
                             <div class="col-md-12 col-sm-4 col-xs-12">
 
@@ -273,6 +310,16 @@
                   <div id="chartdiv2" style="width:100%; height:600px;"></div>
                 </div>
                         </li>
+                        <li>
+							<div class="col-md-12 col-sm-4 col-xs-12">
+
+                        <h2 style=" color: #0f0f0f"><b>Costos por acometida</b> <br></h2>
+
+
+
+                        <div id="chartdiv8" style="width:100%; height:600px;"></div>
+                         </div>
+						</li>
                         <li >
 
                           <div class="col-md-12 col-sm-4 col-xs-12">
@@ -339,6 +386,7 @@
                   <div id="chartdiv6" style="width:100%; height:600px;"></div>
                 </div>
 						</li>
+
 
 
 					</ul>

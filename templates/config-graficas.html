@@ -869,3 +869,136 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
   "dataProvider":{{ potencia | safe }}
 });
       </script>
+        <script>
+           /*--------------------------------------------------------------------------------------------------*/
+          /*---------------------GRAFICA COMPARATIVA TOTALES ANUALES------------------------------------------*/
+         /*--------------------------------------------------------------------------------------------------*/
+{%for elemento in range(longitud) %}
+                var chartData{{ nombres_fp[elemento] }} = {{ acometida[elemento] | safe }};
+
+            {% endfor %}
+
+			//noinspection JSUnresolvedFunction
+            AmCharts.makeChart("chartdiv8", {
+
+				type: "stock",
+				addClassNames: true,
+
+                dataDateFormat: "YYYY-MM",
+
+
+
+				categoryAxesSettings: {
+						minPeriod: "MM"
+					},
+
+				dataSets: [
+                    {% for elemento in range(longitud) %}
+                        {
+                            title: "{{ nombres_fp[elemento] | safe }}",
+
+                            fieldMappings: [{
+                                fromField: "energia",
+                                toField: "energia"
+                            }],
+                            dataProvider: chartData{{ nombres_fp[elemento] }},
+
+                            categoryField: "date"
+                        },
+
+                    {% endfor %}
+
+				],
+
+				panels: [{
+                    fontSize:17,
+					valueAxis: "energia",
+					recalculateToPercents: "never",
+					showCategoryAxis: true,
+					title: "Factor de Potencia",
+					percentHeight: 100,
+
+
+					stockGraphs: [{
+
+						id: "g1",
+						type: "smoothedLine",
+
+						valueField: "energia",
+						lineThickness: 3,
+						comparable: true,
+						compareField: "energia",
+						bullet: "round",
+						//bulletBorderColor: "#FFFFFF",
+						bulletColor:"#FFFFFF",
+						bulletBorderAlpha: 0.1,
+						balloonText: "[[title]]:<br/><b> $[[value]]</b>",
+                        compareGraphType:"smoothedLine",
+						compareGraphBalloonText: "[[title]]:<br/><b>$[[value]]</b>",
+						compareGraphBullet: "round",
+						compareGraphBulletBorderColor: "#FFFFFF",
+						compareGraphBulletBorderAlpha: 1,
+                        compareGraphLineThickness:3},
+                    ],
+
+
+
+					stockLegend: {
+						//periodValueTextComparing: "[[value.close]]%",
+						//periodValueTextRegular: "[[value.close]]"
+					}
+				},
+
+				],
+
+
+
+				chartScrollbarSettings: {
+					graph: "g1",
+					updateOnReleaseOnly:false
+				},
+
+				chartCursorSettings: {
+					valueBalloonsEnabled: true,
+					valueLineEnabled:true,
+					valueLineBalloonEnabled:true
+				},
+
+				periodSelector: {
+					position: "left",
+					periods: [{
+
+
+						period: "YYYY",
+						count: 1,
+                        selected: true,
+						label: "1 año"
+					},{
+						period: "YYYY",
+						count: 2,
+                        label: "2 años"
+					},{
+						period: "YYYY",
+						count: 5,
+                        label: "5 años"
+					},  {
+						period: "MAX",
+
+						label: "MAX"
+					}],
+                    inputFieldsEnabled:"true",
+                    periodsText:"Rango",
+                    fromText:"Desde",
+                    dateFormat:"MM-YYYY",
+                    toText:"Hasta"
+				},
+
+				dataSetSelector: {
+					position: "left"
+				},
+
+                "export": {
+                    "enabled": true
+                }
+			});
+        </script>

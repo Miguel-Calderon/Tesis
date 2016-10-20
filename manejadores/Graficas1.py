@@ -111,6 +111,8 @@ class GraficaHandler(renderutils.MainHandler):
         datos_fp = list()
         datos_fp2 = list()
         nombres_fp = list()
+        datos_acometida = list()
+        datos_acometida2 = list()
         qry_Acometida = Acometida.query().order(Acometida.nombre)
         for entidad in qry_Acometida:
             qry_Factura = Factura.query(Factura.Aco_Key == entidad.nombre).order(Factura.Fecha_Key)
@@ -119,10 +121,19 @@ class GraficaHandler(renderutils.MainHandler):
                     "date": str(elemento.Fecha_Key),
                     "fp": elemento.f_pot_tr[0],
                 })
+                datos_acometida2.append({
+                    "date": str(elemento.Fecha_Key),
+                    "energia": formatutils.format_decimal(
+                        elemento.Punta_Lista[1] + elemento.Valle_Lista[1] + elemento.Resto_Lista[1] +
+                        elemento.Potencia_Lista[1]),
+
+                })
             datos_fp.append(datos_fp2)
             datos_fp2 = list()
+            datos_acometida.append(datos_acometida2)
+            datos_acometida2 = list()
             nombres_fp.append(str(entidad.nombre))
-            longitud =len(nombres_fp)
+        longitud = len(nombres_fp)
 
         self.render("graficas.html",
                     datos=datos1,
@@ -137,5 +148,6 @@ class GraficaHandler(renderutils.MainHandler):
                     factor=datos_fp,
                     nombres_fp=nombres_fp,
                     longitud=longitud,
-                    potencia=datos_pot)
+                    potencia=datos_pot,
+                    acometida=datos_acometida)
         # self.response.out.write(datos1)
