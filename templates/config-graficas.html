@@ -120,6 +120,8 @@
 
 					stockLegend: {
                         valueText:"Kw/h",
+                        spacing: 40,
+                        valueWidth:80,
 						//periodValueTextComparing: "[[value.close]]%",
 						//periodValueTextRegular: "[[value.close]]"
 					}
@@ -145,7 +147,9 @@
 
 
 					stockLegend: {
-						periodValueTextRegular: "$[[value]]"
+						periodValueTextRegular: "$[[value]]",
+                        spacing: 40,
+                        valueWidth:80,
 					}
 				}],
 
@@ -328,7 +332,9 @@
   },
   "legend": {
     "useGraphSettings": true,
-    "position": "top"
+    "position": "top",
+    "spacing": 40,
+    "valueWidth":80
   },
   "balloon": {
     "borderThickness": 3,
@@ -410,7 +416,9 @@
     "legend": {
     "useGraphSettings": true,
     "position": "top",
-    "valueText":""
+    "valueText":"",
+    "spacing": 40,
+    "valueWidth":80
   },
   "balloon": {
     "borderThickness": 3,
@@ -500,7 +508,9 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "legend": {
     "useGraphSettings": true,
     "position": "top",
-    "valueText":"$ [[value]]"
+    "valueText":"$ [[value]]",
+    "spacing": 40,
+    "valueWidth":80,
   },
   "balloon": {
     "borderThickness": 3,
@@ -609,6 +619,8 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "legend": {
         "useGraphSettings": true,
     "position": "top",
+    "spacing": 40,
+    "valueWidth":80,
     "valueText":"$ [[value]]"
     },
     "export":
@@ -700,6 +712,8 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
 
 					stockLegend: {
+                        spacing: 40,
+                        valueWidth:80,
 						//periodValueTextComparing: "[[value.close]]%",
 						//periodValueTextRegular: "[[value.close]]"
 					}
@@ -857,7 +871,9 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
   },
   "legend": {
     "useGraphSettings": true,
-    "position": "top"
+    "position": "top",
+    "spacing": 40,
+    "valueWidth":80,
   },
   "balloon": {
     "borderThickness": 3,
@@ -915,7 +931,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 					valueAxis: "energia",
 					recalculateToPercents: "never",
 					showCategoryAxis: true,
-					title: "Factor de Potencia",
+					title: "Total Mensual",
 					percentHeight: 100,
 
 
@@ -944,6 +960,8 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
 
 					stockLegend: {
+                        spacing: 40,
+                        valueWidth:80,
 						//periodValueTextComparing: "[[value.close]]%",
 						//periodValueTextRegular: "[[value.close]]"
 					}

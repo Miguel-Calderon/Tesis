@@ -20,17 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="static/graficas/ItemTransitions/css/fxfullwidth.css" />
 	<script src="static/graficas/ItemTransitions/js/modernizr.custom.js"></script>
 
-	<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
-    <script src="http://www.amcharts.com/lib/3/serial.js"></script>
-	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-    <script src="static/graficas/js/dark.js"></script>
-    <script src="https://www.amcharts.com/lib/3/amstock.js"></script>
-    <script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
-
-
-	<style type="text/css">
+    <style type="text/css">
 
 		.amcharts-graph-g1 .amcharts-graph-stroke {
                 stroke-dasharray: 6px 6px;
@@ -52,7 +42,7 @@
             }
 
 			.amcharts-value-axis .amcharts-axis-grid {
-				stroke-dasharray: 10px 10px;
+				stroke-dasharray: 15px 15px;
 				-webkit-animation: css-effect 1s linear infinite;
 				animation: css-effect 1s linear infinite;
 			}
@@ -70,13 +60,13 @@
 
 .amChartsDataSetSelector
 {
-    font-size:12px;
+    font-size:13px;
     font-family:verdana,helvetica,arial,sans-serif;
 }
 
 .amChartsPeriodSelector
 {
-    font-size:12px;
+    font-size:18px;
     font-family:verdana,helvetica,arial,sans-serif;
 }
 
@@ -120,21 +110,22 @@
    box-sizing: initial;
 }
 
-.amChartsInputField
-{
 
-}
-
-.amChartsLegend
-{
-
-}
-
-.amChartsPanel
-{
-
-}
 		</style>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+
+	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="static/graficas/js/dark.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amstock.js"></script>
+    <script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
+
+
+
 
     <!--[if lt IE 9]>
 	    <script src="static/graficas/js/html5shiv.js"></script>
@@ -190,7 +181,7 @@
 				<div id="component" class="component component-fullwidth">
 					<ul class="itemwrap">
 
-                        <li class="current">
+                        <!--<li class="current">
 
 
                             <h2 style=" color: #0f0f0f">Slider de Graficas</h2>
@@ -299,8 +290,8 @@
                             </row>
 
 
-                        </li>
-						<li >
+                        </li> -->
+						<li class="current">
                             <div class="col-md-12 col-sm-4 col-xs-12">
 
                     <h2 style=" color: #0f0f0f"><b> costos mensuales</b> <br>
@@ -400,7 +391,7 @@
 						<div class="custom-select">
 							<select id="fxselect" name="fxselect">
 								<option value="-1" selected>Seleccione transición</option>
-								<option value="fxSoftScale">Soft scale</option>
+								<option value="fxSoftSc">Soft scale</option>
 								<option value="fxPressAway">Press away</option>
 								<option value="fxSideSwing">Side Swing</option>
 								<option value="fxFortuneWheel">Fortune wheel</option>

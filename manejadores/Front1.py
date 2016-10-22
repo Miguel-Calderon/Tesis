@@ -107,6 +107,15 @@ class FrontHandler(renderutils.MainHandler):
         echarts_total = [lista_echarts_punta, lista_echarts_valle, lista_echarts_resto]
 
         # self.response.out.write(barras_morris)
+        lista2 = [formatutils.obtener_month(anterior_year, "total", "PuntaD"),
+                  formatutils.obtener_month(anterior_year, "total", "ValleD"),
+                  formatutils.obtener_month(anterior_year, "total", "RestoD"),
+                  formatutils.obtener_month(anterior_year, "total", "PotD")]
+
+        lista2 = [(lista2[0] / (lista2[0] + lista2[1] + lista2[2] + lista2[3]))*100,
+                  (lista2[1] / (lista2[0] + lista2[1] + lista2[2] + lista2[3])) * 100,
+                  (lista2[2] / (lista2[0] + lista2[1] + lista2[2] + lista2[3])) * 100,
+                  (lista2[3] / (lista2[0] + lista2[1] + lista2[2] + lista2[3])) * 100]
 
         datos = [date_ahora, date_anterior, formatutils.formatcifra(str(valor1)), formatutils.formatcifra(str(valor2))]
         self.render("template base.html",
@@ -118,4 +127,5 @@ class FrontHandler(renderutils.MainHandler):
                     posi=posiciones,
                     mayor=mayor,
                     pie=pie_morris,
-                    barras=barras_morris)
+                    barras=barras_morris,
+                    lista2=lista2)

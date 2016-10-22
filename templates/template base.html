@@ -27,6 +27,7 @@
     <link href="static/home/plugins/animate.css/animate.css" rel="stylesheet">
     <link href="static/home/css/main.css" rel="stylesheet">
     <link href="static/home/css/preloder.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 
     <!--<link rel="stylesheet" href="css/style1.css"/>--> 						<!-- Style css -->
 
@@ -76,6 +77,7 @@
                         </ul>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
+                <li><a href="/graficas">Gráficas</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">SITIOS<b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -103,7 +105,7 @@
             <div class="item" style="background-image: url(static/home/img/sliders/slide4.jpg)">
                 <div class="caption">
                     <div class="animated bounceInDown">
-                    <h1>Herramienta de análisis del consumo de energia eléctrica <span>UES</span></h1>
+                    <h1>Herramienta de análisis del consumo de energía eléctrica <span>UES</span></h1>
                     </div>
                 </div>
                 <div class="mouse-icon"><div class="wheel"></div></div>
@@ -211,10 +213,10 @@
                               <div class="col-sm-4">
                                 <div class="single-service2">
                                   <i class="fa fa-university"></i>
-                                  <h2>Agronomia</h2>
+                                  <h2>Agronomía</h2>
                                   <ul class="plan-features list-unstyled">
                                   <li> EN {{ datos[1] }}</li>
-                                  <li> Energia<br>
+                                  <li> Energía<br>
                                        ${{ aco[1] }} <br>
                                         {{ aco[0] }} Kw/h
                                   </li>
@@ -230,7 +232,7 @@
                                   <h2>Humanidades</h2>
                                   <ul class="plan-features list-unstyled">
                                   <li> EN {{ datos[1] }}</li>
-                                  <li> Energia<br>
+                                  <li> Energía<br>
                                        ${{ aco[5] }} <br>
                                         {{ aco[4] }} Kw/h
                                   </li>
@@ -246,7 +248,7 @@
                                   <h2>Comp. Dep.</h2>
                                   <ul class="plan-features list-unstyled">
                                   <li> EN {{ datos[1] }}</li>
-                                  <li> Energia<br>
+                                  <li> Energía<br>
                                        ${{ aco[9] }} <br>
                                         {{ aco[8] }} Kw/h
                                   </li>
@@ -263,6 +265,30 @@
                     </section><!--/#service-->
 
             </div>
+            <div class="item" style="background-image: url(static/home/img/sliders/bg2.jpg)">
+
+                <div style="padding-top: 150px; padding-left: 30px">
+                    <row>
+                        <h1 style="text-align: center"><b>Gráficas</b></h1>
+                        <div class="col-sm-4 col-sm-offset-1">
+                            <div id="chartdiv" style="width: 100%; height: 500px;margin: auto;"></div>
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <div id="chartdiv2" style="width: 100%; height: 500px;margin: auto;"></div>
+                        </div>
+
+                    </row>
+                </div>
+                <div class="col-md-2 col-lg-offset-5" style="padding-top: 40px; padding-left: 90px">
+
+
+                           <a href="/graficas" class="btn btn-transparent" style="position: absolute">Ver Mas</a>
+
+
+                    </div>
+
+
+            </div>
         </div>
     </section>
     <!-- Testimonials
@@ -277,7 +303,7 @@
               <div class="promos">
                   <div class="promo">
                   <div class="deal">
-                    <span>Energia</span>
+                    <span>Energía</span>
                     <span></span>
                   </div>
                   <span class="price">${{ meses.mes3[1] }}</span>
@@ -302,7 +328,7 @@
                   </div>
                   <span class="price">${{ meses.mes3[1]+ meses.mes3[12] }}</span>
                   <ul class="features tabla">
-                    <li class="lista">Energia</li>
+                    <li class="lista">Energía</li>
                     <li class="lista">{{ meses.mes3[0] }}Kw/h</li>
 
 
@@ -342,7 +368,7 @@
               <div class="promos">
                   <div class="promo">
                   <div class="deal">
-                    <span>Energia</span>
+                    <span>Energía</span>
                     <span></span>
                   </div>
                   <span class="price">${{ meses.mes2[1] }}</span>
@@ -367,7 +393,7 @@
                   </div>
                   <span class="price">${{ meses.mes2[1]+ meses.mes2[12] }}</span>
                   <ul class="features tabla">
-                    <li class="lista">Energia</li>
+                    <li class="lista">Energía</li>
                     <li class="lista">{{ meses.mes2[0] }}Kw/h</li>
 
 
@@ -407,7 +433,7 @@
               <div class="promos">
                   <div class="promo">
                   <div class="deal">
-                    <span>Energia</span>
+                    <span>Energía</span>
                     <span></span>
                   </div>
                   <span class="price">${{ meses.mes1[1] }}</span>
@@ -432,7 +458,7 @@
                   </div>
                   <span class="price">${{ meses.mes1[1]+ meses.mes1[12] }}</span>
                   <ul class="features tabla">
-                    <li class="lista">Energia</li>
+                    <li class="lista">Energía</li>
                     <li class="lista">{{ meses.mes1[0] }}Kw/h</li>
 
 
@@ -629,7 +655,7 @@
                         <tr>
                           <th scope="row">1</th>
                           <td>A</td>
-                          <td>Agronomia</td>
+                          <td>Agronomía</td>
 
                         </tr>
                         <tr>
@@ -687,6 +713,12 @@
     <script src="static/raphael/raphael.min.js"></script>
     <script src="static/morris.js/morris.min.js"></script>
 
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
 
     <script>
     $(document).ready(function() {
@@ -714,7 +746,7 @@
             Morris.Donut({
           element: 'graph_donut',
           data: [
-            {label: 'Agronomia', value: {{pie[0]}}},
+            {label: 'Agronomía', value: {{pie[0]}}},
             {label: 'Complejo Deportivo', value: {{pie[1]}}},
             {label: 'Humanidades', value: {{pie[2]}}}
                 ],
@@ -769,7 +801,7 @@
 
      var marker = new google.maps.Marker({
     map: map,
-    label:"Agronomia",
+    label:"Agronomía",
     // Define the place with a location, and a query string.
     place: {
       location: {lat: 13.718432, lng: -89.2003291},
@@ -813,11 +845,202 @@
 		setTimeout(function(){
 			$('body').addClass('loaded');
 
-		}, 3000);});
+		}, 1500);});
 
 </script>
 
+    <script>
 
+        /* grafica  franjas horarias */
+        var gaugeChart = AmCharts.makeChart("chartdiv", {
+  "type": "gauge",
+  "theme": "light",
+  "axes": [{
+    "axisAlpha": 0,
+    "tickAlpha": 0,
+    "labelsEnabled": false,
+    "startValue": 0,
+    "endValue": 100,
+    "startAngle": 0,
+    "endAngle": 270,
+    "bands": [{
+      "color": "#eee",
+      "startValue": 0,
+      "endValue": 100,
+      "radius": "100%",
+      "innerRadius": "85%"
+    }, {
+      "color": "#84b761",
+      "startValue": 0,
+      "endValue": {{lista2[0]}},
+      "radius": "100%",
+      "innerRadius": "85%",
+      "balloonText": "{{ lista2[0] }}%"
+    }, {
+      "color": "#eee",
+      "startValue": 0,
+      "endValue": 100,
+      "radius": "80%",
+      "innerRadius": "65%"
+    }, {
+      "color": "#fdd400",
+      "startValue": 0,
+      "endValue": {{ lista2[1] }},
+      "radius": "80%",
+      "innerRadius": "65%",
+      "balloonText": "{{ lista2[1] }}%"
+    }, {
+      "color": "#eee",
+      "startValue": 0,
+      "endValue": 100,
+      "radius": "60%",
+      "innerRadius": "45%"
+    }, {
+      "color": "#cc4748",
+      "startValue": 0,
+      "endValue": {{ lista2[2] }},
+      "radius": "60%",
+      "innerRadius": "45%",
+      "balloonText": "{{ lista2[2] }}%"
+    }, {
+      "color": "#eee",
+      "startValue": 0,
+      "endValue": 100,
+      "radius": "40%",
+      "innerRadius": "25%"
+    }, {
+      "color": "#67b7dc",
+      "startValue": 0,
+      "endValue": {{ lista2[3] }},
+      "radius": "40%",
+      "innerRadius": "25%",
+      "balloonText": "{{ lista2[3] }}%"
+    }]
+  }],
+  "allLabels": [{
+    "text": "Punta",
+    "x": "49%",
+    "y": "5%",
+    "size": 17,
+    "bold": true,
+    "color": "#84b761",
+    "align": "right"
+  }, {
+    "text": "Valle",
+    "x": "49%",
+    "y": "15%",
+    "size": 17,
+    "bold": true,
+    "color": "#fdd400",
+    "align": "right"
+  }, {
+    "text": "Resto",
+    "x": "49%",
+    "y": "24%",
+    "size": 17,
+    "bold": true,
+    "color": "#cc4748",
+    "align": "right"
+  }, {
+    "text": "Potencia",
+    "x": "49%",
+    "y": "33%",
+    "size": 17,
+    "bold": true,
+    "color": "#67b7dc",
+    "align": "right"
+  }],
+  "export": {
+    "enabled": false
+  }
+});
+    </script>
+
+<script>
+/* grafia por acometida*/
+
+        var gaugeChart = AmCharts.makeChart("chartdiv2", {
+  "type": "gauge",
+  "theme": "light",
+  "axes": [{
+    "axisAlpha": 0,
+    "tickAlpha": 0,
+    "labelsEnabled": false,
+    "startValue": 0,
+    "endValue": 100,
+    "startAngle": 0,
+    "endAngle": 270,
+    "bands": [{
+      "color": "#eee",
+      "startValue": 0,
+      "endValue": 100,
+      "radius": "100%",
+      "innerRadius": "85%"
+    }, {
+      "color": "#006400",
+      "startValue": 0,
+      "endValue": {{ pie[0] }},
+      "radius": "100%",
+      "innerRadius": "85%",
+      "balloonText": "{{ pie[0] }}%"
+    }, {
+      "color": "#eee",
+      "startValue": 0,
+      "endValue": 100,
+      "radius": "80%",
+      "innerRadius": "65%"
+    }, {
+      "color": "#fdd400",
+      "startValue": 0,
+      "endValue": {{ pie[1] }},
+      "radius": "80%",
+      "innerRadius": "65%",
+      "balloonText": "{{ pie[1] }}%"
+    }, {
+      "color": "#eee",
+      "startValue": 0,
+      "endValue": 100,
+      "radius": "60%",
+      "innerRadius": "45%"
+    }, {
+      "color": "#cc4748",
+      "startValue": 0,
+      "endValue": {{ pie[2] }},
+      "radius": "60%",
+      "innerRadius": "45%",
+      "balloonText": "{{ pie[2]}}%"
+    }]
+  }],
+  "allLabels": [{
+    "text": "Agronomía",
+    "x": "49%",
+    "y": "5%",
+    "size": 17,
+    "bold": true,
+    "color": "#006400",
+    "align": "right"
+  }, {
+    "text": "Complejo Deportivo",
+    "x": "49%",
+    "y": "15%",
+    "size": 17,
+    "bold": true,
+    "color": "#fdd400",
+    "align": "right"
+  }, {
+    "text": "Humanidades",
+    "x": "49%",
+    "y": "24%",
+    "size": 17,
+    "bold": true,
+    "color": "#DC143C",
+    "align": "right"
+  }],
+  "export": {
+    "enabled": false
+  }
+});
+    </script>
 
 </body>
 
