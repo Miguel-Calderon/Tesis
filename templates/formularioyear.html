@@ -1,0 +1,166 @@
+<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .form-group button, .bootstrap-iso form input.form-control, .bootstrap-iso form textarea.form-control, .bootstrap-iso form select.form-control, .bootstrap-iso form .form-group-lg input.form-control, .bootstrap-iso form .form-group-lg textarea.form-control, .bootstrap-iso form .form-group-lg select.form-control, .bootstrap-iso form .form-group-sm input.form-control, .bootstrap-iso form .form-group-sm textarea.form-control, .bootstrap-iso form .form-group-sm select.form-control{-webkit-border-radius: 20px;-moz-border-radius: 20px; border-radius: 20px;}.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}.bootstrap-iso form .input-group-addon {color:#555555; background-color: #eeeeee; border-radius: 20px; padding-left:15px}</style>
+
+<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form method="post" action="/home">
+        <div class="form-group form-group-lg">
+      <label class="control-label " for="name">
+       Name
+      </label>
+      <input autofocus class="form-control" id="name" name="name" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label " for="select">
+       Select a Choice
+      </label>
+      <select class="select form-control" id="select" name="select">
+       <option value="total">
+        total
+       </option>
+       <option value="enero">
+        enero
+       </option>
+       <option value="febrero">
+        febrero
+       </option>
+       <option value="marzo">
+        marzo
+       </option>
+          <option value="abril">
+        abril
+       </option>
+          <option value="mayo">
+        mayo
+       </option>
+          <option value="junio">
+        junio
+       </option>
+          <option value="julio">
+        julio
+       </option>
+          <option value="agosto">
+        agosto
+       </option>
+          <option value="septiembre">
+        septiembre
+       </option>
+          <option value="octubre">
+        octubre
+       </option>
+          <option value="noviembre">
+        noviembre
+       </option>
+          <option value="diciembre">
+        diciembre
+       </option>
+      </select>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text">
+       enegia toal
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input   class="form-control" id="text" name="text" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text1">
+       costo total
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text1" name="text1" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text2">
+       punta energia
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text2" name="text2" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text3">
+       punta dinero
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text3" name="text3" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text4">
+       valle energia
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text4" name="text4" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text5">
+       valle dinero
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text5" name="text5" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text6">
+       resto energia
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text6" name="text6" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text7">
+       resto dinero
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text7" name="text7" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text8">
+       potencia
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text8" name="text8" type="text"/>
+     </div>
+     <div class="form-group form-group-lg">
+      <label class="control-label requiredField" for="text9">
+       potnecia dinero
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="text9" name="text9" type="text"/>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary btn-lg" name="submit" type="submit">
+        guardar
+       </button>
+      </div>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
+</div>

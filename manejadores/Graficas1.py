@@ -1,5 +1,5 @@
 from utils import renderutils, formatutils
-from modelos import YearT, Acometida, Factura
+from modelos import YearT, Acometida, Factura, Pliego
 import datetime
 
 
@@ -58,61 +58,78 @@ class GraficaHandler(renderutils.MainHandler):
         datos_resto = list()
         datos_total = list()
         datos_pot = list()
+        datos_anuales = list()
+
         for year in todos_year:
             for mes in orientacion2:
                 #  grafica comparativa valores anuales totales
-                datos3.append({
-                    "date": str(year.nombre) + "-" + mes,
-                    "potenciaD": formatutils.obtener_month(year, mes, "PotD"),
-                    "EnergiaT": formatutils.obtener_month(year, mes, "EnergiaT"),
-                    "EnergiaD": formatutils.obtener_month(year, mes, "EnergiaD"),
-                    "DineroTT": formatutils.obtener_month(year, mes, "EnergiaD") + formatutils.obtener_month(year, mes,
-                                                                                                             "PotD")
-                })
-                # grafica mekko comparativa % del costo de cada franja horaria y la demanda de potencia
-                datos4.append({
-                    "date": str(year.nombre) + "-" + mes,
-                    "PotenciaD": formatutils.obtener_month(year, mes, "PotD"),
-                    "PuntaD": formatutils.obtener_month(year, mes, "PuntaD"),
-                    "ValleD": formatutils.obtener_month(year, mes, "ValleD"),
-                    "RestoD": formatutils.obtener_month(year, mes, "RestoD"),
-                    "total": (formatutils.obtener_month(year, mes, "PotD") +
-                              formatutils.obtener_month(year, mes, "PuntaD") +
-                              formatutils.obtener_month(year, mes, "ValleD") +
-                              formatutils.obtener_month(year, mes, "RestoD"))
-                })
-                # grafica comparativa de los datos de cada franja horaria  y total
-                datos_punta.append({
-                    "date": str(year.nombre) + "-" + mes,
-                    "value": formatutils.obtener_month(year, mes, "PuntaE"),
-                    "volume": formatutils.obtener_month(year, mes, "PuntaD")
-                })
-                datos_valle.append({
-                    "date": str(year.nombre) + "-" + mes,
-                    "value": formatutils.obtener_month(year, mes, "ValleE"),
-                    "volume": formatutils.obtener_month(year, mes, "ValleD")
-                })
-                datos_resto.append({
-                    "date": str(year.nombre) + "-" + mes,
-                    "value": formatutils.obtener_month(year, mes, "RestoE"),
-                    "volume": formatutils.obtener_month(year, mes, "RestoD")
-                })
-                datos_total.append({
-                    "date": str(year.nombre) + "-" + mes,
-                    "value": formatutils.obtener_month(year, mes, "EnergiaT"),
-                    "volume": formatutils.obtener_month(year, mes, "EnergiaD")
-                })
-                datos_pot.append({
-                    "date": str(year.nombre) + "-" + mes,
-                    "PotenciaD": formatutils.obtener_month(year, mes, "PotD"),
-                    "PotenciaE": formatutils.obtener_month(year, mes, "PotE")
-                })
+                if year.nombre > "2000":
+                    datos3.append({
 
+                        "date": str(year.nombre) + "-" + mes,
+                        "potenciaD": formatutils.obtener_month(year, mes, "PotD"),
+                        "EnergiaT": formatutils.obtener_month(year, mes, "EnergiaT"),
+                        "EnergiaD": formatutils.obtener_month(year, mes, "EnergiaD"),
+                        "DineroTT": formatutils.format_decimal(formatutils.obtener_month(year, mes, "EnergiaD") +
+                                                               formatutils.obtener_month(year, mes, "PotD"))
+                    })
+                # grafica mekko comparativa % del costo de cada franja horaria y la demanda de potencia
+                if year.nombre > "2000":
+                    datos4.append({
+                        "date": str(year.nombre) + "-" + mes,
+                        "PotenciaD": formatutils.obtener_month(year, mes, "PotD"),
+                        "PuntaD": formatutils.obtener_month(year, mes, "PuntaD"),
+                        "ValleD": formatutils.obtener_month(year, mes, "ValleD"),
+                        "RestoD": formatutils.obtener_month(year, mes, "RestoD"),
+                        "total": (formatutils.obtener_month(year, mes, "PotD") +
+                                  formatutils.obtener_month(year, mes, "PuntaD") +
+                                  formatutils.obtener_month(year, mes, "ValleD") +
+                                  formatutils.obtener_month(year, mes, "RestoD"))
+                    })
+                    # grafica comparativa de los datos de cada franja horaria  y total
+                    datos_punta.append({
+                        "date": str(year.nombre) + "-" + mes,
+                        "value": formatutils.obtener_month(year, mes, "PuntaE"),
+                        "volume": formatutils.obtener_month(year, mes, "PuntaD")
+                    })
+                    datos_valle.append({
+                        "date": str(year.nombre) + "-" + mes,
+                        "value": formatutils.obtener_month(year, mes, "ValleE"),
+                        "volume": formatutils.obtener_month(year, mes, "ValleD")
+                    })
+                    datos_resto.append({
+                        "date": str(year.nombre) + "-" + mes,
+                        "value": formatutils.obtener_month(year, mes, "RestoE"),
+                        "volume": formatutils.obtener_month(year, mes, "RestoD")
+                    })
+                    datos_total.append({
+                        "date": str(year.nombre) + "-" + mes,
+                        "value": formatutils.obtener_month(year, mes, "EnergiaT"),
+                        "volume": formatutils.obtener_month(year, mes, "EnergiaD")
+                    })
+                    datos_pot.append({
+                        "date": str(year.nombre) + "-" + mes,
+                        "dinero": formatutils.obtener_month(year, mes, "PotD"),
+                        "energia": formatutils.obtener_month(year, mes, "PotE")
+                    })
+            # Grafica datos  totales por year
+            datos_anuales.append({
+                "date": str(year.nombre),
+                "potenciaD": formatutils.obtener_month(year, "total", "PotD"),
+                "EnergiaT": formatutils.obtener_month(year, "total", "EnergiaT"),
+                "EnergiaD": formatutils.obtener_month(year, "total", "EnergiaD"),
+                "DineroTT": formatutils.obtener_month(year, "total", "EnergiaD") + formatutils.obtener_month(year,
+                                                                                                             "total",
+                                                                                                             "PotD")
+            })
+        # graficas con datos organizados por acometidas
         datos_fp = list()
         datos_fp2 = list()
         nombres_fp = list()
         datos_acometida = list()
         datos_acometida2 = list()
+        datos_demanda = list()
+        datos_demanda2 = list()
         qry_Acometida = Acometida.query().order(Acometida.nombre)
         for entidad in qry_Acometida:
             qry_Factura = Factura.query(Factura.Aco_Key == entidad.nombre).order(Factura.Fecha_Key)
@@ -126,14 +143,53 @@ class GraficaHandler(renderutils.MainHandler):
                     "energia": formatutils.format_decimal(
                         elemento.Punta_Lista[1] + elemento.Valle_Lista[1] + elemento.Resto_Lista[1] +
                         elemento.Potencia_Lista[1]),
-
                 })
+                datos_demanda2.append({
+                    "date": str(elemento.Fecha_Key),
+                    "energia": elemento.Potencia_Lista[0],
+                    "dinero": elemento.Potencia_Lista[1],
+                })
+
             datos_fp.append(datos_fp2)
             datos_fp2 = list()
             datos_acometida.append(datos_acometida2)
             datos_acometida2 = list()
             nombres_fp.append(str(entidad.nombre))
+            datos_demanda.append(datos_demanda2)
+            datos_demanda2 = list()
         longitud = len(nombres_fp)
+        pliego_punta = list()
+        pliego_valle = list()
+        pliego_resto = list()
+        pliego_potencia = list()
+
+        qry_Pliego = Pliego.query().order(Pliego.inicio_p)
+        for elemento in qry_Pliego:
+            pliego_punta.append(
+                {
+                    "date": str(elemento.inicio_p),
+                    "value": elemento.punta_T,
+
+                })
+            pliego_valle.append(
+                {
+                    "date": str(elemento.inicio_p),
+                    "value": elemento.valle_T,
+
+                })
+            pliego_resto.append(
+                {
+                    "date": str(elemento.inicio_p),
+                    "value": elemento.resto_T,
+
+                })
+            pliego_potencia.append(
+                {
+                    "date": str(elemento.inicio_p),
+                    "value": elemento.potencia_T,
+
+                })
+
 
         self.render("graficas.html",
                     datos=datos1,
@@ -149,5 +205,11 @@ class GraficaHandler(renderutils.MainHandler):
                     nombres_fp=nombres_fp,
                     longitud=longitud,
                     potencia=datos_pot,
-                    acometida=datos_acometida)
+                    acometida=datos_acometida,
+                    datos_anuales=datos_anuales,
+                    pliego_punta=pliego_punta,
+                    pliego_valle=pliego_valle,
+                    pliego_resto=pliego_resto,
+                    pliego_potencia=pliego_potencia,
+                    demanda_pot=datos_demanda)
         # self.response.out.write(datos1)

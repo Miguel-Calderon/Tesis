@@ -22,6 +22,7 @@
 
 
 				categoryAxesSettings: {
+                        maxSeries:250,
 						minPeriod: "MM"
 					},
 
@@ -94,6 +95,7 @@
 					stockGraphs: [{
                         fontSize:17,
 						id: "g1",
+                        periodValue: "Average",
 						type: "smoothedLine",
 						valueField: "value",
 						lineThickness: 3,
@@ -103,15 +105,15 @@
 						//bulletBorderColor: "#FFFFFF",
 						bulletColor:"#FFFFFF",
 						bulletBorderAlpha: 0.1,
-						balloonText: "[[title]]:<b>[[value]] KW-h</b>",
+						balloonText: "[[title]]:<b>[[value]] kW-h</b>",
                         compareGraphType:"smoothedLine",
-						compareGraphBalloonText: "[[title]]:<b>[[value]]KW-h</b>",
+						compareGraphBalloonText: "[[title]]:<b>[[value]]kW-h</b>",
 						compareGraphBullet: "round",
 						compareGraphBulletBorderColor: "#FFFFFF",
 						compareGraphBulletBorderAlpha: 1,
                         compareGraphLineThickness:3,
                         ValueAxesSettings:{
-                        unit:"KW-h"
+                        unit:"kW-h"
                 }
 
 					}],
@@ -119,7 +121,7 @@
 
 
 					stockLegend: {
-                        valueText:"Kw/h",
+                        valueText:"kW/h",
                         spacing: 40,
                         valueWidth:80,
 						//periodValueTextComparing: "[[value.close]]%",
@@ -133,7 +135,8 @@
 					percentHeight: 30,
                     fontSize:17,
 					stockGraphs: [{
-                        unit: "Kw/h",
+                        unit: "kW/h",
+                        periodValue: "Average",
 						valueField: "volume",
 						comparable: true,
 						compareField: "volume",
@@ -237,7 +240,7 @@
     "position": "right",
     "autoGridCount": false,
     "labelFunction": function(value) {
-      return Math.round(value) + "KW-h";
+      return Math.round(value) + "kW-h";
   }}],
   "graphs": [{
     "id": "g3",
@@ -298,8 +301,8 @@
     "useLineColorForBulletBorder": true,
     "valueField": "EnergiaT",
     "clustered": false,
-    "legendValueText": "[[value]]KW-h",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]KW-h</b>"
+    "legendValueText": "[[value]]kW-h",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]kW-h</b>"
   }],
   "chartScrollbar": {
     "graph": "g1",
@@ -357,20 +360,20 @@
     "fontSize":17,
     "dataProvider":{{ datos | safe }},
     "valueAxes": [{
-        "unit": "Kw/h",
+        "unit": "kW/h",
         "position": "left",
         "title": "ENERGIA DEMANDADA"
     }],
     "startDuration": 0,
     "graphs": [{
-        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]kW/h</b>",
         "fillAlphas": 0.9,
         "lineAlpha": 0.2,
         "title": "2004",
         "type": "column",
         "valueField": "year1"
     }, {
-        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]kW/h</b>",
         "lineColor": "#B8860B",
         "fillColors": "#B8860B",
         "fillAlphas": 0.9,
@@ -380,7 +383,7 @@
         "clustered":true,
         "valueField": "year4"
     },{
-        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]kW/h</b>",
 
         "fillAlphas": 0.9,
         "lineAlpha": 0.5,
@@ -389,7 +392,7 @@
         "clustered":true,
         "valueField": "year3"
     },{
-        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]Kw/h</b>",
+        "balloonText": "[[category]] [[title]]: <br> <b>[[value]]kW/h</b>",
 
         "fillAlphas": 0.9,
         "lineAlpha": 0.5,
@@ -651,6 +654,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
 
 				categoryAxesSettings: {
+                        maxSeries:250,
 						minPeriod: "MM"
 					},
 
@@ -684,6 +688,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 					stockGraphs: [{
 
 						id: "g1",
+                        periodValue: "Average",
 						type: "smoothedLine",
                         negativeBase: 90.0,
                         negativeLineColor: "#800080",
@@ -802,7 +807,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "position": "right",
     "autoGridCount": false,
     "labelFunction": function(value) {
-      return Math.round(value) + "KW";
+      return Math.round(value) + "kW";
   }}],
   "graphs": [{
     "id": "g2",
@@ -820,8 +825,8 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
     "useLineColorForBulletBorder": true,
     "valueField": "PotenciaE",
     "clustered": false,
-    "legendValueText": "[[value]]Kw",
-    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]Kw</b>"
+    "legendValueText": "[[value]]kW",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]kW</b>"
   },{
     "id": "g1",
     "valueAxis": "v1",
@@ -887,9 +892,9 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
       </script>
         <script>
            /*--------------------------------------------------------------------------------------------------*/
-          /*---------------------GRAFICA COMPARATIVA TOTALES ANUALES------------------------------------------*/
+          /*---------------------GRAFICA COMPARATIVA COSTOS POR ACOMETIDA-------------------------------------*/
          /*--------------------------------------------------------------------------------------------------*/
-{%for elemento in range(longitud) %}
+            {%for elemento in range(longitud) %}
                 var chartData{{ nombres_fp[elemento] }} = {{ acometida[elemento] | safe }};
 
             {% endfor %}
@@ -905,6 +910,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
 
 				categoryAxesSettings: {
+                        maxSeries:250,
 						minPeriod: "MM"
 					},
 
@@ -939,7 +945,7 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
 
 						id: "g1",
 						type: "smoothedLine",
-
+                        periodValue: "Average",
 						valueField: "energia",
 						lineThickness: 3,
 						comparable: true,
@@ -1020,3 +1026,518 @@ var chart3 = AmCharts.makeChart("chartdiv4", {
                 }
 			});
         </script>
+
+<script>
+               /*--------------------------------------------------------------------------------------------------*/
+               /*------------------------GRAFICA COMPARATIVA totales anuales --------------------------------------*/
+              /*--------------------------------------------------------------------------------------------------*/
+            //noinspection JSUnresolvedFunction
+            var chart = AmCharts.makeChart("chartdiv9", {
+  "type": "serial",
+  "theme": "light",
+  "dataDateFormat": "YYYY",
+   "addClassNames": true,
+  "fontSize":17,
+  "precision": 2,
+  "valueAxes": [{
+    "id": "v1",
+    "title": "Costo",
+    "position": "left",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return "$" + Math.round(value) ;
+    }
+  }, {
+    "id": "v2",
+    "title": "Energia ",
+    "gridAlpha": 0,
+    "position": "right",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return Math.round(value) + "kW-h";
+  }}],
+  "graphs": [{
+    "id": "g3",
+    "valueAxis": "v1",
+    "lineColor": "#2f6da0",
+    "fillColors": "#2f6da0",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo Final",
+    "valueField": "DineroTT",
+    "clustered": false,
+    "columnWidth": 0.5,
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
+  }, {
+    "id": "g4",
+    "valueAxis": "v1",
+    "lineColor": "#00c53c",
+    "fillColors": "#00c53c",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo energia",
+    "valueField": "EnergiaD",
+    "clustered": false,
+    "columnWidth": 0.3,
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
+  }, {
+    "id": "g1",
+    "valueAxis": "v1",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#e80046",
+    "type": "smoothedLine",
+    "title": "Costo de Potencia",
+    "useLineColorForBulletBorder": true,
+    "valueField": "potenciaD",
+    "clustered": false,
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
+  }, {
+    "id": "g2",
+    "valueAxis": "v2",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#800080",
+    "type": "smoothedLine",
+    "dashLength": 5,
+    "title": "  Energia total",
+    "useLineColorForBulletBorder": true,
+    "valueField": "EnergiaT",
+    "clustered": false,
+    "legendValueText": "[[value]]kW-h",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]kW-h</b>"
+  }],
+  "chartScrollbar": {
+    "graph": "g1",
+    "oppositeAxis": false,
+    "offset": 30,
+    "scrollbarHeight": 50,
+    "backgroundAlpha": 0,
+    "selectedBackgroundAlpha": 0.1,
+    "selectedBackgroundColor": "#888888",
+    "graphFillAlpha": 0.2,
+    "graphLineAlpha": 0.5,
+    "selectedGraphFillAlpha": 0,
+    "selectedGraphLineAlpha": 1,
+    "autoGridCount": true,
+    "color": "#AAAAAA"
+  },
+  "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 1.5
+  },
+  "categoryField": "date",
+  "categoryAxis": {
+	  "minPeriod": "YYYY",
+    "parseDates": true,
+    "dashLength": 1,
+    "minorGridEnabled": true
+  },
+  "legend": {
+    "useGraphSettings": true,
+    "position": "top",
+    "spacing": 60,
+    "valueWidth":130
+  },
+  "balloon": {
+    "borderThickness": 3,
+    "shadowAlpha": 0
+  },
+  "export": {
+   "enabled": true
+  },
+  "dataProvider":{{ datos_anuales | safe }}
+});
+</script>
+
+<script>
+                /*--------------------------------------------------------------------------------------------------*/
+               /*------------------------GRAFICA PLIEGOS TARIFARIOS -----------------------------------------------*/
+              /*--------------------------------------------------------------------------------------------------*/
+
+            var chartData1 = {{ pliego_punta | safe }};
+			var chartData2 = {{ pliego_valle | safe }};
+			var chartData3 = {{ pliego_resto | safe }};
+			var chartData4 = {{ pliego_potencia | safe }};
+
+
+			//noinspection JSUnresolvedFunction
+            AmCharts.makeChart("chartdiv10", {
+
+				type: "stock",
+				addClassNames: true,
+
+
+
+                dataDateFormat: "YYYY-MM-DD",
+
+
+
+				categoryAxesSettings: {
+                        maxSeries:250,
+						minPeriod: "DD"
+					},
+
+
+				dataSets: [{
+					title: "Pliego Punta",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					//dataDateFormat: "YYYY-MM"
+					dataProvider: chartData1,
+					color: "#d9601a",
+
+					categoryField: "date"
+				},
+
+				{
+					title: "Pliego Resto",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider: chartData2,
+					color: "#b03355",
+					categoryField: "date"
+				},
+
+				{
+					title: "Pliego Valle",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider: chartData3,
+                    color:"#2fa246",
+					categoryField: "date"
+				},
+
+				{
+					title: "Pliego Potencia",
+					fieldMappings: [{
+						fromField: "value",
+						toField: "value"
+					}, {
+						fromField: "volume",
+						toField: "volume"
+					}],
+					dataProvider:chartData4,
+					categoryField: "date"
+				}],
+
+				panels: [{
+                    valueAxis: "value",
+					recalculateToPercents: "never",
+					showCategoryAxis: true,
+					title: "Pliego Tarifario",
+					percentHeight: 70,
+                    fontSize:17,
+
+
+					stockGraphs: [{
+                        fontSize:17,
+						id: "g1",
+                        periodValue: "Average",
+						type: "smoothedLine",
+						valueField: "value",
+						lineThickness: 3,
+						comparable: true,
+						compareField: "value",
+						bullet: "round",
+						//bulletBorderColor: "#FFFFFF",
+						bulletColor:"#FFFFFF",
+						bulletBorderAlpha: 0.1,
+						balloonText: "[[title]]:<b>$[[value]]</b>",
+                        compareGraphType:"smoothedLine",
+						compareGraphBalloonText: "[[title]]:<b>$[[value]]</b>",
+						compareGraphBullet: "round",
+						compareGraphBulletBorderColor: "#FFFFFF",
+						compareGraphBulletBorderAlpha: 1,
+                        compareGraphLineThickness:3,
+                        ValueAxesSettings:{
+                        unit:"kW-h"
+                }
+
+					}],
+
+
+
+					stockLegend: {
+                        valueText:"kW/h",
+                        spacing: 40,
+                        valueWidth:80
+						//periodValueTextComparing: "[[value.close]]%",
+						//periodValueTextRegular: "[[value.close]]"
+					}
+				}],
+
+
+
+				chartScrollbarSettings: {
+					graph: "g1",
+					updateOnReleaseOnly:false,
+                    autoGridCount: false
+
+
+				},
+
+				chartCursorSettings: {
+					valueBalloonsEnabled: true,
+					valueLineEnabled:true,
+					valueLineBalloonEnabled:true
+				},
+
+				periodSelector: {
+					position: "left",
+					periods: [{
+
+
+						period: "YYYY",
+						count: 1,
+                        selected: true,
+						label: "1 año"
+					},{
+						period: "YYYY",
+						count: 2,
+                        label: "2 años"
+					},{
+						period: "YYYY",
+						count: 5,
+                        label: "5 años"
+					},  {
+						period: "MAX",
+
+						label: "MAX"
+					}],
+                    inputFieldsEnabled:"true",
+                    periodsText:"Rango",
+                    fromText:"Desde",
+                    dateFormat:"MM-YYYY",
+                    toText:"Hasta"
+				},
+
+				dataSetSelector: {
+					position: "left",
+                    fontSize:17
+				},
+
+                "export": {
+                    "enabled": true
+                }
+			});
+</script>
+
+<script>
+           /*--------------------------------------------------------------------------------------------------*/
+          /*----------------------GRAFICA COMPARATIVA DEMANDA DE POTENCIA POR ACOMETIDA -----------------------*/
+          /*--------------------------------------------------------------------------------------------------*/
+
+           {%for elemento in range(longitud) %}
+                var chartData{{ nombres_fp[elemento] }} = {{ demanda_pot[elemento] | safe }};
+
+            {% endfor %}
+
+			//noinspection JSUnresolvedFunction
+            AmCharts.makeChart("chartdiv11", {
+
+				type: "stock",
+				addClassNames: true,
+
+                dataDateFormat: "YYYY-MM",
+
+
+
+				categoryAxesSettings: {
+                        maxSeries:250,
+						minPeriod: "MM"
+					},
+
+				dataSets: [
+                    {title: "Demanda Total",
+
+                            fieldMappings: [{
+                                fromField: "energia",
+                                toField: "energia"},
+                                {
+                                fromField:"dinero",
+                                toField: "dinero"
+                            }],
+                            dataProvider: {{ potencia | safe }},
+
+                            categoryField: "date"
+                    },
+                    {% for elemento in range(longitud) %}
+                        {
+                            title: "{{ nombres_fp[elemento] | safe }}",
+
+                            fieldMappings: [{
+                                fromField: "energia",
+                                toField: "energia"},
+                                {
+                                fromField:"dinero",
+                                toField: "dinero"
+                            }],
+                            dataProvider: chartData{{ nombres_fp[elemento] }},
+
+                            categoryField: "date"
+                        },
+
+                    {% endfor %}
+
+				],
+
+				panels: [{
+                    valueAxis: "energia",
+					recalculateToPercents: "never",
+					showCategoryAxis: false,
+					title: "Demanda de Potencia",
+					percentHeight: 50,
+                    fontSize:17,
+
+
+					stockGraphs: [{
+                        fontSize:17,
+						id: "g1",
+                        periodValue: "Average",
+						type: "smoothedLine",
+						valueField: "energia",
+						lineThickness: 3,
+						comparable: true,
+						compareField: "energia",
+						bullet: "round",
+						//bulletBorderColor: "#FFFFFF",
+						bulletColor:"#FFFFFF",
+						bulletBorderAlpha: 0.1,
+						balloonText: "[[title]]:<b>[[value]] kW</b>",
+                        compareGraphType:"smoothedLine",
+						compareGraphBalloonText: "[[title]]:<b>[[value]]kW</b>",
+						compareGraphBullet: "round",
+						compareGraphBulletBorderColor: "#FFFFFF",
+						compareGraphBulletBorderAlpha: 1,
+                        compareGraphLineThickness:3,
+                        ValueAxesSettings:{
+                        unit:"kW-h"
+                }
+
+					}],
+
+
+
+					stockLegend: {
+                        valueText:"kW/h",
+                        spacing: 40,
+                        valueWidth:80,
+						//periodValueTextComparing: "[[value.close]]%",
+						//periodValueTextRegular: "[[value.close]]"
+					}
+				},
+
+				{
+					title: "Costo Demanda",
+					recalculateToPercents: "never",
+					percentHeight: 50,
+                    fontSize:17,
+					stockGraphs: [{
+                        unit: "kW/h",
+                        periodValue: "Average",
+						valueField: "dinero",
+						comparable: true,
+                        lineThickness: 3,
+						compareField: "dinero",
+						type: "smoothedLine",
+						compareGraphType:"smoothedLine",
+
+						showBalloon: true,
+                        balloonText: "[[title]]:<b>$[[value]]</b>",
+                        compareGraphBalloonText: "[[title]]:<b>$[[value]]</b>"
+
+					}],
+
+
+					stockLegend: {
+						periodValueTextRegular: "$[[value]]",
+                        spacing: 40,
+                        valueWidth:80,
+					}
+				}],
+
+
+
+				chartScrollbarSettings: {
+					graph: "g1",
+					updateOnReleaseOnly:false
+				},
+
+				chartCursorSettings: {
+					valueBalloonsEnabled: true,
+					valueLineEnabled:true,
+					valueLineBalloonEnabled:true
+				},
+
+				periodSelector: {
+					position: "left",
+					periods: [{
+
+
+						period: "YYYY",
+						count: 1,
+                        selected: true,
+						label: "1 año"
+					},{
+						period: "YYYY",
+						count: 2,
+                        label: "2 años"
+					},{
+						period: "YYYY",
+						count: 5,
+                        label: "5 años"
+					},  {
+						period: "MAX",
+
+						label: "MAX"
+					}],
+                    inputFieldsEnabled:"true",
+                    periodsText:"Rango",
+                    fromText:"Desde",
+                    dateFormat:"MM-YYYY",
+                    toText:"Hasta"
+				},
+
+				dataSetSelector: {
+					position: "left"
+				},
+
+                "export": {
+                    "enabled": true
+                }
+			});
+
+
+
+
+</script>
