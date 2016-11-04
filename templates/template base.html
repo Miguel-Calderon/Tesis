@@ -572,13 +572,13 @@
 
 
                   <div class="x_title">
-                    <h2>Cobro por Horario Apilado </h2>
+                    <h2>Totales Anuales</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
 
 
-                    <div id="graphx" style="width:100%; height:400px;"></div>
+                    <div id="chartdiv9" style="width:100%; height:500px;"></div>
 
 
                   </div>
@@ -715,6 +715,7 @@
 
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
     <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
@@ -757,20 +758,7 @@
           resize: true
         });
 
-         Morris.Bar({
-          element: 'graphx',
-          data: {{ barras | safe }},
 
-          xkey: 'x',
-          ykeys: ['Resto', 'Valle', 'Punta'],
-          barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-          hideHover: 'auto',
-          labels: ['Resto', 'Valle', 'Punta'],
-          resize: true,
-          stacked:true,
-          xLabelAngle:90,
-          preUnits:"$"
-        });
         });
 
     </script>
@@ -1041,6 +1029,142 @@
   }
 });
     </script>
+<script>
+               /*--------------------------------------------------------------------------------------------------*/
+               /*------------------------GRAFICA COMPARATIVA totales anuales --------------------------------------*/
+              /*--------------------------------------------------------------------------------------------------*/
+            //noinspection JSUnresolvedFunction
+            var chart = AmCharts.makeChart("chartdiv9", {
+  "type": "serial",
+  "theme": "light",
+  "dataDateFormat": "YYYY",
+   "addClassNames": true,
+  "fontSize":17,
+  "precision": 2,
+  "valueAxes": [{
+    "id": "v1",
+    "title": "Costo",
+    "position": "left",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return "$" + Math.round(value) ;
+    }
+  }, {
+    "id": "v2",
+    "title": "Energia ",
+    "gridAlpha": 0,
+    "position": "right",
+    "autoGridCount": false,
+    "labelFunction": function(value) {
+      return Math.round(value) + "kW-h";
+  }}],
+  "graphs": [{
+    "id": "g3",
+    "valueAxis": "v1",
+    "lineColor": "#2f6da0",
+    "fillColors": "#2f6da0",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo Final",
+    "valueField": "DineroTT",
+    "clustered": false,
+    "columnWidth": 0.5,
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
+  }, {
+    "id": "g4",
+    "valueAxis": "v1",
+    "lineColor": "#00c53c",
+    "fillColors": "#00c53c",
+    "fillAlphas": 1,
+    "type": "column",
+    "title": "Costo energia",
+    "valueField": "EnergiaD",
+    "clustered": false,
+    "columnWidth": 0.3,
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
+  }, {
+    "id": "g1",
+    "valueAxis": "v1",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#e80046",
+    "type": "smoothedLine",
+    "title": "Costo de Potencia",
+    "useLineColorForBulletBorder": true,
+    "valueField": "potenciaD",
+    "clustered": false,
+    "legendValueText": "$[[value]]",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]</b>"
+  }, {
+    "id": "g2",
+    "valueAxis": "v2",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#800080",
+    "type": "smoothedLine",
+    "dashLength": 5,
+    "title": "  Energia total",
+    "useLineColorForBulletBorder": true,
+    "valueField": "EnergiaT",
+    "clustered": false,
+    "legendValueText": "[[value]]kW-h",
+    "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]kW-h</b>"
+  }],
+  "chartScrollbar": {
+    "graph": "g1",
+    "oppositeAxis": false,
+    "offset": 30,
+    "scrollbarHeight": 50,
+    "backgroundAlpha": 0,
+    "selectedBackgroundAlpha": 0.1,
+    "selectedBackgroundColor": "#888888",
+    "graphFillAlpha": 0.2,
+    "graphLineAlpha": 0.5,
+    "selectedGraphFillAlpha": 0,
+    "selectedGraphLineAlpha": 1,
+    "autoGridCount": true,
+    "color": "#AAAAAA"
+  },
+  "chartCursor": {
+    "pan": true,
+    "valueLineEnabled": true,
+    "valueLineBalloonEnabled": true,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 1.5
+  },
+  "categoryField": "date",
+  "categoryAxis": {
+	  "minPeriod": "YYYY",
+    "parseDates": true,
+    "dashLength": 1,
+    "minorGridEnabled": true
+  },
+  "legend": {
+    "useGraphSettings": true,
+    "position": "top",
+    "spacing": 60,
+    "valueWidth":130
+  },
+  "balloon": {
+    "borderThickness": 3,
+    "shadowAlpha": 0
+  },
+  "export": {
+   "enabled": true
+  },
+  "dataProvider":{{ datos_anuales | safe }}
+});
+</script>
 
 </body>
 

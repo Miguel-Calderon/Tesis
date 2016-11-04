@@ -19,14 +19,14 @@ import webapp2
 
 from manejadores import Fecha, Factura1, Pliego1, Graficas1, tabla1, Front1, Login, Acometida1
 from utils import renderutils, formatutils
-from modelos import YearT
+# from modelos import YearT
 
 
 class HomeHandler(renderutils.MainHandler):
     def get(self):
         self.render("formularioyear.html")
 
-    def post(self):
+    """def post(self):
         Energia_Total = float(self.request.get("text"))
         Costo_Energia = float(self.request.get("text1"))
         Punta_Energia = float(self.request.get("text2"))
@@ -92,7 +92,7 @@ class HomeHandler(renderutils.MainHandler):
             year_entity.Total_anual = lista
 
         year_entity.put()
-        self.redirect(self.request.referer)
+        self.redirect(self.request.referer)"""
 
 app = webapp2.WSGIApplication([
     ('/', Front1.FrontHandler),

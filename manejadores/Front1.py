@@ -118,6 +118,19 @@ class FrontHandler(renderutils.MainHandler):
                   (lista2[3] / (lista2[0] + lista2[1] + lista2[2] + lista2[3])) * 100]
 
         datos = [date_ahora, date_anterior, formatutils.formatcifra(str(valor1)), formatutils.formatcifra(str(valor2))]
+
+        todos_year = YearT.query(YearT.nombre != str(date_ahora)).order(YearT.nombre)
+        datos_anuales = list()
+        for year in todos_year:
+            datos_anuales.append({
+                "date": str(year.nombre),
+                "potenciaD": formatutils.obtener_month(year, "total", "PotD"),
+                "EnergiaT": formatutils.obtener_month(year, "total", "EnergiaT"),
+                "EnergiaD": formatutils.obtener_month(year, "total", "EnergiaD"),
+                "DineroTT": formatutils.obtener_month(year, "total", "EnergiaD") + formatutils.obtener_month(year,
+                                                                                                             "total",
+                                                                                                             "PotD")
+            })
         self.render("template base.html",
                     echart=echarts_total,
                     datos=datos,
@@ -128,4 +141,5 @@ class FrontHandler(renderutils.MainHandler):
                     mayor=mayor,
                     pie=pie_morris,
                     barras=barras_morris,
-                    lista2=lista2)
+                    lista2=lista2,
+                    datos_anuales=datos_anuales)
